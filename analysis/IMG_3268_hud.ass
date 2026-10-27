@@ -1,0 +1,604 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: SylMain,Arial Unicode MS,54,&H00F8BD38,&H0000FFFF,&H00140A07,&HC0140A07,-1,0,0,0,100,100,0,0,3,3,0,2,20,20,235,1
+Style: IpaSub,DejaVu Sans,40,&H0047E0FD,&H0000FFFF,&H00140A07,&HC0140A07,-1,0,0,0,100,100,0,0,3,3,0,2,20,20,175,1
+Style: RhyBar,DejaVu Sans,27,&H0035E6A3,&H0000FFFF,&H00140A07,&HC0140A07,-1,0,0,0,100,100,0,0,3,2,0,2,20,20,118,1
+Style: SecStrip,DejaVu Sans,24,&H00F8FAFC,&H0000FFFF,&H001E293B,&HD00F172A,0,0,0,0,100,100,0,0,3,2,0,2,20,20,45,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 2,0:00:00.00,0:00:00.18,SylMain,,0,0,0,,#001  [♪ rest] [lip-prep]
+Dialogue: 2,0:00:00.00,0:00:00.18,IpaSub,,0,0,0,,Narrow IPA: [p͡f˺]   (NONVERBAL-FX)
+Dialogue: 2,0:00:00.00,0:00:00.18,RhyBar,,0,0,0,,M.00 (Pickup @ 103 BPM) | Grid: Pickup (4-a) | 16th-rest (IOI:180ms) | F1:813/F2:1488Hz
+Dialogue: 1,0:00:00.00,0:00:00.18,SecStrip,,0,0,0,,{\c&H0047E0FD&\b1}[♪ rest][lip-prep]{\c&H00F8FAFC&\b0}  ♬thuh  ♪³bitch  ♪³camp  ♬brah  ♪³thuh  ♬rup  ♬in  ♬thuh  ♬·pant\N♬thence  ♪³bup  ♬uh  ♬guh  ♪³kah  ♬pump
+Dialogue: 2,0:00:00.18,0:00:00.26,SylMain,,0,0,0,,#002  ♬ thuh
+Dialogue: 2,0:00:00.18,0:00:00.26,IpaSub,,0,0,0,,Narrow IPA: [ðə]   (FRIC-BRUSH)
+Dialogue: 2,0:00:00.18,0:00:00.26,RhyBar,,0,0,0,,M.00 (Pickup @ 103 BPM) | Grid: Pickup (4-a) | 32nd (IOI:80ms) | F1:917/F2:1719Hz
+Dialogue: 1,0:00:00.18,0:00:00.26,SecStrip,,0,0,0,,[♪ rest][lip-prep]  {\c&H0047E0FD&\b1}♬thuh{\c&H00F8FAFC&\b0}  ♪³bitch  ♪³camp  ♬brah  ♪³thuh  ♬rup  ♬in  ♬thuh  ♬·pant\N♬thence  ♪³bup  ♬uh  ♬guh  ♪³kah  ♬pump
+Dialogue: 2,0:00:00.26,0:00:00.38,SylMain,,0,0,0,,#003  ♪³ bitch
+Dialogue: 2,0:00:00.26,0:00:00.38,IpaSub,,0,0,0,,Narrow IPA: [ˈbɪtʃ]   (SNARE-SH)
+Dialogue: 2,0:00:00.26,0:00:00.38,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: Beat 1 (Downbeat) | 16th-trip (IOI:120ms) | F1:389/F2:1470Hz
+Dialogue: 1,0:00:00.26,0:00:00.38,SecStrip,,0,0,0,,[♪ rest][lip-prep]  ♬thuh  {\c&H0047E0FD&\b1}♪³bitch{\c&H00F8FAFC&\b0}  ♪³camp  ♬brah  ♪³thuh  ♬rup  ♬in  ♬thuh  ♬·pant\N♬thence  ♪³bup  ♬uh  ♬guh  ♪³kah  ♬pump
+Dialogue: 2,0:00:00.38,0:00:00.54,SylMain,,0,0,0,,#004  ♪³ camp
+Dialogue: 2,0:00:00.38,0:00:00.54,IpaSub,,0,0,0,,Narrow IPA: [ˈkʰæmp̚]   (NASAL-GATE)
+Dialogue: 2,0:00:00.38,0:00:00.54,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: 1-e | 16th-trip (IOI:160ms) | F1:345/F2:1984Hz
+Dialogue: 1,0:00:00.38,0:00:00.54,SecStrip,,0,0,0,,[♪ rest][lip-prep]  ♬thuh  ♪³bitch  {\c&H0047E0FD&\b1}♪³camp{\c&H00F8FAFC&\b0}  ♬brah  ♪³thuh  ♬rup  ♬in  ♬thuh  ♬·pant\N♬thence  ♪³bup  ♬uh  ♬guh  ♪³kah  ♬pump
+Dialogue: 2,0:00:00.54,0:00:00.71,SylMain,,0,0,0,,#005  ♬ brah
+Dialogue: 2,0:00:00.54,0:00:00.71,IpaSub,,0,0,0,,Narrow IPA: [ˈbɹɑː]   (BRASS-WAH)
+Dialogue: 2,0:00:00.54,0:00:00.71,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: 1-& | 16th (IOI:170ms) | F1:1100/F2:2097Hz
+Dialogue: 1,0:00:00.54,0:00:00.71,SecStrip,,0,0,0,,[♪ rest][lip-prep]  ♬thuh  ♪³bitch  ♪³camp  {\c&H0047E0FD&\b1}♬brah{\c&H00F8FAFC&\b0}  ♪³thuh  ♬rup  ♬in  ♬thuh  ♬·pant\N♬thence  ♪³bup  ♬uh  ♬guh  ♪³kah  ♬pump
+Dialogue: 2,0:00:00.71,0:00:00.86,SylMain,,0,0,0,,#006  ♪³ thuh
+Dialogue: 2,0:00:00.71,0:00:00.86,IpaSub,,0,0,0,,Narrow IPA: [ðə]   (FRIC-BRUSH)
+Dialogue: 2,0:00:00.71,0:00:00.86,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: 1-a | 16th-trip (IOI:150ms) | F1:365/F2:2545Hz
+Dialogue: 1,0:00:00.71,0:00:00.86,SecStrip,,0,0,0,,[♪ rest][lip-prep]  ♬thuh  ♪³bitch  ♪³camp  ♬brah  {\c&H0047E0FD&\b1}♪³thuh{\c&H00F8FAFC&\b0}  ♬rup  ♬in  ♬thuh  ♬·pant\N♬thence  ♪³bup  ♬uh  ♬guh  ♪³kah  ♬pump
+Dialogue: 2,0:00:00.86,0:00:01.07,SylMain,,0,0,0,,#007  ♬ rup
+Dialogue: 2,0:00:00.86,0:00:01.07,IpaSub,,0,0,0,,Narrow IPA: [ˈɹʌp̚]   (PLOSIVE-SCAT)
+Dialogue: 2,0:00:00.86,0:00:01.07,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: Beat 2 | 16th (IOI:210ms) | F1:491/F2:1992Hz
+Dialogue: 1,0:00:00.86,0:00:01.07,SecStrip,,0,0,0,,[♪ rest][lip-prep]  ♬thuh  ♪³bitch  ♪³camp  ♬brah  ♪³thuh  {\c&H0047E0FD&\b1}♬rup{\c&H00F8FAFC&\b0}  ♬in  ♬thuh  ♬·pant\N♬thence  ♪³bup  ♬uh  ♬guh  ♪³kah  ♬pump
+Dialogue: 2,0:00:01.07,0:00:01.16,SylMain,,0,0,0,,#008  ♬ in
+Dialogue: 2,0:00:01.07,0:00:01.16,IpaSub,,0,0,0,,Narrow IPA: [ɪn]   (NASAL-GATE)
+Dialogue: 2,0:00:01.07,0:00:01.16,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: 2-& | 32nd (IOI:90ms) | F1:603/F2:1229Hz
+Dialogue: 1,0:00:01.07,0:00:01.16,SecStrip,,0,0,0,,[♪ rest][lip-prep]  ♬thuh  ♪³bitch  ♪³camp  ♬brah  ♪³thuh  ♬rup  {\c&H0047E0FD&\b1}♬in{\c&H00F8FAFC&\b0}  ♬thuh  ♬·pant\N♬thence  ♪³bup  ♬uh  ♬guh  ♪³kah  ♬pump
+Dialogue: 2,0:00:01.16,0:00:01.25,SylMain,,0,0,0,,#009  ♬ thuh
+Dialogue: 2,0:00:01.16,0:00:01.25,IpaSub,,0,0,0,,Narrow IPA: [ðə]   (FRIC-BRUSH)
+Dialogue: 2,0:00:01.16,0:00:01.25,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: 2-trip-let (3rd) | 32nd (IOI:90ms) | F1:624/F2:1222Hz
+Dialogue: 1,0:00:01.16,0:00:01.25,SecStrip,,0,0,0,,[♪ rest][lip-prep]  ♬thuh  ♪³bitch  ♪³camp  ♬brah  ♪³thuh  ♬rup  ♬in  {\c&H0047E0FD&\b1}♬thuh{\c&H00F8FAFC&\b0}  ♬·pant\N♬thence  ♪³bup  ♬uh  ♬guh  ♪³kah  ♬pump
+Dialogue: 2,0:00:01.25,0:00:01.51,SylMain,,0,0,0,,#010  ♬· pant
+Dialogue: 2,0:00:01.25,0:00:01.51,IpaSub,,0,0,0,,Narrow IPA: [ˈpʰænt̚]   (HAT-TICK)
+Dialogue: 2,0:00:01.25,0:00:01.51,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: 2-a | dotted-16th (IOI:260ms) | F1:503/F2:1027Hz
+Dialogue: 1,0:00:01.25,0:00:01.51,SecStrip,,0,0,0,,[♪ rest][lip-prep]  ♬thuh  ♪³bitch  ♪³camp  ♬brah  ♪³thuh  ♬rup  ♬in  ♬thuh  {\c&H0047E0FD&\b1}♬·pant{\c&H00F8FAFC&\b0}\N♬thence  ♪³bup  ♬uh  ♬guh  ♪³kah  ♬pump
+Dialogue: 2,0:00:01.51,0:00:01.73,SylMain,,0,0,0,,#011  ♬ thence
+Dialogue: 2,0:00:01.51,0:00:01.73,IpaSub,,0,0,0,,Narrow IPA: [ˈðɛns]   (SNARE-SH)
+Dialogue: 2,0:00:01.51,0:00:01.73,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: 3-e | 16th (IOI:220ms) | F1:531/F2:969Hz
+Dialogue: 1,0:00:01.51,0:00:01.73,SecStrip,,0,0,0,,[♪ rest][lip-prep]  ♬thuh  ♪³bitch  ♪³camp  ♬brah  ♪³thuh  ♬rup  ♬in  ♬thuh  ♬·pant\N{\c&H0047E0FD&\b1}♬thence{\c&H00F8FAFC&\b0}  ♪³bup  ♬uh  ♬guh  ♪³kah  ♬pump
+Dialogue: 2,0:00:01.73,0:00:01.89,SylMain,,0,0,0,,#012  ♪³ bup
+Dialogue: 2,0:00:01.73,0:00:01.89,IpaSub,,0,0,0,,Narrow IPA: [ˈbʌp̚]   (KICK-GHOST)
+Dialogue: 2,0:00:01.73,0:00:01.89,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: 3-trip-let (3rd) | 16th-trip (IOI:160ms) | F1:462/F2:1290Hz
+Dialogue: 1,0:00:01.73,0:00:01.89,SecStrip,,0,0,0,,[♪ rest][lip-prep]  ♬thuh  ♪³bitch  ♪³camp  ♬brah  ♪³thuh  ♬rup  ♬in  ♬thuh  ♬·pant\N♬thence  {\c&H0047E0FD&\b1}♪³bup{\c&H00F8FAFC&\b0}  ♬uh  ♬guh  ♪³kah  ♬pump
+Dialogue: 2,0:00:01.89,0:00:01.97,SylMain,,0,0,0,,#013  ♬ uh
+Dialogue: 2,0:00:01.89,0:00:01.97,IpaSub,,0,0,0,,Narrow IPA: [ə]   (KICK-GHOST)
+Dialogue: 2,0:00:01.89,0:00:01.97,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: 3-a+ (32nd pickup) | 32nd (IOI:80ms) | F1:458/F2:1510Hz
+Dialogue: 1,0:00:01.89,0:00:01.97,SecStrip,,0,0,0,,[♪ rest][lip-prep]  ♬thuh  ♪³bitch  ♪³camp  ♬brah  ♪³thuh  ♬rup  ♬in  ♬thuh  ♬·pant\N♬thence  ♪³bup  {\c&H0047E0FD&\b1}♬uh{\c&H00F8FAFC&\b0}  ♬guh  ♪³kah  ♬pump
+Dialogue: 2,0:00:01.97,0:00:02.06,SylMain,,0,0,0,,#014  ♬ guh
+Dialogue: 2,0:00:01.97,0:00:02.06,IpaSub,,0,0,0,,Narrow IPA: [ɡə]   (PLOSIVE-SCAT)
+Dialogue: 2,0:00:01.97,0:00:02.06,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: Beat 4 | 32nd (IOI:90ms) | F1:1157/F2:1826Hz
+Dialogue: 1,0:00:01.97,0:00:02.06,SecStrip,,0,0,0,,[♪ rest][lip-prep]  ♬thuh  ♪³bitch  ♪³camp  ♬brah  ♪³thuh  ♬rup  ♬in  ♬thuh  ♬·pant\N♬thence  ♪³bup  ♬uh  {\c&H0047E0FD&\b1}♬guh{\c&H00F8FAFC&\b0}  ♪³kah  ♬pump
+Dialogue: 2,0:00:02.06,0:00:02.21,SylMain,,0,0,0,,#015  ♪³ kah
+Dialogue: 2,0:00:02.06,0:00:02.21,IpaSub,,0,0,0,,Narrow IPA: [ˈkʰɑː]   (HAT-TICK)
+Dialogue: 2,0:00:02.06,0:00:02.21,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: 4-e | 16th-trip (IOI:150ms) | F1:524/F2:1998Hz
+Dialogue: 1,0:00:02.06,0:00:02.21,SecStrip,,0,0,0,,[♪ rest][lip-prep]  ♬thuh  ♪³bitch  ♪³camp  ♬brah  ♪³thuh  ♬rup  ♬in  ♬thuh  ♬·pant\N♬thence  ♪³bup  ♬uh  ♬guh  {\c&H0047E0FD&\b1}♪³kah{\c&H00F8FAFC&\b0}  ♬pump
+Dialogue: 2,0:00:02.21,0:00:02.38,SylMain,,0,0,0,,#016  ♬ pump
+Dialogue: 2,0:00:02.21,0:00:02.38,IpaSub,,0,0,0,,Narrow IPA: [pʌmp̚]   (NASAL-GATE)
+Dialogue: 2,0:00:02.21,0:00:02.38,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: 4-& | 16th (IOI:170ms) | F1:627/F2:1707Hz
+Dialogue: 1,0:00:02.21,0:00:02.38,SecStrip,,0,0,0,,[♪ rest][lip-prep]  ♬thuh  ♪³bitch  ♪³camp  ♬brah  ♪³thuh  ♬rup  ♬in  ♬thuh  ♬·pant\N♬thence  ♪³bup  ♬uh  ♬guh  ♪³kah  {\c&H0047E0FD&\b1}♬pump{\c&H00F8FAFC&\b0}
+Dialogue: 2,0:00:02.38,0:00:02.52,SylMain,,0,0,0,,#017  ♪³ thuh
+Dialogue: 2,0:00:02.38,0:00:02.52,IpaSub,,0,0,0,,Narrow IPA: [ðə]   (FRIC-BRUSH)
+Dialogue: 2,0:00:02.38,0:00:02.52,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: 4-a | 16th-trip (IOI:140ms) | F1:400/F2:1755Hz
+Dialogue: 1,0:00:02.38,0:00:02.52,SecStrip,,0,0,0,,{\c&H0047E0FD&\b1}♪³thuh{\c&H00F8FAFC&\b0}  ♬frup  ♪³in  ♪³thuh  ♬fup  ♪³it  ♬·at  ♪·all!  [♪ rest][drop-pause]
+Dialogue: 2,0:00:02.52,0:00:02.73,SylMain,,0,0,0,,#018  ♬ frup
+Dialogue: 2,0:00:02.52,0:00:02.73,IpaSub,,0,0,0,,Narrow IPA: [ˈfɹʌp̚]   (FRIC-BRUSH)
+Dialogue: 2,0:00:02.52,0:00:02.73,RhyBar,,0,0,0,,M.01 (4/4 @ 106 BPM) | Grid: Beat 1 (Downbeat) | 16th (IOI:210ms) | F1:569/F2:1948Hz
+Dialogue: 1,0:00:02.52,0:00:02.73,SecStrip,,0,0,0,,♪³thuh  {\c&H0047E0FD&\b1}♬frup{\c&H00F8FAFC&\b0}  ♪³in  ♪³thuh  ♬fup  ♪³it  ♬·at  ♪·all!  [♪ rest][drop-pause]
+Dialogue: 2,0:00:02.73,0:00:02.88,SylMain,,0,0,0,,#019  ♪³ in
+Dialogue: 2,0:00:02.73,0:00:02.88,IpaSub,,0,0,0,,Narrow IPA: [ɪn]   (NASAL-GATE)
+Dialogue: 2,0:00:02.73,0:00:02.88,RhyBar,,0,0,0,,M.02 (4/4 @ 100 BPM) | Grid: 1-trip-let (2nd) | 16th-trip (IOI:150ms) | F1:1586/F2:2953Hz
+Dialogue: 1,0:00:02.73,0:00:02.88,SecStrip,,0,0,0,,♪³thuh  ♬frup  {\c&H0047E0FD&\b1}♪³in{\c&H00F8FAFC&\b0}  ♪³thuh  ♬fup  ♪³it  ♬·at  ♪·all!  [♪ rest][drop-pause]
+Dialogue: 2,0:00:02.88,0:00:03.04,SylMain,,0,0,0,,#020  ♪³ thuh
+Dialogue: 2,0:00:02.88,0:00:03.04,IpaSub,,0,0,0,,Narrow IPA: [ðə]   (FRIC-BRUSH)
+Dialogue: 2,0:00:02.88,0:00:03.04,RhyBar,,0,0,0,,M.02 (4/4 @ 100 BPM) | Grid: 1-trip-let (3rd) | 16th-trip (IOI:160ms) | F1:545/F2:1338Hz
+Dialogue: 1,0:00:02.88,0:00:03.04,SecStrip,,0,0,0,,♪³thuh  ♬frup  ♪³in  {\c&H0047E0FD&\b1}♪³thuh{\c&H00F8FAFC&\b0}  ♬fup  ♪³it  ♬·at  ♪·all!  [♪ rest][drop-pause]
+Dialogue: 2,0:00:03.04,0:00:03.22,SylMain,,0,0,0,,#021  ♬ fup
+Dialogue: 2,0:00:03.04,0:00:03.22,IpaSub,,0,0,0,,Narrow IPA: [ˈfʌp̚]   (FRIC-BRUSH)
+Dialogue: 2,0:00:03.04,0:00:03.22,RhyBar,,0,0,0,,M.02 (4/4 @ 100 BPM) | Grid: 1-a+ (32nd pickup) | 16th (IOI:180ms) | F1:499/F2:1490Hz
+Dialogue: 1,0:00:03.04,0:00:03.22,SecStrip,,0,0,0,,♪³thuh  ♬frup  ♪³in  ♪³thuh  {\c&H0047E0FD&\b1}♬fup{\c&H00F8FAFC&\b0}  ♪³it  ♬·at  ♪·all!  [♪ rest][drop-pause]
+Dialogue: 2,0:00:03.22,0:00:03.36,SylMain,,0,0,0,,#022  ♪³ it
+Dialogue: 2,0:00:03.22,0:00:03.36,IpaSub,,0,0,0,,Narrow IPA: [ɪt̚]   (HAT-TICK)
+Dialogue: 2,0:00:03.22,0:00:03.36,RhyBar,,0,0,0,,M.02 (4/4 @ 100 BPM) | Grid: 2-e | 16th-trip (IOI:140ms) | F1:536/F2:1906Hz
+Dialogue: 1,0:00:03.22,0:00:03.36,SecStrip,,0,0,0,,♪³thuh  ♬frup  ♪³in  ♪³thuh  ♬fup  {\c&H0047E0FD&\b1}♪³it{\c&H00F8FAFC&\b0}  ♬·at  ♪·all!  [♪ rest][drop-pause]
+Dialogue: 2,0:00:03.36,0:00:03.70,SylMain,,0,0,0,,#023  ♬· at
+Dialogue: 2,0:00:03.36,0:00:03.70,IpaSub,,0,0,0,,Narrow IPA: [ˈæt̚]   (HAT-TICK)
+Dialogue: 2,0:00:03.36,0:00:03.70,RhyBar,,0,0,0,,M.02 (4/4 @ 100 BPM) | Grid: 2-trip-let (2nd) | dotted-16th (IOI:340ms) | F1:638/F2:1503Hz
+Dialogue: 1,0:00:03.36,0:00:03.70,SecStrip,,0,0,0,,♪³thuh  ♬frup  ♪³in  ♪³thuh  ♬fup  ♪³it  {\c&H0047E0FD&\b1}♬·at{\c&H00F8FAFC&\b0}  ♪·all!  [♪ rest][drop-pause]
+Dialogue: 2,0:00:03.70,0:00:04.35,SylMain,,0,0,0,,#024  ♪· all!
+Dialogue: 2,0:00:03.70,0:00:04.35,IpaSub,,0,0,0,,Narrow IPA: [ˈɔːl]   (BRASS-WAH)
+Dialogue: 2,0:00:03.70,0:00:04.35,RhyBar,,0,0,0,,M.02 (4/4 @ 100 BPM) | Grid: Beat 4 | dotted-8th (IOI:650ms) | F1:558/F2:1246Hz
+Dialogue: 1,0:00:03.70,0:00:04.35,SecStrip,,0,0,0,,♪³thuh  ♬frup  ♪³in  ♪³thuh  ♬fup  ♪³it  ♬·at  {\c&H0047E0FD&\b1}♪·all!{\c&H00F8FAFC&\b0}  [♪ rest][drop-pause]
+Dialogue: 2,0:00:04.35,0:00:04.75,SylMain,,0,0,0,,#025  [♪ rest] [drop-pause]
+Dialogue: 2,0:00:04.35,0:00:04.75,IpaSub,,0,0,0,,Narrow IPA: [ʔ‿h̥]   (NONVERBAL-FX)
+Dialogue: 2,0:00:04.35,0:00:04.75,RhyBar,,0,0,0,,M.02 (4/4 @ 100 BPM) | Grid: Beat 4 | 16th-rest (IOI:400ms) | F1:481/F2:1653Hz
+Dialogue: 1,0:00:04.35,0:00:04.75,SecStrip,,0,0,0,,♪³thuh  ♬frup  ♪³in  ♪³thuh  ♬fup  ♪³it  ♬·at  ♪·all!  {\c&H0047E0FD&\b1}[♪ rest][drop-pause]{\c&H00F8FAFC&\b0}
+Dialogue: 2,0:00:04.75,0:00:05.48,SylMain,,0,0,0,,#026  ♪· Mmmm!
+Dialogue: 2,0:00:04.75,0:00:05.48,IpaSub,,0,0,0,,Narrow IPA: [ˈmːˀp]   (NASAL-GATE)
+Dialogue: 2,0:00:04.75,0:00:05.48,RhyBar,,0,0,0,,M.03 (2/4 @ 83 BPM) | Grid: Beat 1 (Downbeat) | dotted-8th (IOI:730ms) | F1:570/F2:1005Hz
+Dialogue: 1,0:00:04.75,0:00:05.48,SecStrip,,0,0,0,,{\c&H0047E0FD&\b1}♪·Mmmm!{\c&H00F8FAFC&\b0}  [♩ rest][breath-gap]  ♪³thuh  ♪³cup  ♪³uh  ♪³thuh  ♬·pink  ♪³cane  ♪³tuh  ♬rip\N♪³in  ♪³thuh
+Dialogue: 2,0:00:05.48,0:00:06.05,SylMain,,0,0,0,,#027  [♩ rest] [breath-gap]
+Dialogue: 2,0:00:05.48,0:00:06.05,IpaSub,,0,0,0,,Narrow IPA: [h̥ː]   (NONVERBAL-FX)
+Dialogue: 2,0:00:05.48,0:00:06.05,RhyBar,,0,0,0,,M.03 (2/4 @ 83 BPM) | Grid: Beat 2 | quarter-rest (IOI:570ms) | F1:675/F2:907Hz
+Dialogue: 1,0:00:05.48,0:00:06.05,SecStrip,,0,0,0,,♪·Mmmm!  {\c&H0047E0FD&\b1}[♩ rest][breath-gap]{\c&H00F8FAFC&\b0}  ♪³thuh  ♪³cup  ♪³uh  ♪³thuh  ♬·pink  ♪³cane  ♪³tuh  ♬rip\N♪³in  ♪³thuh
+Dialogue: 2,0:00:06.05,0:00:06.20,SylMain,,0,0,0,,#028  ♪³ thuh
+Dialogue: 2,0:00:06.05,0:00:06.20,IpaSub,,0,0,0,,Narrow IPA: [ðə]   (FRIC-BRUSH)
+Dialogue: 2,0:00:06.05,0:00:06.20,RhyBar,,0,0,0,,M.03 (2/4 @ 83 BPM) | Grid: 2-a | 16th-trip (IOI:150ms) | F1:286/F2:1210Hz
+Dialogue: 1,0:00:06.05,0:00:06.20,SecStrip,,0,0,0,,♪·Mmmm!  [♩ rest][breath-gap]  {\c&H0047E0FD&\b1}♪³thuh{\c&H00F8FAFC&\b0}  ♪³cup  ♪³uh  ♪³thuh  ♬·pink  ♪³cane  ♪³tuh  ♬rip\N♪³in  ♪³thuh
+Dialogue: 2,0:00:06.20,0:00:06.40,SylMain,,0,0,0,,#029  ♪³ cup
+Dialogue: 2,0:00:06.20,0:00:06.40,IpaSub,,0,0,0,,Narrow IPA: [ˈkʰʌp̚]   (GLOTTAL-POP)
+Dialogue: 2,0:00:06.20,0:00:06.40,RhyBar,,0,0,0,,M.03 (2/4 @ 83 BPM) | Grid: Beat 1 (Downbeat) | 16th-trip (IOI:200ms) | F1:302/F2:1189Hz
+Dialogue: 1,0:00:06.20,0:00:06.40,SecStrip,,0,0,0,,♪·Mmmm!  [♩ rest][breath-gap]  ♪³thuh  {\c&H0047E0FD&\b1}♪³cup{\c&H00F8FAFC&\b0}  ♪³uh  ♪³thuh  ♬·pink  ♪³cane  ♪³tuh  ♬rip\N♪³in  ♪³thuh
+Dialogue: 2,0:00:06.40,0:00:06.55,SylMain,,0,0,0,,#030  ♪³ uh
+Dialogue: 2,0:00:06.40,0:00:06.55,IpaSub,,0,0,0,,Narrow IPA: [ə]   (KICK-GHOST)
+Dialogue: 2,0:00:06.40,0:00:06.55,RhyBar,,0,0,0,,M.04 (4/4 @ 93 BPM) | Grid: 1-trip-let (2nd) | 16th-trip (IOI:150ms) | F1:1431/F2:2645Hz
+Dialogue: 1,0:00:06.40,0:00:06.55,SecStrip,,0,0,0,,♪·Mmmm!  [♩ rest][breath-gap]  ♪³thuh  ♪³cup  {\c&H0047E0FD&\b1}♪³uh{\c&H00F8FAFC&\b0}  ♪³thuh  ♬·pink  ♪³cane  ♪³tuh  ♬rip\N♪³in  ♪³thuh
+Dialogue: 2,0:00:06.55,0:00:06.69,SylMain,,0,0,0,,#031  ♪³ thuh
+Dialogue: 2,0:00:06.55,0:00:06.69,IpaSub,,0,0,0,,Narrow IPA: [ðə]   (FRIC-BRUSH)
+Dialogue: 2,0:00:06.55,0:00:06.69,RhyBar,,0,0,0,,M.04 (4/4 @ 93 BPM) | Grid: 1-& | 16th-trip (IOI:140ms) | F1:399/F2:1813Hz
+Dialogue: 1,0:00:06.55,0:00:06.69,SecStrip,,0,0,0,,♪·Mmmm!  [♩ rest][breath-gap]  ♪³thuh  ♪³cup  ♪³uh  {\c&H0047E0FD&\b1}♪³thuh{\c&H00F8FAFC&\b0}  ♬·pink  ♪³cane  ♪³tuh  ♬rip\N♪³in  ♪³thuh
+Dialogue: 2,0:00:06.69,0:00:07.00,SylMain,,0,0,0,,#032  ♬· pink
+Dialogue: 2,0:00:06.69,0:00:07.00,IpaSub,,0,0,0,,Narrow IPA: [ˈpʰɪŋk̚]   (GLOTTAL-POP)
+Dialogue: 2,0:00:06.69,0:00:07.00,RhyBar,,0,0,0,,M.04 (4/4 @ 93 BPM) | Grid: 1-a | dotted-16th (IOI:310ms) | F1:1059/F2:1904Hz
+Dialogue: 1,0:00:06.69,0:00:07.00,SecStrip,,0,0,0,,♪·Mmmm!  [♩ rest][breath-gap]  ♪³thuh  ♪³cup  ♪³uh  ♪³thuh  {\c&H0047E0FD&\b1}♬·pink{\c&H00F8FAFC&\b0}  ♪³cane  ♪³tuh  ♬rip\N♪³in  ♪³thuh
+Dialogue: 2,0:00:07.00,0:00:07.45,SylMain,,0,0,0,,#033  ♪³ cane
+Dialogue: 2,0:00:07.00,0:00:07.45,IpaSub,,0,0,0,,Narrow IPA: [ˈkʰeɪn]   (PLOSIVE-SCAT)
+Dialogue: 2,0:00:07.00,0:00:07.45,RhyBar,,0,0,0,,M.04 (4/4 @ 93 BPM) | Grid: 2-e | 8th-trip (IOI:450ms) | F1:428/F2:1144Hz
+Dialogue: 1,0:00:07.00,0:00:07.45,SecStrip,,0,0,0,,♪·Mmmm!  [♩ rest][breath-gap]  ♪³thuh  ♪³cup  ♪³uh  ♪³thuh  ♬·pink  {\c&H0047E0FD&\b1}♪³cane{\c&H00F8FAFC&\b0}  ♪³tuh  ♬rip\N♪³in  ♪³thuh
+Dialogue: 2,0:00:07.45,0:00:07.60,SylMain,,0,0,0,,#034  ♪³ tuh
+Dialogue: 2,0:00:07.45,0:00:07.60,IpaSub,,0,0,0,,Narrow IPA: [tʰə]   (HAT-TICK)
+Dialogue: 2,0:00:07.45,0:00:07.60,RhyBar,,0,0,0,,M.04 (4/4 @ 93 BPM) | Grid: 3-a+ (32nd pickup) | 16th-trip (IOI:150ms) | F1:985/F2:1789Hz
+Dialogue: 1,0:00:07.45,0:00:07.60,SecStrip,,0,0,0,,♪·Mmmm!  [♩ rest][breath-gap]  ♪³thuh  ♪³cup  ♪³uh  ♪³thuh  ♬·pink  ♪³cane  {\c&H0047E0FD&\b1}♪³tuh{\c&H00F8FAFC&\b0}  ♬rip\N♪³in  ♪³thuh
+Dialogue: 2,0:00:07.60,0:00:07.80,SylMain,,0,0,0,,#035  ♬ rip
+Dialogue: 2,0:00:07.60,0:00:07.80,IpaSub,,0,0,0,,Narrow IPA: [ˈɹɪp̚]   (PLOSIVE-SCAT)
+Dialogue: 2,0:00:07.60,0:00:07.80,RhyBar,,0,0,0,,M.04 (4/4 @ 93 BPM) | Grid: 3-e | 16th (IOI:200ms) | F1:401/F2:1216Hz
+Dialogue: 1,0:00:07.60,0:00:07.80,SecStrip,,0,0,0,,♪·Mmmm!  [♩ rest][breath-gap]  ♪³thuh  ♪³cup  ♪³uh  ♪³thuh  ♬·pink  ♪³cane  ♪³tuh  {\c&H0047E0FD&\b1}♬rip{\c&H00F8FAFC&\b0}\N♪³in  ♪³thuh
+Dialogue: 2,0:00:07.80,0:00:07.98,SylMain,,0,0,0,,#036  ♪³ in
+Dialogue: 2,0:00:07.80,0:00:07.98,IpaSub,,0,0,0,,Narrow IPA: [ɪn]   (NASAL-GATE)
+Dialogue: 2,0:00:07.80,0:00:07.98,RhyBar,,0,0,0,,M.04 (4/4 @ 93 BPM) | Grid: 3-& | 16th-trip (IOI:180ms) | F1:445/F2:1914Hz
+Dialogue: 1,0:00:07.80,0:00:07.98,SecStrip,,0,0,0,,♪·Mmmm!  [♩ rest][breath-gap]  ♪³thuh  ♪³cup  ♪³uh  ♪³thuh  ♬·pink  ♪³cane  ♪³tuh  ♬rip\N{\c&H0047E0FD&\b1}♪³in{\c&H00F8FAFC&\b0}  ♪³thuh
+Dialogue: 2,0:00:07.98,0:00:08.15,SylMain,,0,0,0,,#037  ♪³ thuh
+Dialogue: 2,0:00:07.98,0:00:08.15,IpaSub,,0,0,0,,Narrow IPA: [ðə]   (FRIC-BRUSH)
+Dialogue: 2,0:00:07.98,0:00:08.15,RhyBar,,0,0,0,,M.04 (4/4 @ 93 BPM) | Grid: 3-a | 16th-trip (IOI:170ms) | F1:442/F2:1619Hz
+Dialogue: 1,0:00:07.98,0:00:08.15,SecStrip,,0,0,0,,♪·Mmmm!  [♩ rest][breath-gap]  ♪³thuh  ♪³cup  ♪³uh  ♪³thuh  ♬·pink  ♪³cane  ♪³tuh  ♬rip\N♪³in  {\c&H0047E0FD&\b1}♪³thuh{\c&H00F8FAFC&\b0}
+Dialogue: 2,0:00:08.15,0:00:08.46,SylMain,,0,0,0,,#038  ♬· ki
+Dialogue: 2,0:00:08.15,0:00:08.46,IpaSub,,0,0,0,,Narrow IPA: [ˈkʰɪ]   (GLOTTAL-POP)
+Dialogue: 2,0:00:08.15,0:00:08.46,RhyBar,,0,0,0,,M.04 (4/4 @ 93 BPM) | Grid: Beat 4 | dotted-16th (IOI:310ms) | F1:411/F2:2309Hz
+Dialogue: 1,0:00:08.15,0:00:08.46,SecStrip,,0,0,0,,{\c&H0047E0FD&\b1}♬·ki{\c&H00F8FAFC&\b0}  ♬·'in  ♬bick  ♬in  ♪³thuh  ♬·bow  ♬·fen  ♪³tuh  ♬·sick  ♪³in\N♪³thuh  ♪³kuh  ♬lip  ♪³in  ♪³NOW!  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:08.46,0:00:08.78,SylMain,,0,0,0,,#039  ♬· 'in
+Dialogue: 2,0:00:08.46,0:00:08.78,IpaSub,,0,0,0,,Narrow IPA: [ˈʔɪn]   (GLOTTAL-POP)
+Dialogue: 2,0:00:08.46,0:00:08.78,RhyBar,,0,0,0,,M.04 (4/4 @ 93 BPM) | Grid: 4-& | dotted-16th (IOI:320ms) | F1:603/F2:1765Hz
+Dialogue: 1,0:00:08.46,0:00:08.78,SecStrip,,0,0,0,,♬·ki  {\c&H0047E0FD&\b1}♬·'in{\c&H00F8FAFC&\b0}  ♬bick  ♬in  ♪³thuh  ♬·bow  ♬·fen  ♪³tuh  ♬·sick  ♪³in\N♪³thuh  ♪³kuh  ♬lip  ♪³in  ♪³NOW!  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:08.78,0:00:09.05,SylMain,,0,0,0,,#040  ♬ bick
+Dialogue: 2,0:00:08.78,0:00:09.05,IpaSub,,0,0,0,,Narrow IPA: [ˈbɪk̚]   (KICK-GHOST)
+Dialogue: 2,0:00:08.78,0:00:09.05,RhyBar,,0,0,0,,M.04 (4/4 @ 93 BPM) | Grid: Beat 2 | 16th (IOI:270ms) | F1:406/F2:1230Hz
+Dialogue: 1,0:00:08.78,0:00:09.05,SecStrip,,0,0,0,,♬·ki  ♬·'in  {\c&H0047E0FD&\b1}♬bick{\c&H00F8FAFC&\b0}  ♬in  ♪³thuh  ♬·bow  ♬·fen  ♪³tuh  ♬·sick  ♪³in\N♪³thuh  ♪³kuh  ♬lip  ♪³in  ♪³NOW!  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:09.05,0:00:09.28,SylMain,,0,0,0,,#041  ♬ in
+Dialogue: 2,0:00:09.05,0:00:09.28,IpaSub,,0,0,0,,Narrow IPA: [ɪn]   (NASAL-GATE)
+Dialogue: 2,0:00:09.05,0:00:09.28,RhyBar,,0,0,0,,M.05 (4/4 @ 95 BPM) | Grid: 1-& | 16th (IOI:230ms) | F1:274/F2:1130Hz
+Dialogue: 1,0:00:09.05,0:00:09.28,SecStrip,,0,0,0,,♬·ki  ♬·'in  ♬bick  {\c&H0047E0FD&\b1}♬in{\c&H00F8FAFC&\b0}  ♪³thuh  ♬·bow  ♬·fen  ♪³tuh  ♬·sick  ♪³in\N♪³thuh  ♪³kuh  ♬lip  ♪³in  ♪³NOW!  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:09.28,0:00:09.44,SylMain,,0,0,0,,#042  ♪³ thuh
+Dialogue: 2,0:00:09.28,0:00:09.44,IpaSub,,0,0,0,,Narrow IPA: [ðə]   (FRIC-BRUSH)
+Dialogue: 2,0:00:09.28,0:00:09.44,RhyBar,,0,0,0,,M.05 (4/4 @ 95 BPM) | Grid: 1-a | 16th-trip (IOI:160ms) | F1:464/F2:2057Hz
+Dialogue: 1,0:00:09.28,0:00:09.44,SecStrip,,0,0,0,,♬·ki  ♬·'in  ♬bick  ♬in  {\c&H0047E0FD&\b1}♪³thuh{\c&H00F8FAFC&\b0}  ♬·bow  ♬·fen  ♪³tuh  ♬·sick  ♪³in\N♪³thuh  ♪³kuh  ♬lip  ♪³in  ♪³NOW!  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:09.44,0:00:09.73,SylMain,,0,0,0,,#043  ♬· bow
+Dialogue: 2,0:00:09.44,0:00:09.73,IpaSub,,0,0,0,,Narrow IPA: [ˈbaʊ]   (BRASS-WAH)
+Dialogue: 2,0:00:09.44,0:00:09.73,RhyBar,,0,0,0,,M.05 (4/4 @ 95 BPM) | Grid: Beat 2 | dotted-16th (IOI:290ms) | F1:439/F2:2186Hz
+Dialogue: 1,0:00:09.44,0:00:09.73,SecStrip,,0,0,0,,♬·ki  ♬·'in  ♬bick  ♬in  ♪³thuh  {\c&H0047E0FD&\b1}♬·bow{\c&H00F8FAFC&\b0}  ♬·fen  ♪³tuh  ♬·sick  ♪³in\N♪³thuh  ♪³kuh  ♬lip  ♪³in  ♪³NOW!  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:09.73,0:00:10.01,SylMain,,0,0,0,,#044  ♬· fen
+Dialogue: 2,0:00:09.73,0:00:10.01,IpaSub,,0,0,0,,Narrow IPA: [ˈfɛn]   (FRIC-BRUSH)
+Dialogue: 2,0:00:09.73,0:00:10.01,RhyBar,,0,0,0,,M.05 (4/4 @ 95 BPM) | Grid: 2-& | dotted-16th (IOI:280ms) | F1:623/F2:1433Hz
+Dialogue: 1,0:00:09.73,0:00:10.01,SecStrip,,0,0,0,,♬·ki  ♬·'in  ♬bick  ♬in  ♪³thuh  ♬·bow  {\c&H0047E0FD&\b1}♬·fen{\c&H00F8FAFC&\b0}  ♪³tuh  ♬·sick  ♪³in\N♪³thuh  ♪³kuh  ♬lip  ♪³in  ♪³NOW!  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:10.01,0:00:10.18,SylMain,,0,0,0,,#045  ♪³ tuh
+Dialogue: 2,0:00:10.01,0:00:10.18,IpaSub,,0,0,0,,Narrow IPA: [tʰə]   (HAT-TICK)
+Dialogue: 2,0:00:10.01,0:00:10.18,RhyBar,,0,0,0,,M.05 (4/4 @ 95 BPM) | Grid: Beat 4 | 16th-trip (IOI:170ms) | F1:462/F2:2178Hz
+Dialogue: 1,0:00:10.01,0:00:10.18,SecStrip,,0,0,0,,♬·ki  ♬·'in  ♬bick  ♬in  ♪³thuh  ♬·bow  ♬·fen  {\c&H0047E0FD&\b1}♪³tuh{\c&H00F8FAFC&\b0}  ♬·sick  ♪³in\N♪³thuh  ♪³kuh  ♬lip  ♪³in  ♪³NOW!  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:10.18,0:00:10.51,SylMain,,0,0,0,,#046  ♬· sick
+Dialogue: 2,0:00:10.18,0:00:10.51,IpaSub,,0,0,0,,Narrow IPA: [ˈsɪk̚]   (SNARE-SH)
+Dialogue: 2,0:00:10.18,0:00:10.51,RhyBar,,0,0,0,,M.05 (4/4 @ 95 BPM) | Grid: 3-e | dotted-16th (IOI:330ms) | F1:1702/F2:3087Hz
+Dialogue: 1,0:00:10.18,0:00:10.51,SecStrip,,0,0,0,,♬·ki  ♬·'in  ♬bick  ♬in  ♪³thuh  ♬·bow  ♬·fen  ♪³tuh  {\c&H0047E0FD&\b1}♬·sick{\c&H00F8FAFC&\b0}  ♪³in\N♪³thuh  ♪³kuh  ♬lip  ♪³in  ♪³NOW!  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:10.51,0:00:10.67,SylMain,,0,0,0,,#047  ♪³ in
+Dialogue: 2,0:00:10.51,0:00:10.67,IpaSub,,0,0,0,,Narrow IPA: [ɪn]   (NASAL-GATE)
+Dialogue: 2,0:00:10.51,0:00:10.67,RhyBar,,0,0,0,,M.05 (4/4 @ 95 BPM) | Grid: 3-a | 16th-trip (IOI:160ms) | F1:406/F2:2230Hz
+Dialogue: 1,0:00:10.51,0:00:10.67,SecStrip,,0,0,0,,♬·ki  ♬·'in  ♬bick  ♬in  ♪³thuh  ♬·bow  ♬·fen  ♪³tuh  ♬·sick  {\c&H0047E0FD&\b1}♪³in{\c&H00F8FAFC&\b0}\N♪³thuh  ♪³kuh  ♬lip  ♪³in  ♪³NOW!  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:10.67,0:00:10.80,SylMain,,0,0,0,,#048  ♪³ thuh
+Dialogue: 2,0:00:10.67,0:00:10.80,IpaSub,,0,0,0,,Narrow IPA: [ðə]   (FRIC-BRUSH)
+Dialogue: 2,0:00:10.67,0:00:10.80,RhyBar,,0,0,0,,M.05 (4/4 @ 95 BPM) | Grid: Beat 1 | 16th-trip (IOI:130ms) | F1:416/F2:2170Hz
+Dialogue: 1,0:00:10.67,0:00:10.80,SecStrip,,0,0,0,,♬·ki  ♬·'in  ♬bick  ♬in  ♪³thuh  ♬·bow  ♬·fen  ♪³tuh  ♬·sick  ♪³in\N{\c&H0047E0FD&\b1}♪³thuh{\c&H00F8FAFC&\b0}  ♪³kuh  ♬lip  ♪³in  ♪³NOW!  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:10.80,0:00:10.95,SylMain,,0,0,0,,#049  ♪³ kuh
+Dialogue: 2,0:00:10.80,0:00:10.95,IpaSub,,0,0,0,,Narrow IPA: [kʰə]   (HAT-TICK)
+Dialogue: 2,0:00:10.80,0:00:10.95,RhyBar,,0,0,0,,M.05 (4/4 @ 95 BPM) | Grid: 4-e | 16th-trip (IOI:150ms) | F1:513/F2:2121Hz
+Dialogue: 1,0:00:10.80,0:00:10.95,SecStrip,,0,0,0,,♬·ki  ♬·'in  ♬bick  ♬in  ♪³thuh  ♬·bow  ♬·fen  ♪³tuh  ♬·sick  ♪³in\N♪³thuh  {\c&H0047E0FD&\b1}♪³kuh{\c&H00F8FAFC&\b0}  ♬lip  ♪³in  ♪³NOW!  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:10.95,0:00:11.14,SylMain,,0,0,0,,#050  ♬ lip
+Dialogue: 2,0:00:10.95,0:00:11.14,IpaSub,,0,0,0,,Narrow IPA: [ˈlɪp̚]   (LIQUID-CHOP)
+Dialogue: 2,0:00:10.95,0:00:11.14,RhyBar,,0,0,0,,M.05 (4/4 @ 95 BPM) | Grid: 4-& | 16th (IOI:190ms) | F1:535/F2:1587Hz
+Dialogue: 1,0:00:10.95,0:00:11.14,SecStrip,,0,0,0,,♬·ki  ♬·'in  ♬bick  ♬in  ♪³thuh  ♬·bow  ♬·fen  ♪³tuh  ♬·sick  ♪³in\N♪³thuh  ♪³kuh  {\c&H0047E0FD&\b1}♬lip{\c&H00F8FAFC&\b0}  ♪³in  ♪³NOW!  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:11.14,0:00:11.30,SylMain,,0,0,0,,#051  ♪³ in
+Dialogue: 2,0:00:11.14,0:00:11.30,IpaSub,,0,0,0,,Narrow IPA: [ɪn]   (NASAL-GATE)
+Dialogue: 2,0:00:11.14,0:00:11.30,RhyBar,,0,0,0,,M.05 (4/4 @ 95 BPM) | Grid: 4-a | 16th-trip (IOI:160ms) | F1:549/F2:1766Hz
+Dialogue: 1,0:00:11.14,0:00:11.30,SecStrip,,0,0,0,,♬·ki  ♬·'in  ♬bick  ♬in  ♪³thuh  ♬·bow  ♬·fen  ♪³tuh  ♬·sick  ♪³in\N♪³thuh  ♪³kuh  ♬lip  {\c&H0047E0FD&\b1}♪³in{\c&H00F8FAFC&\b0}  ♪³NOW!  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:11.30,0:00:11.72,SylMain,,0,0,0,,#052  ♪³ NOW!
+Dialogue: 2,0:00:11.30,0:00:11.72,IpaSub,,0,0,0,,Narrow IPA: [ˈnaʊ]   (BRASS-WAH)
+Dialogue: 2,0:00:11.30,0:00:11.72,RhyBar,,0,0,0,,M.05 (4/4 @ 95 BPM) | Grid: Beat 2 | 8th-trip (IOI:420ms) | F1:503/F2:1827Hz
+Dialogue: 1,0:00:11.30,0:00:11.72,SecStrip,,0,0,0,,♬·ki  ♬·'in  ♬bick  ♬in  ♪³thuh  ♬·bow  ♬·fen  ♪³tuh  ♬·sick  ♪³in\N♪³thuh  ♪³kuh  ♬lip  ♪³in  {\c&H0047E0FD&\b1}♪³NOW!{\c&H00F8FAFC&\b0}  [♩ rest][inhale-gasp]
+Dialogue: 2,0:00:11.72,0:00:12.50,SylMain,,0,0,0,,#053  [♩ rest] [inhale-gasp]
+Dialogue: 2,0:00:11.72,0:00:12.50,IpaSub,,0,0,0,,Narrow IPA: [hː↓]   (NONVERBAL-FX)
+Dialogue: 2,0:00:11.72,0:00:12.50,RhyBar,,0,0,0,,M.05 (4/4 @ 95 BPM) | Grid: 1-trip-let (3rd) | quarter-rest (IOI:780ms) | F1:832/F2:1345Hz
+Dialogue: 1,0:00:11.72,0:00:12.50,SecStrip,,0,0,0,,♬·ki  ♬·'in  ♬bick  ♬in  ♪³thuh  ♬·bow  ♬·fen  ♪³tuh  ♬·sick  ♪³in\N♪³thuh  ♪³kuh  ♬lip  ♪³in  ♪³NOW!  {\c&H0047E0FD&\b1}[♩ rest][inhale-gasp]{\c&H00F8FAFC&\b0}
+Dialogue: 2,0:00:12.50,0:00:12.72,SylMain,,0,0,0,,#054  ♬ You
+Dialogue: 2,0:00:12.50,0:00:12.72,IpaSub,,0,0,0,,Narrow IPA: [ju]   (HOOK-VOX)
+Dialogue: 2,0:00:12.50,0:00:12.72,RhyBar,,0,0,0,,M.06 (4/4 @ 98 BPM) | Grid: Beat 1 (Downbeat) | 16th (IOI:220ms) | F1:1166/F2:1622Hz
+Dialogue: 1,0:00:12.50,0:00:12.72,SecStrip,,0,0,0,,{\c&H0047E0FD&\b1}♬You{\c&H00F8FAFC&\b0}  ♬know  ♪³what  ♪BOW  ♪³buh  ♬·BOW  ♬·BOW  ♪BOW!  ♪³You  ♪³know\N♪³what  ♬·now
+Dialogue: 2,0:00:12.72,0:00:12.92,SylMain,,0,0,0,,#055  ♬ know
+Dialogue: 2,0:00:12.72,0:00:12.92,IpaSub,,0,0,0,,Narrow IPA: [ˈnoʊ]   (HOOK-VOX)
+Dialogue: 2,0:00:12.72,0:00:12.92,RhyBar,,0,0,0,,M.06 (4/4 @ 98 BPM) | Grid: 1-trip-let (2nd) | 16th (IOI:200ms) | F1:356/F2:1893Hz
+Dialogue: 1,0:00:12.72,0:00:12.92,SecStrip,,0,0,0,,♬You  {\c&H0047E0FD&\b1}♬know{\c&H00F8FAFC&\b0}  ♪³what  ♪BOW  ♪³buh  ♬·BOW  ♬·BOW  ♪BOW!  ♪³You  ♪³know\N♪³what  ♬·now
+Dialogue: 2,0:00:12.92,0:00:13.09,SylMain,,0,0,0,,#056  ♪³ what
+Dialogue: 2,0:00:12.92,0:00:13.09,IpaSub,,0,0,0,,Narrow IPA: [ˈwʌt̚]   (HOOK-VOX)
+Dialogue: 2,0:00:12.92,0:00:13.09,RhyBar,,0,0,0,,M.06 (4/4 @ 98 BPM) | Grid: 1-trip-let (3rd) | 16th-trip (IOI:170ms) | F1:488/F2:1353Hz
+Dialogue: 1,0:00:12.92,0:00:13.09,SecStrip,,0,0,0,,♬You  ♬know  {\c&H0047E0FD&\b1}♪³what{\c&H00F8FAFC&\b0}  ♪BOW  ♪³buh  ♬·BOW  ♬·BOW  ♪BOW!  ♪³You  ♪³know\N♪³what  ♬·now
+Dialogue: 2,0:00:13.09,0:00:13.55,SylMain,,0,0,0,,#057  ♪ BOW
+Dialogue: 2,0:00:13.09,0:00:13.55,IpaSub,,0,0,0,,Narrow IPA: [ˈbaʊ]   (BRASS-WAH)
+Dialogue: 2,0:00:13.09,0:00:13.55,RhyBar,,0,0,0,,M.06 (4/4 @ 98 BPM) | Grid: Beat 3 | 8th (IOI:460ms) | F1:759/F2:1350Hz
+Dialogue: 1,0:00:13.09,0:00:13.55,SecStrip,,0,0,0,,♬You  ♬know  ♪³what  {\c&H0047E0FD&\b1}♪BOW{\c&H00F8FAFC&\b0}  ♪³buh  ♬·BOW  ♬·BOW  ♪BOW!  ♪³You  ♪³know\N♪³what  ♬·now
+Dialogue: 2,0:00:13.55,0:00:13.72,SylMain,,0,0,0,,#058  ♪³ buh
+Dialogue: 2,0:00:13.55,0:00:13.72,IpaSub,,0,0,0,,Narrow IPA: [bə]   (KICK-GHOST)
+Dialogue: 2,0:00:13.55,0:00:13.72,RhyBar,,0,0,0,,M.06 (4/4 @ 98 BPM) | Grid: 2-a | 16th-trip (IOI:170ms) | F1:608/F2:1040Hz
+Dialogue: 1,0:00:13.55,0:00:13.72,SecStrip,,0,0,0,,♬You  ♬know  ♪³what  ♪BOW  {\c&H0047E0FD&\b1}♪³buh{\c&H00F8FAFC&\b0}  ♬·BOW  ♬·BOW  ♪BOW!  ♪³You  ♪³know\N♪³what  ♬·now
+Dialogue: 2,0:00:13.72,0:00:14.03,SylMain,,0,0,0,,#059  ♬· BOW
+Dialogue: 2,0:00:13.72,0:00:14.03,IpaSub,,0,0,0,,Narrow IPA: [ˈbaʊ]   (BRASS-WAH)
+Dialogue: 2,0:00:13.72,0:00:14.03,RhyBar,,0,0,0,,M.06 (4/4 @ 98 BPM) | Grid: Beat 4 | dotted-16th (IOI:310ms) | F1:779/F2:1422Hz
+Dialogue: 1,0:00:13.72,0:00:14.03,SecStrip,,0,0,0,,♬You  ♬know  ♪³what  ♪BOW  ♪³buh  {\c&H0047E0FD&\b1}♬·BOW{\c&H00F8FAFC&\b0}  ♬·BOW  ♪BOW!  ♪³You  ♪³know\N♪³what  ♬·now
+Dialogue: 2,0:00:14.03,0:00:14.34,SylMain,,0,0,0,,#060  ♬· BOW
+Dialogue: 2,0:00:14.03,0:00:14.34,IpaSub,,0,0,0,,Narrow IPA: [ˈbaʊ]   (BRASS-WAH)
+Dialogue: 2,0:00:14.03,0:00:14.34,RhyBar,,0,0,0,,M.06 (4/4 @ 98 BPM) | Grid: 3-& | dotted-16th (IOI:310ms) | F1:967/F2:1402Hz
+Dialogue: 1,0:00:14.03,0:00:14.34,SecStrip,,0,0,0,,♬You  ♬know  ♪³what  ♪BOW  ♪³buh  ♬·BOW  {\c&H0047E0FD&\b1}♬·BOW{\c&H00F8FAFC&\b0}  ♪BOW!  ♪³You  ♪³know\N♪³what  ♬·now
+Dialogue: 2,0:00:14.34,0:00:14.88,SylMain,,0,0,0,,#061  ♪ BOW!
+Dialogue: 2,0:00:14.34,0:00:14.88,IpaSub,,0,0,0,,Narrow IPA: [ˈbaʊː]   (BRASS-WAH)
+Dialogue: 2,0:00:14.34,0:00:14.88,RhyBar,,0,0,0,,M.06 (4/4 @ 98 BPM) | Grid: Beat 4 | 8th (IOI:540ms) | F1:800/F2:1365Hz
+Dialogue: 1,0:00:14.34,0:00:14.88,SecStrip,,0,0,0,,♬You  ♬know  ♪³what  ♪BOW  ♪³buh  ♬·BOW  ♬·BOW  {\c&H0047E0FD&\b1}♪BOW!{\c&H00F8FAFC&\b0}  ♪³You  ♪³know\N♪³what  ♬·now
+Dialogue: 2,0:00:14.88,0:00:15.04,SylMain,,0,0,0,,#062  ♪³ You
+Dialogue: 2,0:00:14.88,0:00:15.04,IpaSub,,0,0,0,,Narrow IPA: [ju]   (HOOK-VOX)
+Dialogue: 2,0:00:14.88,0:00:15.04,RhyBar,,0,0,0,,M.06 (4/4 @ 98 BPM) | Grid: 4-a+ (32nd pickup) | 16th-trip (IOI:160ms) | F1:499/F2:973Hz
+Dialogue: 1,0:00:14.88,0:00:15.04,SecStrip,,0,0,0,,♬You  ♬know  ♪³what  ♪BOW  ♪³buh  ♬·BOW  ♬·BOW  ♪BOW!  {\c&H0047E0FD&\b1}♪³You{\c&H00F8FAFC&\b0}  ♪³know\N♪³what  ♬·now
+Dialogue: 2,0:00:15.04,0:00:15.18,SylMain,,0,0,0,,#063  ♪³ know
+Dialogue: 2,0:00:15.04,0:00:15.18,IpaSub,,0,0,0,,Narrow IPA: [ˈnoʊ]   (HOOK-VOX)
+Dialogue: 2,0:00:15.04,0:00:15.18,RhyBar,,0,0,0,,M.06 (4/4 @ 98 BPM) | Grid: 1-e | 16th-trip (IOI:140ms) | F1:443/F2:1450Hz
+Dialogue: 1,0:00:15.04,0:00:15.18,SecStrip,,0,0,0,,♬You  ♬know  ♪³what  ♪BOW  ♪³buh  ♬·BOW  ♬·BOW  ♪BOW!  ♪³You  {\c&H0047E0FD&\b1}♪³know{\c&H00F8FAFC&\b0}\N♪³what  ♬·now
+Dialogue: 2,0:00:15.18,0:00:15.32,SylMain,,0,0,0,,#064  ♪³ what
+Dialogue: 2,0:00:15.18,0:00:15.32,IpaSub,,0,0,0,,Narrow IPA: [wʌt̚]   (HOOK-VOX)
+Dialogue: 2,0:00:15.18,0:00:15.32,RhyBar,,0,0,0,,M.06 (4/4 @ 98 BPM) | Grid: 1-trip-let (2nd) | 16th-trip (IOI:140ms) | F1:814/F2:1804Hz
+Dialogue: 1,0:00:15.18,0:00:15.32,SecStrip,,0,0,0,,♬You  ♬know  ♪³what  ♪BOW  ♪³buh  ♬·BOW  ♬·BOW  ♪BOW!  ♪³You  ♪³know\N{\c&H0047E0FD&\b1}♪³what{\c&H00F8FAFC&\b0}  ♬·now
+Dialogue: 2,0:00:15.32,0:00:15.60,SylMain,,0,0,0,,#065  ♬· now
+Dialogue: 2,0:00:15.32,0:00:15.60,IpaSub,,0,0,0,,Narrow IPA: [ˈnaʊ]   (BRASS-WAH)
+Dialogue: 2,0:00:15.32,0:00:15.60,RhyBar,,0,0,0,,M.06 (4/4 @ 98 BPM) | Grid: 1-trip-let (3rd) | dotted-16th (IOI:280ms) | F1:753/F2:1498Hz
+Dialogue: 1,0:00:15.32,0:00:15.60,SecStrip,,0,0,0,,♬You  ♬know  ♪³what  ♪BOW  ♪³buh  ♬·BOW  ♬·BOW  ♪BOW!  ♪³You  ♪³know\N♪³what  {\c&H0047E0FD&\b1}♬·now{\c&H00F8FAFC&\b0}
+Dialogue: 2,0:00:15.60,0:00:15.77,SylMain,,0,0,0,,#066  [♪ rest] [micro-breath]
+Dialogue: 2,0:00:15.60,0:00:15.77,IpaSub,,0,0,0,,Narrow IPA: [h̥]   (NONVERBAL-FX)
+Dialogue: 2,0:00:15.60,0:00:15.77,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 1-& | 16th-rest (IOI:170ms) | F1:989/F2:1578Hz
+Dialogue: 1,0:00:15.60,0:00:15.77,SecStrip,,0,0,0,,{\c&H0047E0FD&\b1}[♪ rest][micro-breath]{\c&H00F8FAFC&\b0}  ♬You  ♪³know  ♬what  ♬now  ♪³You  ♪³know  ♬what  ♪³then  ♬You\N♪³know  ♪³what  ♪WHEN!↑  ♪³You  ♪³know  ♪³what
+Dialogue: 2,0:00:15.77,0:00:15.94,SylMain,,0,0,0,,#067  ♬ You
+Dialogue: 2,0:00:15.77,0:00:15.94,IpaSub,,0,0,0,,Narrow IPA: [ju]   (HOOK-VOX)
+Dialogue: 2,0:00:15.77,0:00:15.94,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 1-a+ (32nd pickup) | 16th (IOI:170ms) | F1:257/F2:2161Hz
+Dialogue: 1,0:00:15.77,0:00:15.94,SecStrip,,0,0,0,,[♪ rest][micro-breath]  {\c&H0047E0FD&\b1}♬You{\c&H00F8FAFC&\b0}  ♪³know  ♬what  ♬now  ♪³You  ♪³know  ♬what  ♪³then  ♬You\N♪³know  ♪³what  ♪WHEN!↑  ♪³You  ♪³know  ♪³what
+Dialogue: 2,0:00:15.94,0:00:16.09,SylMain,,0,0,0,,#068  ♪³ know
+Dialogue: 2,0:00:15.94,0:00:16.09,IpaSub,,0,0,0,,Narrow IPA: [ˈnoʊ]   (HOOK-VOX)
+Dialogue: 2,0:00:15.94,0:00:16.09,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 2-e | 16th-trip (IOI:150ms) | F1:420/F2:964Hz
+Dialogue: 1,0:00:15.94,0:00:16.09,SecStrip,,0,0,0,,[♪ rest][micro-breath]  ♬You  {\c&H0047E0FD&\b1}♪³know{\c&H00F8FAFC&\b0}  ♬what  ♬now  ♪³You  ♪³know  ♬what  ♪³then  ♬You\N♪³know  ♪³what  ♪WHEN!↑  ♪³You  ♪³know  ♪³what
+Dialogue: 2,0:00:16.09,0:00:16.25,SylMain,,0,0,0,,#069  ♬ what
+Dialogue: 2,0:00:16.09,0:00:16.25,IpaSub,,0,0,0,,Narrow IPA: [wʌt̚]   (HOOK-VOX)
+Dialogue: 2,0:00:16.09,0:00:16.25,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 2-& | 16th (IOI:160ms) | F1:353/F2:1501Hz
+Dialogue: 1,0:00:16.09,0:00:16.25,SecStrip,,0,0,0,,[♪ rest][micro-breath]  ♬You  ♪³know  {\c&H0047E0FD&\b1}♬what{\c&H00F8FAFC&\b0}  ♬now  ♪³You  ♪³know  ♬what  ♪³then  ♬You\N♪³know  ♪³what  ♪WHEN!↑  ♪³You  ♪³know  ♪³what
+Dialogue: 2,0:00:16.25,0:00:16.46,SylMain,,0,0,0,,#070  ♬ now
+Dialogue: 2,0:00:16.25,0:00:16.46,IpaSub,,0,0,0,,Narrow IPA: [ˈnaʊ]   (BRASS-WAH)
+Dialogue: 2,0:00:16.25,0:00:16.46,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 2-a+ (32nd pickup) | 16th (IOI:210ms) | F1:594/F2:1750Hz
+Dialogue: 1,0:00:16.25,0:00:16.46,SecStrip,,0,0,0,,[♪ rest][micro-breath]  ♬You  ♪³know  ♬what  {\c&H0047E0FD&\b1}♬now{\c&H00F8FAFC&\b0}  ♪³You  ♪³know  ♬what  ♪³then  ♬You\N♪³know  ♪³what  ♪WHEN!↑  ♪³You  ♪³know  ♪³what
+Dialogue: 2,0:00:16.46,0:00:16.60,SylMain,,0,0,0,,#071  ♪³ You
+Dialogue: 2,0:00:16.46,0:00:16.60,IpaSub,,0,0,0,,Narrow IPA: [ju]   (HOOK-VOX)
+Dialogue: 2,0:00:16.46,0:00:16.60,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 3-e | 16th-trip (IOI:140ms) | F1:284/F2:2175Hz
+Dialogue: 1,0:00:16.46,0:00:16.60,SecStrip,,0,0,0,,[♪ rest][micro-breath]  ♬You  ♪³know  ♬what  ♬now  {\c&H0047E0FD&\b1}♪³You{\c&H00F8FAFC&\b0}  ♪³know  ♬what  ♪³then  ♬You\N♪³know  ♪³what  ♪WHEN!↑  ♪³You  ♪³know  ♪³what
+Dialogue: 2,0:00:16.60,0:00:16.74,SylMain,,0,0,0,,#072  ♪³ know
+Dialogue: 2,0:00:16.60,0:00:16.74,IpaSub,,0,0,0,,Narrow IPA: [ˈnoʊ]   (HOOK-VOX)
+Dialogue: 2,0:00:16.60,0:00:16.74,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 3-& | 16th-trip (IOI:140ms) | F1:339/F2:1242Hz
+Dialogue: 1,0:00:16.60,0:00:16.74,SecStrip,,0,0,0,,[♪ rest][micro-breath]  ♬You  ♪³know  ♬what  ♬now  ♪³You  {\c&H0047E0FD&\b1}♪³know{\c&H00F8FAFC&\b0}  ♬what  ♪³then  ♬You\N♪³know  ♪³what  ♪WHEN!↑  ♪³You  ♪³know  ♪³what
+Dialogue: 2,0:00:16.74,0:00:16.90,SylMain,,0,0,0,,#073  ♬ what
+Dialogue: 2,0:00:16.74,0:00:16.90,IpaSub,,0,0,0,,Narrow IPA: [wʌt̚]   (HOOK-VOX)
+Dialogue: 2,0:00:16.74,0:00:16.90,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 3-a | 16th (IOI:160ms) | F1:381/F2:1620Hz
+Dialogue: 1,0:00:16.74,0:00:16.90,SecStrip,,0,0,0,,[♪ rest][micro-breath]  ♬You  ♪³know  ♬what  ♬now  ♪³You  ♪³know  {\c&H0047E0FD&\b1}♬what{\c&H00F8FAFC&\b0}  ♪³then  ♬You\N♪³know  ♪³what  ♪WHEN!↑  ♪³You  ♪³know  ♪³what
+Dialogue: 2,0:00:16.90,0:00:17.26,SylMain,,0,0,0,,#074  ♪³ then
+Dialogue: 2,0:00:16.90,0:00:17.26,IpaSub,,0,0,0,,Narrow IPA: [ˈðɛn]   (NASAL-GATE)
+Dialogue: 2,0:00:16.90,0:00:17.26,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: Beat 4 | 8th-trip (IOI:360ms) | F1:379/F2:2400Hz
+Dialogue: 1,0:00:16.90,0:00:17.26,SecStrip,,0,0,0,,[♪ rest][micro-breath]  ♬You  ♪³know  ♬what  ♬now  ♪³You  ♪³know  ♬what  {\c&H0047E0FD&\b1}♪³then{\c&H00F8FAFC&\b0}  ♬You\N♪³know  ♪³what  ♪WHEN!↑  ♪³You  ♪³know  ♪³what
+Dialogue: 2,0:00:17.26,0:00:17.46,SylMain,,0,0,0,,#075  ♬ You
+Dialogue: 2,0:00:17.26,0:00:17.46,IpaSub,,0,0,0,,Narrow IPA: [ju]   (HOOK-VOX)
+Dialogue: 2,0:00:17.26,0:00:17.46,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 4-a+ (32nd pickup) | 16th (IOI:200ms) | F1:903/F2:2198Hz
+Dialogue: 1,0:00:17.26,0:00:17.46,SecStrip,,0,0,0,,[♪ rest][micro-breath]  ♬You  ♪³know  ♬what  ♬now  ♪³You  ♪³know  ♬what  ♪³then  {\c&H0047E0FD&\b1}♬You{\c&H00F8FAFC&\b0}\N♪³know  ♪³what  ♪WHEN!↑  ♪³You  ♪³know  ♪³what
+Dialogue: 2,0:00:17.46,0:00:17.60,SylMain,,0,0,0,,#076  ♪³ know
+Dialogue: 2,0:00:17.46,0:00:17.60,IpaSub,,0,0,0,,Narrow IPA: [ˈnoʊ]   (HOOK-VOX)
+Dialogue: 2,0:00:17.46,0:00:17.60,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 1-e | 16th-trip (IOI:140ms) | F1:280/F2:2445Hz
+Dialogue: 1,0:00:17.46,0:00:17.60,SecStrip,,0,0,0,,[♪ rest][micro-breath]  ♬You  ♪³know  ♬what  ♬now  ♪³You  ♪³know  ♬what  ♪³then  ♬You\N{\c&H0047E0FD&\b1}♪³know{\c&H00F8FAFC&\b0}  ♪³what  ♪WHEN!↑  ♪³You  ♪³know  ♪³what
+Dialogue: 2,0:00:17.60,0:00:17.75,SylMain,,0,0,0,,#077  ♪³ what
+Dialogue: 2,0:00:17.60,0:00:17.75,IpaSub,,0,0,0,,Narrow IPA: [wʌt̚]   (HOOK-VOX)
+Dialogue: 2,0:00:17.60,0:00:17.75,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 1-& | 16th-trip (IOI:150ms) | F1:416/F2:1774Hz
+Dialogue: 1,0:00:17.60,0:00:17.75,SecStrip,,0,0,0,,[♪ rest][micro-breath]  ♬You  ♪³know  ♬what  ♬now  ♪³You  ♪³know  ♬what  ♪³then  ♬You\N♪³know  {\c&H0047E0FD&\b1}♪³what{\c&H00F8FAFC&\b0}  ♪WHEN!↑  ♪³You  ♪³know  ♪³what
+Dialogue: 2,0:00:17.75,0:00:18.12,SylMain,,0,0,0,,#078  ♪ WHEN!↑
+Dialogue: 2,0:00:17.75,0:00:18.12,IpaSub,,0,0,0,,Narrow IPA: [ˈwɪ̃n↑]   (FALSETTO-SQ)
+Dialogue: 2,0:00:17.75,0:00:18.12,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 1-a | 8th (IOI:370ms) | F1:550/F2:693Hz
+Dialogue: 1,0:00:17.75,0:00:18.12,SecStrip,,0,0,0,,[♪ rest][micro-breath]  ♬You  ♪³know  ♬what  ♬now  ♪³You  ♪³know  ♬what  ♪³then  ♬You\N♪³know  ♪³what  {\c&H0047E0FD&\b1}♪WHEN!↑{\c&H00F8FAFC&\b0}  ♪³You  ♪³know  ♪³what
+Dialogue: 2,0:00:18.12,0:00:18.27,SylMain,,0,0,0,,#079  ♪³ You
+Dialogue: 2,0:00:18.12,0:00:18.27,IpaSub,,0,0,0,,Narrow IPA: [ju]   (HOOK-VOX)
+Dialogue: 2,0:00:18.12,0:00:18.27,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 2-& | 16th-trip (IOI:150ms) | F1:364/F2:1278Hz
+Dialogue: 1,0:00:18.12,0:00:18.27,SecStrip,,0,0,0,,[♪ rest][micro-breath]  ♬You  ♪³know  ♬what  ♬now  ♪³You  ♪³know  ♬what  ♪³then  ♬You\N♪³know  ♪³what  ♪WHEN!↑  {\c&H0047E0FD&\b1}♪³You{\c&H00F8FAFC&\b0}  ♪³know  ♪³what
+Dialogue: 2,0:00:18.27,0:00:18.37,SylMain,,0,0,0,,#080  ♪³ know
+Dialogue: 2,0:00:18.27,0:00:18.37,IpaSub,,0,0,0,,Narrow IPA: [noʊ]   (HOOK-VOX)
+Dialogue: 2,0:00:18.27,0:00:18.37,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 2-a+ (32nd pickup) | 16th-trip (IOI:100ms) | F1:1085/F2:1824Hz
+Dialogue: 1,0:00:18.27,0:00:18.37,SecStrip,,0,0,0,,[♪ rest][micro-breath]  ♬You  ♪³know  ♬what  ♬now  ♪³You  ♪³know  ♬what  ♪³then  ♬You\N♪³know  ♪³what  ♪WHEN!↑  ♪³You  {\c&H0047E0FD&\b1}♪³know{\c&H00F8FAFC&\b0}  ♪³what
+Dialogue: 2,0:00:18.37,0:00:18.47,SylMain,,0,0,0,,#081  ♪³ what
+Dialogue: 2,0:00:18.37,0:00:18.47,IpaSub,,0,0,0,,Narrow IPA: [wʌt̚]   (HOOK-VOX)
+Dialogue: 2,0:00:18.37,0:00:18.47,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: Beat 3 | 16th-trip (IOI:100ms) | F1:889/F2:2182Hz
+Dialogue: 1,0:00:18.37,0:00:18.47,SecStrip,,0,0,0,,[♪ rest][micro-breath]  ♬You  ♪³know  ♬what  ♬now  ♪³You  ♪³know  ♬what  ♪³then  ♬You\N♪³know  ♪³what  ♪WHEN!↑  ♪³You  ♪³know  {\c&H0047E0FD&\b1}♪³what{\c&H00F8FAFC&\b0}
+Dialogue: 2,0:00:18.47,0:00:18.56,SylMain,,0,0,0,,#082  ♬ thuh
+Dialogue: 2,0:00:18.47,0:00:18.56,IpaSub,,0,0,0,,Narrow IPA: [ðə]   (FRIC-BRUSH)
+Dialogue: 2,0:00:18.47,0:00:18.56,RhyBar,,0,0,0,,M.07 (4/4 @ 118 BPM) | Grid: 3-e | 32nd-roll (IOI:90ms) | F1:254/F2:2368Hz
+Dialogue: 1,0:00:18.47,0:00:18.56,SecStrip,,0,0,0,,{\c&H0047E0FD&\b1}♬thuh{\c&H00F8FAFC&\b0}  ♬buh  ♬chuh  ♬kuh  ♬buh  ♪GAH!  ♪³ski  ♪³bi  ♪³di  ♪·BAH!
+Dialogue: 2,0:00:18.56,0:00:18.65,SylMain,,0,0,0,,#083  ♬ buh
+Dialogue: 2,0:00:18.56,0:00:18.65,IpaSub,,0,0,0,,Narrow IPA: [bə]   (KICK-GHOST)
+Dialogue: 2,0:00:18.56,0:00:18.65,RhyBar,,0,0,0,,M.08 (4/4 @ 116 BPM) | Grid: 1-e | 32nd-roll (IOI:90ms) | F1:250/F2:1028Hz
+Dialogue: 1,0:00:18.56,0:00:18.65,SecStrip,,0,0,0,,♬thuh  {\c&H0047E0FD&\b1}♬buh{\c&H00F8FAFC&\b0}  ♬chuh  ♬kuh  ♬buh  ♪GAH!  ♪³ski  ♪³bi  ♪³di  ♪·BAH!
+Dialogue: 2,0:00:18.65,0:00:18.75,SylMain,,0,0,0,,#084  ♬ chuh
+Dialogue: 2,0:00:18.65,0:00:18.75,IpaSub,,0,0,0,,Narrow IPA: [tʃə]   (SNARE-SH)
+Dialogue: 2,0:00:18.65,0:00:18.75,RhyBar,,0,0,0,,M.08 (4/4 @ 116 BPM) | Grid: 1-trip-let (2nd) | 32nd-roll (IOI:100ms) | F1:340/F2:1526Hz
+Dialogue: 1,0:00:18.65,0:00:18.75,SecStrip,,0,0,0,,♬thuh  ♬buh  {\c&H0047E0FD&\b1}♬chuh{\c&H00F8FAFC&\b0}  ♬kuh  ♬buh  ♪GAH!  ♪³ski  ♪³bi  ♪³di  ♪·BAH!
+Dialogue: 2,0:00:18.75,0:00:18.84,SylMain,,0,0,0,,#085  ♬ kuh
+Dialogue: 2,0:00:18.75,0:00:18.84,IpaSub,,0,0,0,,Narrow IPA: [kʰə]   (HAT-TICK)
+Dialogue: 2,0:00:18.75,0:00:18.84,RhyBar,,0,0,0,,M.08 (4/4 @ 116 BPM) | Grid: 1-& | 32nd-roll (IOI:90ms) | F1:344/F2:1180Hz
+Dialogue: 1,0:00:18.75,0:00:18.84,SecStrip,,0,0,0,,♬thuh  ♬buh  ♬chuh  {\c&H0047E0FD&\b1}♬kuh{\c&H00F8FAFC&\b0}  ♬buh  ♪GAH!  ♪³ski  ♪³bi  ♪³di  ♪·BAH!
+Dialogue: 2,0:00:18.84,0:00:18.94,SylMain,,0,0,0,,#086  ♬ buh
+Dialogue: 2,0:00:18.84,0:00:18.94,IpaSub,,0,0,0,,Narrow IPA: [bə]   (KICK-GHOST)
+Dialogue: 2,0:00:18.84,0:00:18.94,RhyBar,,0,0,0,,M.08 (4/4 @ 116 BPM) | Grid: 1-a | 32nd-roll (IOI:100ms) | F1:290/F2:1357Hz
+Dialogue: 1,0:00:18.84,0:00:18.94,SecStrip,,0,0,0,,♬thuh  ♬buh  ♬chuh  ♬kuh  {\c&H0047E0FD&\b1}♬buh{\c&H00F8FAFC&\b0}  ♪GAH!  ♪³ski  ♪³bi  ♪³di  ♪·BAH!
+Dialogue: 2,0:00:18.94,0:00:19.35,SylMain,,0,0,0,,#087  ♪ GAH!
+Dialogue: 2,0:00:18.94,0:00:19.35,IpaSub,,0,0,0,,Narrow IPA: [ˈɡɑː]   (BRASS-WAH)
+Dialogue: 2,0:00:18.94,0:00:19.35,RhyBar,,0,0,0,,M.08 (4/4 @ 116 BPM) | Grid: 1-a+ (32nd pickup) | 8th (IOI:410ms) | F1:1748/F2:2518Hz
+Dialogue: 1,0:00:18.94,0:00:19.35,SecStrip,,0,0,0,,♬thuh  ♬buh  ♬chuh  ♬kuh  ♬buh  {\c&H0047E0FD&\b1}♪GAH!{\c&H00F8FAFC&\b0}  ♪³ski  ♪³bi  ♪³di  ♪·BAH!
+Dialogue: 2,0:00:19.35,0:00:19.51,SylMain,,0,0,0,,#088  ♪³ ski
+Dialogue: 2,0:00:19.35,0:00:19.51,IpaSub,,0,0,0,,Narrow IPA: [ˈskɪ]   (HAT-TICK)
+Dialogue: 2,0:00:19.35,0:00:19.51,RhyBar,,0,0,0,,M.08 (4/4 @ 116 BPM) | Grid: 2-trip-let (3rd) | 16th-triplet (IOI:160ms) | F1:378/F2:652Hz
+Dialogue: 1,0:00:19.35,0:00:19.51,SecStrip,,0,0,0,,♬thuh  ♬buh  ♬chuh  ♬kuh  ♬buh  ♪GAH!  {\c&H0047E0FD&\b1}♪³ski{\c&H00F8FAFC&\b0}  ♪³bi  ♪³di  ♪·BAH!
+Dialogue: 2,0:00:19.51,0:00:19.65,SylMain,,0,0,0,,#089  ♪³ bi
+Dialogue: 2,0:00:19.51,0:00:19.65,IpaSub,,0,0,0,,Narrow IPA: [bɪ]   (PLOSIVE-SCAT)
+Dialogue: 2,0:00:19.51,0:00:19.65,RhyBar,,0,0,0,,M.08 (4/4 @ 116 BPM) | Grid: Beat 3 | 16th-triplet (IOI:140ms) | F1:469/F2:1190Hz
+Dialogue: 1,0:00:19.51,0:00:19.65,SecStrip,,0,0,0,,♬thuh  ♬buh  ♬chuh  ♬kuh  ♬buh  ♪GAH!  ♪³ski  {\c&H0047E0FD&\b1}♪³bi{\c&H00F8FAFC&\b0}  ♪³di  ♪·BAH!
+Dialogue: 2,0:00:19.65,0:00:19.85,SylMain,,0,0,0,,#090  ♪³ di
+Dialogue: 2,0:00:19.65,0:00:19.85,IpaSub,,0,0,0,,Narrow IPA: [dɪ]   (LIQUID-CHOP)
+Dialogue: 2,0:00:19.65,0:00:19.85,RhyBar,,0,0,0,,M.08 (4/4 @ 116 BPM) | Grid: 3-e | 16th-triplet (IOI:200ms) | F1:484/F2:2144Hz
+Dialogue: 1,0:00:19.65,0:00:19.85,SecStrip,,0,0,0,,♬thuh  ♬buh  ♬chuh  ♬kuh  ♬buh  ♪GAH!  ♪³ski  ♪³bi  {\c&H0047E0FD&\b1}♪³di{\c&H00F8FAFC&\b0}  ♪·BAH!
+Dialogue: 2,0:00:19.85,0:00:20.54,SylMain,,0,0,0,,#091  ♪· BAH!
+Dialogue: 2,0:00:19.85,0:00:20.54,IpaSub,,0,0,0,,Narrow IPA: [ˈbɑː]   (BRASS-WAH)
+Dialogue: 2,0:00:19.85,0:00:20.54,RhyBar,,0,0,0,,M.08 (4/4 @ 116 BPM) | Grid: 3-trip-let (3rd) | dotted-8th (IOI:690ms) | F1:1680/F2:2575Hz
+Dialogue: 1,0:00:19.85,0:00:20.54,SecStrip,,0,0,0,,♬thuh  ♬buh  ♬chuh  ♬kuh  ♬buh  ♪GAH!  ♪³ski  ♪³bi  ♪³di  {\c&H0047E0FD&\b1}♪·BAH!{\c&H00F8FAFC&\b0}
+Dialogue: 2,0:00:20.54,0:00:20.72,SylMain,,0,0,0,,#092  ♬ buh
+Dialogue: 2,0:00:20.54,0:00:20.72,IpaSub,,0,0,0,,Narrow IPA: [bə]   (KICK-GHOST)
+Dialogue: 2,0:00:20.54,0:00:20.72,RhyBar,,0,0,0,,M.08 (4/4 @ 116 BPM) | Grid: Beat 1 (Downbeat) | 16th (IOI:180ms) | F1:596/F2:1516Hz
+Dialogue: 1,0:00:20.54,0:00:20.72,SecStrip,,0,0,0,,{\c&H0047E0FD&\b1}♬buh{\c&H00F8FAFC&\b0}  ♬·lip  ♬uh  ♬·gih  ♬buh  ♪³lep  ♬uh  ♩DAH!  [♪ rest][lip-inhale]
+Dialogue: 2,0:00:20.72,0:00:20.96,SylMain,,0,0,0,,#093  ♬· lip
+Dialogue: 2,0:00:20.72,0:00:20.96,IpaSub,,0,0,0,,Narrow IPA: [ˈlɪp̚]   (LIQUID-CHOP)
+Dialogue: 2,0:00:20.72,0:00:20.96,RhyBar,,0,0,0,,M.09 (4/4 @ 131 BPM) | Grid: 1-trip-let (2nd) | dotted-16th (IOI:240ms) | F1:707/F2:1839Hz
+Dialogue: 1,0:00:20.72,0:00:20.96,SecStrip,,0,0,0,,♬buh  {\c&H0047E0FD&\b1}♬·lip{\c&H00F8FAFC&\b0}  ♬uh  ♬·gih  ♬buh  ♪³lep  ♬uh  ♩DAH!  [♪ rest][lip-inhale]
+Dialogue: 2,0:00:20.96,0:00:21.13,SylMain,,0,0,0,,#094  ♬ uh
+Dialogue: 2,0:00:20.96,0:00:21.13,IpaSub,,0,0,0,,Narrow IPA: [ə]   (KICK-GHOST)
+Dialogue: 2,0:00:20.96,0:00:21.13,RhyBar,,0,0,0,,M.09 (4/4 @ 131 BPM) | Grid: 1-a+ (32nd pickup) | 16th (IOI:170ms) | F1:781/F2:1992Hz
+Dialogue: 1,0:00:20.96,0:00:21.13,SecStrip,,0,0,0,,♬buh  ♬·lip  {\c&H0047E0FD&\b1}♬uh{\c&H00F8FAFC&\b0}  ♬·gih  ♬buh  ♪³lep  ♬uh  ♩DAH!  [♪ rest][lip-inhale]
+Dialogue: 2,0:00:21.13,0:00:21.38,SylMain,,0,0,0,,#095  ♬· gih
+Dialogue: 2,0:00:21.13,0:00:21.38,IpaSub,,0,0,0,,Narrow IPA: [ˈɡɪ]   (PLOSIVE-SCAT)
+Dialogue: 2,0:00:21.13,0:00:21.38,RhyBar,,0,0,0,,M.09 (4/4 @ 131 BPM) | Grid: 2-e | dotted-16th (IOI:250ms) | F1:332/F2:1563Hz
+Dialogue: 1,0:00:21.13,0:00:21.38,SecStrip,,0,0,0,,♬buh  ♬·lip  ♬uh  {\c&H0047E0FD&\b1}♬·gih{\c&H00F8FAFC&\b0}  ♬buh  ♪³lep  ♬uh  ♩DAH!  [♪ rest][lip-inhale]
+Dialogue: 2,0:00:21.38,0:00:21.56,SylMain,,0,0,0,,#096  ♬ buh
+Dialogue: 2,0:00:21.38,0:00:21.56,IpaSub,,0,0,0,,Narrow IPA: [bə]   (KICK-GHOST)
+Dialogue: 2,0:00:21.38,0:00:21.56,RhyBar,,0,0,0,,M.09 (4/4 @ 131 BPM) | Grid: 2-a+ (32nd pickup) | 16th (IOI:180ms) | F1:499/F2:1838Hz
+Dialogue: 1,0:00:21.38,0:00:21.56,SecStrip,,0,0,0,,♬buh  ♬·lip  ♬uh  ♬·gih  {\c&H0047E0FD&\b1}♬buh{\c&H00F8FAFC&\b0}  ♪³lep  ♬uh  ♩DAH!  [♪ rest][lip-inhale]
+Dialogue: 2,0:00:21.56,0:00:21.88,SylMain,,0,0,0,,#097  ♪³ lep
+Dialogue: 2,0:00:21.56,0:00:21.88,IpaSub,,0,0,0,,Narrow IPA: [ˈlɛp̚]   (LIQUID-CHOP)
+Dialogue: 2,0:00:21.56,0:00:21.88,RhyBar,,0,0,0,,M.09 (4/4 @ 131 BPM) | Grid: 3-e | 8th-trip (IOI:320ms) | F1:344/F2:1732Hz
+Dialogue: 1,0:00:21.56,0:00:21.88,SecStrip,,0,0,0,,♬buh  ♬·lip  ♬uh  ♬·gih  ♬buh  {\c&H0047E0FD&\b1}♪³lep{\c&H00F8FAFC&\b0}  ♬uh  ♩DAH!  [♪ rest][lip-inhale]
+Dialogue: 2,0:00:21.88,0:00:22.07,SylMain,,0,0,0,,#098  ♬ uh
+Dialogue: 2,0:00:21.88,0:00:22.07,IpaSub,,0,0,0,,Narrow IPA: [ə]   (KICK-GHOST)
+Dialogue: 2,0:00:21.88,0:00:22.07,RhyBar,,0,0,0,,M.09 (4/4 @ 131 BPM) | Grid: 4-a+ (32nd pickup) | 16th (IOI:190ms) | F1:578/F2:1957Hz
+Dialogue: 1,0:00:21.88,0:00:22.07,SecStrip,,0,0,0,,♬buh  ♬·lip  ♬uh  ♬·gih  ♬buh  ♪³lep  {\c&H0047E0FD&\b1}♬uh{\c&H00F8FAFC&\b0}  ♩DAH!  [♪ rest][lip-inhale]
+Dialogue: 2,0:00:22.07,0:00:22.75,SylMain,,0,0,0,,#099  ♩ DAH!
+Dialogue: 2,0:00:22.07,0:00:22.75,IpaSub,,0,0,0,,Narrow IPA: [ˈdɑː]   (BRASS-WAH)
+Dialogue: 2,0:00:22.07,0:00:22.75,RhyBar,,0,0,0,,M.09 (4/4 @ 131 BPM) | Grid: 4-trip-let (2nd) | quarter (IOI:680ms) | F1:538/F2:1982Hz
+Dialogue: 1,0:00:22.07,0:00:22.75,SecStrip,,0,0,0,,♬buh  ♬·lip  ♬uh  ♬·gih  ♬buh  ♪³lep  ♬uh  {\c&H0047E0FD&\b1}♩DAH!{\c&H00F8FAFC&\b0}  [♪ rest][lip-inhale]
+Dialogue: 2,0:00:22.75,0:00:22.92,SylMain,,0,0,0,,#100  [♪ rest] [lip-inhale]
+Dialogue: 2,0:00:22.75,0:00:22.92,IpaSub,,0,0,0,,Narrow IPA: [ʍ̥↓]   (NONVERBAL-FX)
+Dialogue: 2,0:00:22.75,0:00:22.92,RhyBar,,0,0,0,,M.09 (4/4 @ 131 BPM) | Grid: 1-a+ (32nd pickup) | 16th-rest (IOI:170ms) | F1:1368/F2:1446Hz
+Dialogue: 1,0:00:22.75,0:00:22.92,SecStrip,,0,0,0,,♬buh  ♬·lip  ♬uh  ♬·gih  ♬buh  ♪³lep  ♬uh  ♩DAH!  {\c&H0047E0FD&\b1}[♪ rest][lip-inhale]{\c&H00F8FAFC&\b0}
+Dialogue: 2,0:00:22.92,0:00:23.25,SylMain,,0,0,0,,#101  ♪ FWOO
+Dialogue: 2,0:00:22.92,0:00:23.25,IpaSub,,0,0,0,,Narrow IPA: [ˈfwuː]   (AIR-RISER)
+Dialogue: 2,0:00:22.92,0:00:23.25,RhyBar,,0,0,0,,M.09 (4/4 @ 131 BPM) | Grid: 2-e | 8th (IOI:330ms) | F1:242/F2:794Hz
+Dialogue: 1,0:00:22.92,0:00:23.25,SecStrip,,0,0,0,,{\c&H0047E0FD&\b1}♪FWOO{\c&H00F8FAFC&\b0}  ♪³BWAH  ♬boo  ♬buh  ♬boo  ♬ship  ♪³it  ♪DOWN!
+Dialogue: 2,0:00:23.25,0:00:23.72,SylMain,,0,0,0,,#102  ♪³ BWAH
+Dialogue: 2,0:00:23.25,0:00:23.72,IpaSub,,0,0,0,,Narrow IPA: [ˈbwɑː]   (BRASS-WAH)
+Dialogue: 2,0:00:23.25,0:00:23.72,RhyBar,,0,0,0,,M.10 (4/4 @ 87 BPM) | Grid: 1-& | 8th-trip (IOI:470ms) | F1:380/F2:1100Hz
+Dialogue: 1,0:00:23.25,0:00:23.72,SecStrip,,0,0,0,,♪FWOO  {\c&H0047E0FD&\b1}♪³BWAH{\c&H00F8FAFC&\b0}  ♬boo  ♬buh  ♬boo  ♬ship  ♪³it  ♪DOWN!
+Dialogue: 2,0:00:23.72,0:00:23.93,SylMain,,0,0,0,,#103  ♬ boo
+Dialogue: 2,0:00:23.72,0:00:23.93,IpaSub,,0,0,0,,Narrow IPA: [ˈbuː]   (KICK-808)
+Dialogue: 2,0:00:23.72,0:00:23.93,RhyBar,,0,0,0,,M.10 (4/4 @ 87 BPM) | Grid: 2-e | 16th (IOI:210ms) | F1:1434/F2:2364Hz
+Dialogue: 1,0:00:23.72,0:00:23.93,SecStrip,,0,0,0,,♪FWOO  ♪³BWAH  {\c&H0047E0FD&\b1}♬boo{\c&H00F8FAFC&\b0}  ♬buh  ♬boo  ♬ship  ♪³it  ♪DOWN!
+Dialogue: 2,0:00:23.93,0:00:24.18,SylMain,,0,0,0,,#104  ♬ buh
+Dialogue: 2,0:00:23.93,0:00:24.18,IpaSub,,0,0,0,,Narrow IPA: [bə]   (KICK-GHOST)
+Dialogue: 2,0:00:23.93,0:00:24.18,RhyBar,,0,0,0,,M.10 (4/4 @ 87 BPM) | Grid: 2-& | 16th (IOI:250ms) | F1:496/F2:1355Hz
+Dialogue: 1,0:00:23.93,0:00:24.18,SecStrip,,0,0,0,,♪FWOO  ♪³BWAH  ♬boo  {\c&H0047E0FD&\b1}♬buh{\c&H00F8FAFC&\b0}  ♬boo  ♬ship  ♪³it  ♪DOWN!
+Dialogue: 2,0:00:24.18,0:00:24.47,SylMain,,0,0,0,,#105  ♬ boo
+Dialogue: 2,0:00:24.18,0:00:24.47,IpaSub,,0,0,0,,Narrow IPA: [ˈbuː]   (KICK-808)
+Dialogue: 2,0:00:24.18,0:00:24.47,RhyBar,,0,0,0,,M.10 (4/4 @ 87 BPM) | Grid: 2-a+ (32nd pickup) | 16th (IOI:290ms) | F1:723/F2:1083Hz
+Dialogue: 1,0:00:24.18,0:00:24.47,SecStrip,,0,0,0,,♪FWOO  ♪³BWAH  ♬boo  ♬buh  {\c&H0047E0FD&\b1}♬boo{\c&H00F8FAFC&\b0}  ♬ship  ♪³it  ♪DOWN!
+Dialogue: 2,0:00:24.47,0:00:24.75,SylMain,,0,0,0,,#106  ♬ ship
+Dialogue: 2,0:00:24.47,0:00:24.75,IpaSub,,0,0,0,,Narrow IPA: [ˈʃɪp̚]   (SNARE-SH)
+Dialogue: 2,0:00:24.47,0:00:24.75,RhyBar,,0,0,0,,M.10 (4/4 @ 87 BPM) | Grid: 3-e | 16th (IOI:280ms) | F1:1774/F2:2266Hz
+Dialogue: 1,0:00:24.47,0:00:24.75,SecStrip,,0,0,0,,♪FWOO  ♪³BWAH  ♬boo  ♬buh  ♬boo  {\c&H0047E0FD&\b1}♬ship{\c&H00F8FAFC&\b0}  ♪³it  ♪DOWN!
+Dialogue: 2,0:00:24.75,0:00:24.94,SylMain,,0,0,0,,#107  ♪³ it
+Dialogue: 2,0:00:24.75,0:00:24.94,IpaSub,,0,0,0,,Narrow IPA: [ɪt̚]   (HAT-TICK)
+Dialogue: 2,0:00:24.75,0:00:24.94,RhyBar,,0,0,0,,M.10 (4/4 @ 87 BPM) | Grid: 3-trip-let (3rd) | 16th-trip (IOI:190ms) | F1:427/F2:1623Hz
+Dialogue: 1,0:00:24.75,0:00:24.94,SecStrip,,0,0,0,,♪FWOO  ♪³BWAH  ♬boo  ♬buh  ♬boo  ♬ship  {\c&H0047E0FD&\b1}♪³it{\c&H00F8FAFC&\b0}  ♪DOWN!
+Dialogue: 2,0:00:24.94,0:00:25.55,SylMain,,0,0,0,,#108  ♪ DOWN!
+Dialogue: 2,0:00:24.94,0:00:25.55,IpaSub,,0,0,0,,Narrow IPA: [ˈdaʊn]   (HOOK-VOX)
+Dialogue: 2,0:00:24.94,0:00:25.55,RhyBar,,0,0,0,,M.10 (4/4 @ 87 BPM) | Grid: 4-a+ (32nd pickup) | 8th (IOI:610ms) | F1:670/F2:1857Hz
+Dialogue: 1,0:00:24.94,0:00:25.55,SecStrip,,0,0,0,,♪FWOO  ♪³BWAH  ♬boo  ♬buh  ♬boo  ♬ship  ♪³it  {\c&H0047E0FD&\b1}♪DOWN!{\c&H00F8FAFC&\b0}
+Dialogue: 2,0:00:25.55,0:00:25.68,SylMain,,0,0,0,,#109  [♪ rest] [mouth-set]
+Dialogue: 2,0:00:25.55,0:00:25.68,IpaSub,,0,0,0,,Narrow IPA: [p˺]   (NONVERBAL-FX)
+Dialogue: 2,0:00:25.55,0:00:25.68,RhyBar,,0,0,0,,M.10 (4/4 @ 87 BPM) | Grid: 4-a+ (32nd pickup) | 16th-rest (IOI:130ms) | F1:864/F2:1480Hz
+Dialogue: 1,0:00:25.55,0:00:25.68,SecStrip,,0,0,0,,{\c&H0047E0FD&\b1}[♪ rest][mouth-set]{\c&H00F8FAFC&\b0}  ♪³BOOSH  ♬·boom  ♪³buh  ♪³boom  [♪ rest][glottal-reset]  ♪³take  ♪³it  ♪DOWN!
+Dialogue: 2,0:00:25.68,0:00:26.16,SylMain,,0,0,0,,#110  ♪³ BOOSH
+Dialogue: 2,0:00:25.68,0:00:26.16,IpaSub,,0,0,0,,Narrow IPA: [ˈbuʃ]   (SNARE-SH)
+Dialogue: 2,0:00:25.68,0:00:26.16,RhyBar,,0,0,0,,M.10 (4/4 @ 87 BPM) | Grid: Beat 1 (Downbeat) | 8th-trip (IOI:480ms) | F1:1257/F2:2220Hz
+Dialogue: 1,0:00:25.68,0:00:26.16,SecStrip,,0,0,0,,[♪ rest][mouth-set]  {\c&H0047E0FD&\b1}♪³BOOSH{\c&H00F8FAFC&\b0}  ♬·boom  ♪³buh  ♪³boom  [♪ rest][glottal-reset]  ♪³take  ♪³it  ♪DOWN!
+Dialogue: 2,0:00:26.16,0:00:26.51,SylMain,,0,0,0,,#111  ♬· boom
+Dialogue: 2,0:00:26.16,0:00:26.51,IpaSub,,0,0,0,,Narrow IPA: [ˈbuːm]   (KICK-808)
+Dialogue: 2,0:00:26.16,0:00:26.51,RhyBar,,0,0,0,,M.11 (4/4 @ 83 BPM) | Grid: 1-trip-let (3rd) | dotted-16th (IOI:350ms) | F1:850/F2:1441Hz
+Dialogue: 1,0:00:26.16,0:00:26.51,SecStrip,,0,0,0,,[♪ rest][mouth-set]  ♪³BOOSH  {\c&H0047E0FD&\b1}♬·boom{\c&H00F8FAFC&\b0}  ♪³buh  ♪³boom  [♪ rest][glottal-reset]  ♪³take  ♪³it  ♪DOWN!
+Dialogue: 2,0:00:26.51,0:00:26.70,SylMain,,0,0,0,,#112  ♪³ buh
+Dialogue: 2,0:00:26.51,0:00:26.70,IpaSub,,0,0,0,,Narrow IPA: [bə]   (KICK-GHOST)
+Dialogue: 2,0:00:26.51,0:00:26.70,RhyBar,,0,0,0,,M.11 (4/4 @ 83 BPM) | Grid: 2-e | 16th-trip (IOI:190ms) | F1:646/F2:1330Hz
+Dialogue: 1,0:00:26.51,0:00:26.70,SecStrip,,0,0,0,,[♪ rest][mouth-set]  ♪³BOOSH  ♬·boom  {\c&H0047E0FD&\b1}♪³buh{\c&H00F8FAFC&\b0}  ♪³boom  [♪ rest][glottal-reset]  ♪³take  ♪³it  ♪DOWN!
+Dialogue: 2,0:00:26.70,0:00:27.20,SylMain,,0,0,0,,#113  ♪³ boom
+Dialogue: 2,0:00:26.70,0:00:27.20,IpaSub,,0,0,0,,Narrow IPA: [ˈbuːm]   (KICK-808)
+Dialogue: 2,0:00:26.70,0:00:27.20,RhyBar,,0,0,0,,M.11 (4/4 @ 83 BPM) | Grid: 2-trip-let (2nd) | 8th-trip (IOI:500ms) | F1:1088/F2:1872Hz
+Dialogue: 1,0:00:26.70,0:00:27.20,SecStrip,,0,0,0,,[♪ rest][mouth-set]  ♪³BOOSH  ♬·boom  ♪³buh  {\c&H0047E0FD&\b1}♪³boom{\c&H00F8FAFC&\b0}  [♪ rest][glottal-reset]  ♪³take  ♪³it  ♪DOWN!
+Dialogue: 2,0:00:27.20,0:00:27.50,SylMain,,0,0,0,,#114  [♪ rest] [glottal-reset]
+Dialogue: 2,0:00:27.20,0:00:27.50,IpaSub,,0,0,0,,Narrow IPA: [ʔ]   (NONVERBAL-FX)
+Dialogue: 2,0:00:27.20,0:00:27.50,RhyBar,,0,0,0,,M.11 (4/4 @ 83 BPM) | Grid: Beat 3 | 16th-rest (IOI:300ms) | F1:1196/F2:1942Hz
+Dialogue: 1,0:00:27.20,0:00:27.50,SecStrip,,0,0,0,,[♪ rest][mouth-set]  ♪³BOOSH  ♬·boom  ♪³buh  ♪³boom  {\c&H0047E0FD&\b1}[♪ rest][glottal-reset]{\c&H00F8FAFC&\b0}  ♪³take  ♪³it  ♪DOWN!
+Dialogue: 2,0:00:27.50,0:00:27.68,SylMain,,0,0,0,,#115  ♪³ take
+Dialogue: 2,0:00:27.50,0:00:27.68,IpaSub,,0,0,0,,Narrow IPA: [ˈtʰɪk̚]   (HAT-TICK)
+Dialogue: 2,0:00:27.50,0:00:27.68,RhyBar,,0,0,0,,M.11 (4/4 @ 83 BPM) | Grid: 3-& | 16th-trip (IOI:180ms) | F1:446/F2:1751Hz
+Dialogue: 1,0:00:27.50,0:00:27.68,SecStrip,,0,0,0,,[♪ rest][mouth-set]  ♪³BOOSH  ♬·boom  ♪³buh  ♪³boom  [♪ rest][glottal-reset]  {\c&H0047E0FD&\b1}♪³take{\c&H00F8FAFC&\b0}  ♪³it  ♪DOWN!
+Dialogue: 2,0:00:27.68,0:00:27.84,SylMain,,0,0,0,,#116  ♪³ it
+Dialogue: 2,0:00:27.68,0:00:27.84,IpaSub,,0,0,0,,Narrow IPA: [ɪt̚]   (HAT-TICK)
+Dialogue: 2,0:00:27.68,0:00:27.84,RhyBar,,0,0,0,,M.11 (4/4 @ 83 BPM) | Grid: 3-a | 16th-trip (IOI:160ms) | F1:388/F2:1751Hz
+Dialogue: 1,0:00:27.68,0:00:27.84,SecStrip,,0,0,0,,[♪ rest][mouth-set]  ♪³BOOSH  ♬·boom  ♪³buh  ♪³boom  [♪ rest][glottal-reset]  ♪³take  {\c&H0047E0FD&\b1}♪³it{\c&H00F8FAFC&\b0}  ♪DOWN!
+Dialogue: 2,0:00:27.84,0:00:28.45,SylMain,,0,0,0,,#117  ♪ DOWN!
+Dialogue: 2,0:00:27.84,0:00:28.45,IpaSub,,0,0,0,,Narrow IPA: [ˈdaʊn]   (HOOK-VOX)
+Dialogue: 2,0:00:27.84,0:00:28.45,RhyBar,,0,0,0,,M.11 (4/4 @ 83 BPM) | Grid: Beat 1 | 8th (IOI:610ms) | F1:1294/F2:2209Hz
+Dialogue: 1,0:00:27.84,0:00:28.45,SecStrip,,0,0,0,,[♪ rest][mouth-set]  ♪³BOOSH  ♬·boom  ♪³buh  ♪³boom  [♪ rest][glottal-reset]  ♪³take  ♪³it  {\c&H0047E0FD&\b1}♪DOWN!{\c&H00F8FAFC&\b0}
+Dialogue: 2,0:00:28.45,0:00:28.57,SylMain,,0,0,0,,#118  [♪ rest] [lip-seal]
+Dialogue: 2,0:00:28.45,0:00:28.57,IpaSub,,0,0,0,,Narrow IPA: [b˺]   (NONVERBAL-FX)
+Dialogue: 2,0:00:28.45,0:00:28.57,RhyBar,,0,0,0,,M.11 (4/4 @ 83 BPM) | Grid: 4-a+ (32nd pickup) | 16th-rest (IOI:120ms) | F1:366/F2:986Hz
+Dialogue: 1,0:00:28.45,0:00:28.57,SecStrip,,0,0,0,,{\c&H0047E0FD&\b1}[♪ rest][lip-seal]{\c&H00F8FAFC&\b0}  ♬·Boom  ♪³ts  ♬·boom  ♪³buh  ♪boom  ♪³rrr  ♬right  ♪³uh  ♪³ROUND!\N[♪ rest][breath-lip]
+Dialogue: 2,0:00:28.57,0:00:28.92,SylMain,,0,0,0,,#119  ♬· Boom
+Dialogue: 2,0:00:28.57,0:00:28.92,IpaSub,,0,0,0,,Narrow IPA: [ˈbuːm]   (KICK-808)
+Dialogue: 2,0:00:28.57,0:00:28.92,RhyBar,,0,0,0,,M.11 (4/4 @ 83 BPM) | Grid: Beat 2 | dotted-16th (IOI:350ms) | F1:1139/F2:2414Hz
+Dialogue: 1,0:00:28.57,0:00:28.92,SecStrip,,0,0,0,,[♪ rest][lip-seal]  {\c&H0047E0FD&\b1}♬·Boom{\c&H00F8FAFC&\b0}  ♪³ts  ♬·boom  ♪³buh  ♪boom  ♪³rrr  ♬right  ♪³uh  ♪³ROUND!\N[♪ rest][breath-lip]
+Dialogue: 2,0:00:28.92,0:00:29.07,SylMain,,0,0,0,,#120  ♪³ ts
+Dialogue: 2,0:00:28.92,0:00:29.07,IpaSub,,0,0,0,,Narrow IPA: [t͡sʰ]   (HAT-TICK)
+Dialogue: 2,0:00:28.92,0:00:29.07,RhyBar,,0,0,0,,M.12 (4/4 @ 85 BPM) | Grid: 1-& | 16th-trip (IOI:150ms) | F1:1312/F2:2242Hz
+Dialogue: 1,0:00:28.92,0:00:29.07,SecStrip,,0,0,0,,[♪ rest][lip-seal]  ♬·Boom  {\c&H0047E0FD&\b1}♪³ts{\c&H00F8FAFC&\b0}  ♬·boom  ♪³buh  ♪boom  ♪³rrr  ♬right  ♪³uh  ♪³ROUND!\N[♪ rest][breath-lip]
+Dialogue: 2,0:00:29.07,0:00:29.42,SylMain,,0,0,0,,#121  ♬· boom
+Dialogue: 2,0:00:29.07,0:00:29.42,IpaSub,,0,0,0,,Narrow IPA: [ˈbuːm]   (KICK-808)
+Dialogue: 2,0:00:29.07,0:00:29.42,RhyBar,,0,0,0,,M.12 (4/4 @ 85 BPM) | Grid: 1-a | dotted-16th (IOI:350ms) | F1:217/F2:592Hz
+Dialogue: 1,0:00:29.07,0:00:29.42,SecStrip,,0,0,0,,[♪ rest][lip-seal]  ♬·Boom  ♪³ts  {\c&H0047E0FD&\b1}♬·boom{\c&H00F8FAFC&\b0}  ♪³buh  ♪boom  ♪³rrr  ♬right  ♪³uh  ♪³ROUND!\N[♪ rest][breath-lip]
+Dialogue: 2,0:00:29.42,0:00:29.60,SylMain,,0,0,0,,#122  ♪³ buh
+Dialogue: 2,0:00:29.42,0:00:29.60,IpaSub,,0,0,0,,Narrow IPA: [bə]   (KICK-GHOST)
+Dialogue: 2,0:00:29.42,0:00:29.60,RhyBar,,0,0,0,,M.12 (4/4 @ 85 BPM) | Grid: 2-e | 16th-trip (IOI:180ms) | F1:844/F2:1499Hz
+Dialogue: 1,0:00:29.42,0:00:29.60,SecStrip,,0,0,0,,[♪ rest][lip-seal]  ♬·Boom  ♪³ts  ♬·boom  {\c&H0047E0FD&\b1}♪³buh{\c&H00F8FAFC&\b0}  ♪boom  ♪³rrr  ♬right  ♪³uh  ♪³ROUND!\N[♪ rest][breath-lip]
+Dialogue: 2,0:00:29.60,0:00:30.15,SylMain,,0,0,0,,#123  ♪ boom
+Dialogue: 2,0:00:29.60,0:00:30.15,IpaSub,,0,0,0,,Narrow IPA: [ˈbuːm]   (KICK-808)
+Dialogue: 2,0:00:29.60,0:00:30.15,RhyBar,,0,0,0,,M.12 (4/4 @ 85 BPM) | Grid: 2-& | 8th (IOI:550ms) | F1:843/F2:1447Hz
+Dialogue: 1,0:00:29.60,0:00:30.15,SecStrip,,0,0,0,,[♪ rest][lip-seal]  ♬·Boom  ♪³ts  ♬·boom  ♪³buh  {\c&H0047E0FD&\b1}♪boom{\c&H00F8FAFC&\b0}  ♪³rrr  ♬right  ♪³uh  ♪³ROUND!\N[♪ rest][breath-lip]
+Dialogue: 2,0:00:30.15,0:00:30.28,SylMain,,0,0,0,,#124  ♪³ rrr
+Dialogue: 2,0:00:30.15,0:00:30.28,IpaSub,,0,0,0,,Narrow IPA: [ʀː]   (DJ-SCRATCH)
+Dialogue: 2,0:00:30.15,0:00:30.28,RhyBar,,0,0,0,,M.12 (4/4 @ 85 BPM) | Grid: 3-e | 16th-trip (IOI:130ms) | F1:502/F2:1139Hz
+Dialogue: 1,0:00:30.15,0:00:30.28,SecStrip,,0,0,0,,[♪ rest][lip-seal]  ♬·Boom  ♪³ts  ♬·boom  ♪³buh  ♪boom  {\c&H0047E0FD&\b1}♪³rrr{\c&H00F8FAFC&\b0}  ♬right  ♪³uh  ♪³ROUND!\N[♪ rest][breath-lip]
+Dialogue: 2,0:00:30.28,0:00:30.50,SylMain,,0,0,0,,#125  ♬ right
+Dialogue: 2,0:00:30.28,0:00:30.50,IpaSub,,0,0,0,,Narrow IPA: [ˈɹaɪt̚]   (HOOK-VOX)
+Dialogue: 2,0:00:30.28,0:00:30.50,RhyBar,,0,0,0,,M.12 (4/4 @ 85 BPM) | Grid: 3-& | 16th (IOI:220ms) | F1:923/F2:1863Hz
+Dialogue: 1,0:00:30.28,0:00:30.50,SecStrip,,0,0,0,,[♪ rest][lip-seal]  ♬·Boom  ♪³ts  ♬·boom  ♪³buh  ♪boom  ♪³rrr  {\c&H0047E0FD&\b1}♬right{\c&H00F8FAFC&\b0}  ♪³uh  ♪³ROUND!\N[♪ rest][breath-lip]
+Dialogue: 2,0:00:30.50,0:00:30.65,SylMain,,0,0,0,,#126  ♪³ uh
+Dialogue: 2,0:00:30.50,0:00:30.65,IpaSub,,0,0,0,,Narrow IPA: [ə]   (HOOK-VOX)
+Dialogue: 2,0:00:30.50,0:00:30.65,RhyBar,,0,0,0,,M.12 (4/4 @ 85 BPM) | Grid: 3-a | 16th-trip (IOI:150ms) | F1:674/F2:1320Hz
+Dialogue: 1,0:00:30.50,0:00:30.65,SecStrip,,0,0,0,,[♪ rest][lip-seal]  ♬·Boom  ♪³ts  ♬·boom  ♪³buh  ♪boom  ♪³rrr  ♬right  {\c&H0047E0FD&\b1}♪³uh{\c&H00F8FAFC&\b0}  ♪³ROUND!\N[♪ rest][breath-lip]
+Dialogue: 2,0:00:30.65,0:00:31.12,SylMain,,0,0,0,,#127  ♪³ ROUND!
+Dialogue: 2,0:00:30.65,0:00:31.12,IpaSub,,0,0,0,,Narrow IPA: [ˈɹaʊnd]   (HOOK-VOX)
+Dialogue: 2,0:00:30.65,0:00:31.12,RhyBar,,0,0,0,,M.12 (4/4 @ 85 BPM) | Grid: Beat 1 | 8th-trip (IOI:470ms) | F1:1220/F2:1809Hz
+Dialogue: 1,0:00:30.65,0:00:31.12,SecStrip,,0,0,0,,[♪ rest][lip-seal]  ♬·Boom  ♪³ts  ♬·boom  ♪³buh  ♪boom  ♪³rrr  ♬right  ♪³uh  {\c&H0047E0FD&\b1}♪³ROUND!{\c&H00F8FAFC&\b0}\N[♪ rest][breath-lip]
+Dialogue: 2,0:00:31.12,0:00:31.38,SylMain,,0,0,0,,#128  [♪ rest] [breath-lip]
+Dialogue: 2,0:00:31.12,0:00:31.38,IpaSub,,0,0,0,,Narrow IPA: [h̥͡p˺]   (NONVERBAL-FX)
+Dialogue: 2,0:00:31.12,0:00:31.38,RhyBar,,0,0,0,,M.12 (4/4 @ 85 BPM) | Grid: 4-trip-let (3rd) | 16th-rest (IOI:260ms) | F1:280/F2:1197Hz
+Dialogue: 1,0:00:31.12,0:00:31.38,SecStrip,,0,0,0,,[♪ rest][lip-seal]  ♬·Boom  ♪³ts  ♬·boom  ♪³buh  ♪boom  ♪³rrr  ♬right  ♪³uh  ♪³ROUND!\N{\c&H0047E0FD&\b1}[♪ rest][breath-lip]{\c&H00F8FAFC&\b0}
+Dialogue: 2,0:00:31.38,0:00:31.84,SylMain,,0,0,0,,#129  ♪³ Boom
+Dialogue: 2,0:00:31.38,0:00:31.84,IpaSub,,0,0,0,,Narrow IPA: [ˈbuːm]   (KICK-808)
+Dialogue: 2,0:00:31.38,0:00:31.84,RhyBar,,0,0,0,,M.12 (4/4 @ 85 BPM) | Grid: Beat 2 | 8th-trip (IOI:460ms) | F1:321/F2:1365Hz
+Dialogue: 1,0:00:31.38,0:00:31.84,SecStrip,,0,0,0,,{\c&H0047E0FD&\b1}♪³Boom{\c&H00F8FAFC&\b0}  ♪³ts  ♬·boom  ♪³buh  ♪boom  ♪³Hhh  ♬RA  ♬hh  ♪RA!
+Dialogue: 2,0:00:31.84,0:00:32.01,SylMain,,0,0,0,,#130  ♪³ ts
+Dialogue: 2,0:00:31.84,0:00:32.01,IpaSub,,0,0,0,,Narrow IPA: [t͡sʰ]   (HAT-TICK)
+Dialogue: 2,0:00:31.84,0:00:32.01,RhyBar,,0,0,0,,M.13 (4/4 @ 85 BPM) | Grid: 1-trip-let (3rd) | 16th-trip (IOI:170ms) | F1:1326/F2:1916Hz
+Dialogue: 1,0:00:31.84,0:00:32.01,SecStrip,,0,0,0,,♪³Boom  {\c&H0047E0FD&\b1}♪³ts{\c&H00F8FAFC&\b0}  ♬·boom  ♪³buh  ♪boom  ♪³Hhh  ♬RA  ♬hh  ♪RA!
+Dialogue: 2,0:00:32.01,0:00:32.36,SylMain,,0,0,0,,#131  ♬· boom
+Dialogue: 2,0:00:32.01,0:00:32.36,IpaSub,,0,0,0,,Narrow IPA: [ˈbuːm]   (KICK-808)
+Dialogue: 2,0:00:32.01,0:00:32.36,RhyBar,,0,0,0,,M.13 (4/4 @ 85 BPM) | Grid: 1-a+ (32nd pickup) | dotted-16th (IOI:350ms) | F1:733/F2:1569Hz
+Dialogue: 1,0:00:32.01,0:00:32.36,SecStrip,,0,0,0,,♪³Boom  ♪³ts  {\c&H0047E0FD&\b1}♬·boom{\c&H00F8FAFC&\b0}  ♪³buh  ♪boom  ♪³Hhh  ♬RA  ♬hh  ♪RA!
+Dialogue: 2,0:00:32.36,0:00:32.54,SylMain,,0,0,0,,#132  ♪³ buh
+Dialogue: 2,0:00:32.36,0:00:32.54,IpaSub,,0,0,0,,Narrow IPA: [bə]   (KICK-GHOST)
+Dialogue: 2,0:00:32.36,0:00:32.54,RhyBar,,0,0,0,,M.13 (4/4 @ 85 BPM) | Grid: 2-trip-let (2nd) | 16th-trip (IOI:180ms) | F1:1230/F2:1620Hz
+Dialogue: 1,0:00:32.36,0:00:32.54,SecStrip,,0,0,0,,♪³Boom  ♪³ts  ♬·boom  {\c&H0047E0FD&\b1}♪³buh{\c&H00F8FAFC&\b0}  ♪boom  ♪³Hhh  ♬RA  ♬hh  ♪RA!
+Dialogue: 2,0:00:32.54,0:00:33.08,SylMain,,0,0,0,,#133  ♪ boom
+Dialogue: 2,0:00:32.54,0:00:33.08,IpaSub,,0,0,0,,Narrow IPA: [ˈbuːm]   (KICK-808)
+Dialogue: 2,0:00:32.54,0:00:33.08,RhyBar,,0,0,0,,M.13 (4/4 @ 85 BPM) | Grid: 2-trip-let (3rd) | 8th (IOI:540ms) | F1:1266/F2:1719Hz
+Dialogue: 1,0:00:32.54,0:00:33.08,SecStrip,,0,0,0,,♪³Boom  ♪³ts  ♬·boom  ♪³buh  {\c&H0047E0FD&\b1}♪boom{\c&H00F8FAFC&\b0}  ♪³Hhh  ♬RA  ♬hh  ♪RA!
+Dialogue: 2,0:00:33.08,0:00:33.26,SylMain,,0,0,0,,#134  ♪³ Hhh
+Dialogue: 2,0:00:33.08,0:00:33.26,IpaSub,,0,0,0,,Narrow IPA: [χː]   (DJ-SCRATCH)
+Dialogue: 2,0:00:33.08,0:00:33.26,RhyBar,,0,0,0,,M.13 (4/4 @ 85 BPM) | Grid: 3-trip-let (2nd) | 16th-trip (IOI:180ms) | F1:1414/F2:2134Hz
+Dialogue: 1,0:00:33.08,0:00:33.26,SecStrip,,0,0,0,,♪³Boom  ♪³ts  ♬·boom  ♪³buh  ♪boom  {\c&H0047E0FD&\b1}♪³Hhh{\c&H00F8FAFC&\b0}  ♬RA  ♬hh  ♪RA!
+Dialogue: 2,0:00:33.26,0:00:33.52,SylMain,,0,0,0,,#135  ♬ RA
+Dialogue: 2,0:00:33.26,0:00:33.52,IpaSub,,0,0,0,,Narrow IPA: [ˈʀæ]   (DJ-SCRATCH)
+Dialogue: 2,0:00:33.26,0:00:33.52,RhyBar,,0,0,0,,M.13 (4/4 @ 85 BPM) | Grid: 3-trip-let (3rd) | 16th (IOI:260ms) | F1:1204/F2:2056Hz
+Dialogue: 1,0:00:33.26,0:00:33.52,SecStrip,,0,0,0,,♪³Boom  ♪³ts  ♬·boom  ♪³buh  ♪boom  ♪³Hhh  {\c&H0047E0FD&\b1}♬RA{\c&H00F8FAFC&\b0}  ♬hh  ♪RA!
+Dialogue: 2,0:00:33.52,0:00:33.63,SylMain,,0,0,0,,#136  ♬ hh
+Dialogue: 2,0:00:33.52,0:00:33.63,IpaSub,,0,0,0,,Narrow IPA: [χ]   (DJ-SCRATCH)
+Dialogue: 2,0:00:33.52,0:00:33.63,RhyBar,,0,0,0,,M.13 (4/4 @ 85 BPM) | Grid: Beat 4 | 32nd (IOI:110ms) | F1:1465/F2:1658Hz
+Dialogue: 1,0:00:33.52,0:00:33.63,SecStrip,,0,0,0,,♪³Boom  ♪³ts  ♬·boom  ♪³buh  ♪boom  ♪³Hhh  ♬RA  {\c&H0047E0FD&\b1}♬hh{\c&H00F8FAFC&\b0}  ♪RA!
+Dialogue: 2,0:00:33.63,0:00:34.10,SylMain,,0,0,0,,#137  ♪ RA!
+Dialogue: 2,0:00:33.63,0:00:34.10,IpaSub,,0,0,0,,Narrow IPA: [ˈʀæː]   (DJ-SCRATCH)
+Dialogue: 2,0:00:33.63,0:00:34.10,RhyBar,,0,0,0,,M.13 (4/4 @ 85 BPM) | Grid: 4-e | 8th (IOI:570ms) | F1:1212/F2:1497Hz
+Dialogue: 1,0:00:33.63,0:00:34.10,SecStrip,,0,0,0,,♪³Boom  ♪³ts  ♬·boom  ♪³buh  ♪boom  ♪³Hhh  ♬RA  ♬hh  {\c&H0047E0FD&\b1}♪RA!{\c&H00F8FAFC&\b0}
+Dialogue: 2,0:00:34.20,0:00:34.84,SylMain,,0,0,0,,#138  [♩ rest] [room-silence]
+Dialogue: 2,0:00:34.20,0:00:34.84,IpaSub,,0,0,0,,Narrow IPA: [∅]   (NONVERBAL-FX)
+Dialogue: 2,0:00:34.20,0:00:34.84,RhyBar,,0,0,0,,M.13 (4/4 @ 85 BPM) | Grid: Beat 2 | quarter-rest (IOI:640ms) | F1:654/F2:1651Hz
+Dialogue: 1,0:00:34.20,0:00:34.84,SecStrip,,0,0,0,,{\c&H0047E0FD&\b1}[♩ rest][room-silence]{\c&H00F8FAFC&\b0}  [♪ rest][velar-click]  ♪³[throat-scrape]  [♩ rest][pre-outro-gap]
+Dialogue: 2,0:00:34.84,0:00:35.08,SylMain,,0,0,0,,#139  [♪ rest] [velar-click]
+Dialogue: 2,0:00:34.84,0:00:35.08,IpaSub,,0,0,0,,Narrow IPA: [k͡x̥]   (NONVERBAL-FX)
+Dialogue: 2,0:00:34.84,0:00:35.08,RhyBar,,0,0,0,,M.14 (Free @ 0 BPM) | Grid: Rubato / Free | 16th-rest (IOI:240ms) | F1:680/F2:1038Hz
+Dialogue: 1,0:00:34.84,0:00:35.08,SecStrip,,0,0,0,,[♩ rest][room-silence]  {\c&H0047E0FD&\b1}[♪ rest][velar-click]{\c&H00F8FAFC&\b0}  ♪³[throat-scrape]  [♩ rest][pre-outro-gap]
+Dialogue: 2,0:00:35.08,0:00:35.45,SylMain,,0,0,0,,#140  ♪³ [throat-scrape]
+Dialogue: 2,0:00:35.08,0:00:35.45,IpaSub,,0,0,0,,Narrow IPA: [hʀ̥ː]   (DJ-SCRATCH)
+Dialogue: 2,0:00:35.08,0:00:35.45,RhyBar,,0,0,0,,M.14 (Free @ 0 BPM) | Grid: Rubato / Free | 8th-trip (IOI:370ms) | F1:570/F2:783Hz
+Dialogue: 1,0:00:35.08,0:00:35.45,SecStrip,,0,0,0,,[♩ rest][room-silence]  [♪ rest][velar-click]  {\c&H0047E0FD&\b1}♪³[throat-scrape]{\c&H00F8FAFC&\b0}  [♩ rest][pre-outro-gap]
+Dialogue: 2,0:00:35.45,0:00:36.48,SylMain,,0,0,0,,#141  [♩ rest] [pre-outro-gap]
+Dialogue: 2,0:00:35.45,0:00:36.48,IpaSub,,0,0,0,,Narrow IPA: [∅]   (NONVERBAL-FX)
+Dialogue: 2,0:00:35.45,0:00:36.48,RhyBar,,0,0,0,,M.14 (Free @ 0 BPM) | Grid: Rubato / Free | quarter-rest (IOI:1030ms) | F1:629/F2:961Hz
+Dialogue: 1,0:00:35.45,0:00:36.48,SecStrip,,0,0,0,,[♩ rest][room-silence]  [♪ rest][velar-click]  ♪³[throat-scrape]  {\c&H0047E0FD&\b1}[♩ rest][pre-outro-gap]{\c&H00F8FAFC&\b0}
+Dialogue: 2,0:00:36.48,0:00:36.70,SylMain,,0,0,0,,#142  ♬ Duh
+Dialogue: 2,0:00:36.48,0:00:36.70,IpaSub,,0,0,0,,Narrow IPA: [də]   (PLOSIVE-SCAT)
+Dialogue: 2,0:00:36.48,0:00:36.70,RhyBar,,0,0,0,,M.14 (Free @ 0 BPM) | Grid: Rubato / Free | 16th (IOI:220ms) | F1:464/F2:1432Hz
+Dialogue: 1,0:00:36.48,0:00:36.70,SecStrip,,0,0,0,,{\c&H0047E0FD&\b1}♬Duh{\c&H00F8FAFC&\b0}  ♪³rip  ♪³it  ♪³NOW!  [♪ rest][lip-release]  [♪ rest][mic-tap]
+Dialogue: 2,0:00:36.70,0:00:36.83,SylMain,,0,0,0,,#143  ♪³ rip
+Dialogue: 2,0:00:36.70,0:00:36.83,IpaSub,,0,0,0,,Narrow IPA: [ˈɹɪp̚]   (HAT-TICK)
+Dialogue: 2,0:00:36.70,0:00:36.83,RhyBar,,0,0,0,,M.15 (2/4 @ 96 BPM) | Grid: 1-trip-let (2nd) | 16th-trip (IOI:130ms) | F1:440/F2:1417Hz
+Dialogue: 1,0:00:36.70,0:00:36.83,SecStrip,,0,0,0,,♬Duh  {\c&H0047E0FD&\b1}♪³rip{\c&H00F8FAFC&\b0}  ♪³it  ♪³NOW!  [♪ rest][lip-release]  [♪ rest][mic-tap]
+Dialogue: 2,0:00:36.83,0:00:37.00,SylMain,,0,0,0,,#144  ♪³ it
+Dialogue: 2,0:00:36.83,0:00:37.00,IpaSub,,0,0,0,,Narrow IPA: [ˈɪt̚]   (HAT-TICK)
+Dialogue: 2,0:00:36.83,0:00:37.00,RhyBar,,0,0,0,,M.15 (2/4 @ 96 BPM) | Grid: 1-& | 16th-trip (IOI:170ms) | F1:488/F2:1574Hz
+Dialogue: 1,0:00:36.83,0:00:37.00,SecStrip,,0,0,0,,♬Duh  ♪³rip  {\c&H0047E0FD&\b1}♪³it{\c&H00F8FAFC&\b0}  ♪³NOW!  [♪ rest][lip-release]  [♪ rest][mic-tap]
+Dialogue: 2,0:00:37.00,0:00:37.38,SylMain,,0,0,0,,#145  ♪³ NOW!
+Dialogue: 2,0:00:37.00,0:00:37.38,IpaSub,,0,0,0,,Narrow IPA: [ˈnaʊ]   (HOOK-VOX)
+Dialogue: 2,0:00:37.00,0:00:37.38,RhyBar,,0,0,0,,M.15 (2/4 @ 96 BPM) | Grid: 1-a+ (32nd pickup) | 8th-trip (IOI:380ms) | F1:635/F2:1677Hz
+Dialogue: 1,0:00:37.00,0:00:37.38,SecStrip,,0,0,0,,♬Duh  ♪³rip  ♪³it  {\c&H0047E0FD&\b1}♪³NOW!{\c&H00F8FAFC&\b0}  [♪ rest][lip-release]  [♪ rest][mic-tap]
+Dialogue: 2,0:00:37.38,0:00:37.60,SylMain,,0,0,0,,#146  [♪ rest] [lip-release]
+Dialogue: 2,0:00:37.38,0:00:37.60,IpaSub,,0,0,0,,Narrow IPA: [p˺]   (NONVERBAL-FX)
+Dialogue: 2,0:00:37.38,0:00:37.60,RhyBar,,0,0,0,,M.15 (2/4 @ 96 BPM) | Grid: 2-& | 16th-rest (IOI:220ms) | F1:1250/F2:2143Hz
+Dialogue: 1,0:00:37.38,0:00:37.60,SecStrip,,0,0,0,,♬Duh  ♪³rip  ♪³it  ♪³NOW!  {\c&H0047E0FD&\b1}[♪ rest][lip-release]{\c&H00F8FAFC&\b0}  [♪ rest][mic-tap]
+Dialogue: 2,0:00:37.60,0:00:37.82,SylMain,,0,0,0,,#147  [♪ rest] [mic-tap]
+Dialogue: 2,0:00:37.60,0:00:37.82,IpaSub,,0,0,0,,Narrow IPA: [t˺]   (NONVERBAL-FX)
+Dialogue: 2,0:00:37.60,0:00:37.82,RhyBar,,0,0,0,,M.15 (2/4 @ 96 BPM) | Grid: 2-a | 16th-rest (IOI:220ms) | F1:629/F2:1083Hz
+Dialogue: 1,0:00:37.60,0:00:37.82,SecStrip,,0,0,0,,♬Duh  ♪³rip  ♪³it  ♪³NOW!  [♪ rest][lip-release]  {\c&H0047E0FD&\b1}[♪ rest][mic-tap]{\c&H00F8FAFC&\b0}

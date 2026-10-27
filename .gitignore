@@ -1,0 +1,12 @@
+# Nested earshot repository & virtual environment (kept intact on disk)
+earshot/
+
+# Raw 63MB camera source files (kept intact on disk; web-optimized MP4s in analysis/ are tracked)
+IMG_3268.MOV
+IMG_3268.mp4
+
+# Python & OS artifacts
+__pycache__/
+*.pyc
+.DS_Store
+._*
