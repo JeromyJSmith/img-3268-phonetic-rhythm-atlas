@@ -1653,6 +1653,24 @@
   .slide-play .play-grid { gap: 14px !important; }
   .slide-play .audio-gate { padding: 10px 14px; }
   @media (max-width: 1100px) { .score-split { grid-template-columns: 1fr; height: auto; } .viewer-stage { min-height: 50vh; } }
+  /* v3.2: hit pads + lyrics wall */
+  .pads-main .rail-pad-grid { grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr)) !important; }
+  .rail-pad .rp-syl em { font-style: normal; font-family: var(--font-mono); font-size: .55em; color: var(--text-muted); margin-left: 6px; vertical-align: middle; }
+  .lyric-stage { flex: 1; min-height: 0; }
+  .lyric-stage .lyrics-grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; height: 100%; }
+  .lyric-stage .lyric-card { display: flex !important; flex-direction: column; min-height: 0; height: auto; padding: 14px !important; }
+  .lyric-stage .lyric-card:nth-child(4) { grid-column: 1 / -1; }
+  .lyric-stage .lyric-card > div:first-child { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .lyric-stage .lyric-card strong { font-size: 13px !important; }
+  .lyric-stage .lyric-card .btn-primary { padding: 5px 10px; font-size: 11.5px; flex-shrink: 0; }
+  .lyric-stage .lyric-card pre { flex: 1; min-height: 0; overflow: auto; margin: 10px 0 0; font-size: 12px; line-height: 1.55; white-space: pre; }
+  @media (max-width: 1100px) { .lyric-stage .lyrics-grid { grid-template-columns: 1fr; grid-template-rows: none; height: auto; } .lyric-stage .lyric-card pre { max-height: 50vh; } }
+  .pads-main .rail-pad .rp-syl { overflow-wrap: normal; word-break: keep-all; hyphens: none; font-size: clamp(14px, calc(8vw / var(--cols, 4)), 26px); }
+  @media (max-width: 1640px) { .deck-chapter .n { display: none; } .deck-chapter { padding: 0 9px; } .deck-chapter.active::after { left: 9px; right: 9px; } .deck-nav { gap: 14px; } }
+  @media (max-width: 1440px) { .now-mini { display: none; } }
+  .slide-play .play-grid { flex: 1; height: auto !important; min-height: 0; grid-template-rows: minmax(0, 1fr); }
+  .slide-play .play-col { min-height: 0; max-height: 100%; }
+  @media (max-width: 1100px) { .slide-play .play-grid { grid-template-rows: none; } .slide-play .play-col { max-height: none; } }
 </style>
 </head>
 <body>
@@ -1661,7 +1679,7 @@
     <span class="deck-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <span class="deck-brand-text"><b>IMG_3268</b><span>Phonetic Rhythm Atlas</span></span>
   </button>
-  <div class="deck-chapters"><button type="button" class="deck-chapter" data-chapter="Overview" data-go="0"><span class="n">01</span>Overview</button><button type="button" class="deck-chapter" data-chapter="Watch" data-go="1"><span class="n">02</span>Watch</button><button type="button" class="deck-chapter" data-chapter="Pads" data-go="2"><span class="n">03</span>Pads</button><button type="button" class="deck-chapter" data-chapter="Compare" data-go="3"><span class="n">04</span>Compare</button><button type="button" class="deck-chapter" data-chapter="Microscope" data-go="6"><span class="n">05</span>Microscope</button><button type="button" class="deck-chapter" data-chapter="Rhythm" data-go="7"><span class="n">06</span>Rhythm</button><button type="button" class="deck-chapter" data-chapter="Suno" data-go="9"><span class="n">07</span>Suno</button><button type="button" class="deck-chapter" data-chapter="Events" data-go="11"><span class="n">08</span>Events</button><button type="button" class="deck-chapter" data-chapter="Play" data-go="12"><span class="n">09</span>Play</button></div>
+  <div class="deck-chapters"><button type="button" class="deck-chapter" data-chapter="Overview" data-go="0"><span class="n">01</span>Overview</button><button type="button" class="deck-chapter" data-chapter="Watch" data-go="1"><span class="n">02</span>Watch</button><button type="button" class="deck-chapter" data-chapter="Pads" data-go="2"><span class="n">03</span>Pads</button><button type="button" class="deck-chapter" data-chapter="Compare" data-go="3"><span class="n">04</span>Compare</button><button type="button" class="deck-chapter" data-chapter="Microscope" data-go="6"><span class="n">05</span>Microscope</button><button type="button" class="deck-chapter" data-chapter="Rhythm" data-go="7"><span class="n">06</span>Rhythm</button><button type="button" class="deck-chapter" data-chapter="Lyrics" data-go="9"><span class="n">07</span>Lyrics</button><button type="button" class="deck-chapter" data-chapter="Suno" data-go="10"><span class="n">08</span>Suno</button><button type="button" class="deck-chapter" data-chapter="Events" data-go="11"><span class="n">09</span>Events</button><button type="button" class="deck-chapter" data-chapter="Play" data-go="12"><span class="n">10</span>Play</button></div>
   <div class="deck-right">
     <div class="now-mini" title="Now playing">
       <button type="button" id="miniPlay" aria-label="Play or pause">&#9654;</button>
@@ -1693,11 +1711,11 @@
   <div class="panel-title" style="margin:8px 0 0">Chapters</div>
   <div class="chapter-cards">
     <button type="button" class="chapter-card" data-goto="watch"><span class="n">02</span><b>Watch</b><span>The video with a live readout of every syllable.</span></button>
-    <button type="button" class="chapter-card" data-goto="pads"><span class="n">03</span><b>Pads</b><span>Each window as a 4×4 drum pad grid you can play.</span></button>
+    <button type="button" class="chapter-card" data-goto="pads"><span class="n">03</span><b>Pads</b><span>Every hit in each window as a drum pad, cut at the attack.</span></button>
     <button type="button" class="chapter-card" data-goto="compare"><span class="n">04</span><b>Compare</b><span>Original against Suno: scores, phrases, diagnostics.</span></button>
     <button type="button" class="chapter-card" data-goto="microscope"><span class="n">07</span><b>Microscope</b><span>One window at a time: spectrogram, pads, full data.</span></button>
     <button type="button" class="chapter-card" data-goto="rhythm"><span class="n">08</span><b>Rhythm</b><span>Tempo, note values, step grid and the IPA guide.</span></button>
-    <button type="button" class="chapter-card" data-goto="suno-style"><span class="n">10</span><b>Suno</b><span>Build a style prompt and copy phonetic lyrics.</span></button>
+    <button type="button" class="chapter-card" data-goto="lyrics"><span class="n">10</span><b>Lyrics</b><span>Four phonetic versions, with rhythm.</span></button>
     <button type="button" class="chapter-card" data-goto="events"><span class="n">12</span><b>Events</b><span>Search and filter all 147 sounds.</span></button>
     <button type="button" class="chapter-card" data-goto="play"><span class="n">13</span><b>Play</b><span>Sampler, synth and MIDI controller.</span></button>
   </div><button type="button" class="btn-start" data-next>Start with the video →</button></div>
@@ -1778,7 +1796,7 @@
   <div class="slide-cap">
     <div class="slide-eyebrow">03<span>/ 13</span> Playable windows</div>
     <h2>Play the windows</h2>
-    <p>The performance is cut into 14 windows. Each pad is one sound, colored by its drum category, in the order it happens: top left first, reading down.</p><p>Tap a pad to hear it. While the video plays, the current pad lights up.</p>
+    <p>Every hit in the take, 177 of them, found in the audio itself so each pad starts exactly on its attack. They are grouped into the 14 windows, colored by drum category, top left first.</p><p>Syllables made of more than one hit show 1/2, 2/2. While the video plays, the pad under the playhead lights up.</p>
     <div class="how"><div><span class="k">Tap</span><span>Play that sound</span></div><div><span class="k">List</span><span>Pick a window on the right</span></div><div><span class="k">Tip</span><span>Enable audio on the Play slide for instant, overlapping hits</span></div></div>
     <button type="button" class="slide-next" data-next>Next <small>Two takes, one groove</small> →</button>
   </div>
@@ -2847,7 +2865,7 @@
     <h2>Narrow vs broad IPA</h2>
     <p>Broad IPA, written between slashes, records which sound was meant. Narrow IPA, written in square brackets, records exactly how it was made: aspiration, ejectives, clicks, trills.</p><p>Vocal percussion lives in the details, so this atlas uses narrow IPA throughout.</p>
     <div class="how"><div><span class="k">[ ]</span><span>Narrow: how it was made</span></div><div><span class="k">/ /</span><span>Broad: what was meant</span></div></div>
-    <button type="button" class="slide-next" data-next>Next <small>Build a style prompt</small> →</button>
+    <button type="button" class="slide-next" data-next>Next <small>Four ways to write it</small> →</button>
   </div>
   <div class="slide-body"><div class="panel scroll-y fill"><div class="table-scroll">
 <table class="studio-table" style="white-space:normal;">
@@ -2900,100 +2918,16 @@
 </table>
 </div></div></div>
 </section>
-<section class="slide " data-slide="suno-style" data-chapter="Suno" aria-label="10 of 13">
+<section class="slide " data-slide="lyrics" data-chapter="Lyrics" aria-label="10 of 13">
   <div class="slide-cap">
-    <div class="slide-eyebrow">10<span>/ 13</span> Prompting Suno · 1 of 2</div>
-    <h2>Build a style prompt</h2>
-    <p>Six genre directions that suit this groove. Pick one as the base, add flavor modifiers, and copy the combined prompt into Suno's style field.</p>
-    <div class="how"><div><span class="k">Card</span><span>Set the base style</span></div><div><span class="k">Chip</span><span>Add or remove a flavor</span></div><div><span class="k">Copy</span><span>Copy the combined prompt</span></div></div>
-    <button type="button" class="slide-next" data-next>Next <small>Phonetic lyrics</small> →</button>
+    <div class="slide-eyebrow">10<span>/ 13</span> The phonetics</div>
+    <h2>Four ways to write it</h2>
+    <p>The same performance written four ways: spelled so Suno pronounces it right, pure narrow IPA, pure broad IPA, and the tri-tier score that stacks English, narrow IPA and rhythm bar by bar.</p><p>Every version has its own copy button.</p>
+    <div class="how"><div><span class="k">[ ]</span><span>Narrow IPA: exactly how it was made</span></div><div><span class="k">/ /</span><span>Broad IPA: what was meant</span></div><div><span class="k">RHY</span><span>Rhythm row in the tri-tier score</span></div></div>
+    <button type="button" class="slide-next" data-next>Next <small>Build a style prompt</small> →</button>
   </div>
-  <div class="slide-body"><div class="style-wrap"><div class="scroll-y fill"><div class="style-cards-grid">
-<div class="style-card selected" id="scard-0" onclick="selectBaseStyle(0)">
-<div>
-<h4>Option A: 90s Turntablist Boom-Bap &amp; Beatbox Cypher</h4>
-<p class="style-why"><strong>Ref:</strong> Rahzel / Scratch / The Roots.<br/>Built around the 83.5 BPM halftime 808 vocal sub-kicks (<code>[ˈbuːm]</code>), affricate hats (<code>[t͡sʰ]</code>), snare washes (<code>[ˈbuʃ]</code>), and uvular vinyl scratches (<code>Hhh-RA-hh-RA!</code>).</p>
-</div>
-<div>
-<div class="style-prompt-code" id="sprompt-0">90s underground boom-bap hip-hop, live human beatbox percussion, vocal bassline 808 sub-kicks, turntablism vinyl record scratches, raw vocal scatting, punchy dry close-mic vocals, 85 BPM</div>
-<button class="btn-primary" onclick="event.stopPropagation(); copyText('sprompt-0', this)" style="margin-top:8px; width:100%;" type="button">Copy Style A</button>
-</div>
-</div>
-<div class="style-card" id="scard-1" onclick="selectBaseStyle(1)">
-<div>
-<h4>Option B: Future Funk / Talkbox Brass-Bounce &amp; Glitch-Hop</h4>
-<p class="style-why"><strong>Ref:</strong> Chromeo / Gramatik / Opiuo / Beardyman.<br/>Matches Phrase 3's envelope-filtered brass wah stabs (<code>BOW-buh-BOW!</code>), 500 Hz pinched falsetto squeak (<code>WHEN!↑</code>), and 131 BPM double-tongued chopper.</p>
-</div>
-<div>
-<div class="style-prompt-code" id="sprompt-1">glitch-hop future funk, talkbox synth-brass wah stabs, rhythmic vocal chops, slap bass, crisp percussive scatting, micro-sampled vocal percussion, high-energy funk pocket, 112 BPM</div>
-<button class="btn-primary" onclick="event.stopPropagation(); copyText('sprompt-1', this)" style="margin-top:8px; width:100%;" type="button">Copy Style B</button>
-</div>
-</div>
-<div class="style-card" id="scard-2" onclick="selectBaseStyle(2)">
-<div>
-<h4>Option C: Avant-Garde Loop-Station Funk &amp; Neo-Soul Pocket</h4>
-<p class="style-why"><strong>Ref:</strong> Reggie Watts / Marc Rebillet / Bobby McFerrin / J Dilla.<br/>Captures the laid-back -18ms swung 16th pocket, nasal clavinet muting (<code>camp, pump</code>), hollow cork-pop transients (<code>pink, 'in</code>), and theatrical hums.</p>
-</div>
-<div>
-<div class="style-prompt-code" id="sprompt-2">live loop-station vocal funk, neo-soul swung pocket, Reggie Watts style experimental vocal groove, mouth-percussion, clavinet vocal muting, human bass hum, playful theatrical beatbox scat, 98 BPM</div>
-<button class="btn-primary" onclick="event.stopPropagation(); copyText('sprompt-2', this)" style="margin-top:8px; width:100%;" type="button">Copy Style C</button>
-</div>
-</div>
-<div class="style-card" id="scard-3" onclick="selectBaseStyle(3)">
-<div>
-<h4>Option D: UK Bassline / Halftime Wonky Trap &amp; Vocal Chops</h4>
-<p class="style-why"><strong>Ref:</strong> TroyBoi / Tipper / Baauer / Hudson Mohawke.<br/>Turns the air riser (<code>FWOO-BWAH!</code>), sub-100Hz 808 kicks, and syncopated <code>ship it DOWN / take it DOWN</code> hooks into a heavy festival trap/halftime drop.</p>
-</div>
-<div>
-<div class="style-prompt-code" id="sprompt-3">wonky halftime trap, heavy 808 sub-bass glides, pitched vocal chop hooks, festival horn stabs, crisp mouth percussion foley, reverse air risers, swaggering halftime bounce, 84 BPM</div>
-<button class="btn-primary" onclick="event.stopPropagation(); copyText('sprompt-3', this)" style="margin-top:8px; width:100%;" type="button">Copy Style D</button>
-</div>
-</div>
-<div class="style-card" id="scard-4" onclick="selectBaseStyle(4)">
-<div>
-<h4>Option E: Nu-Jazz / Scat-Funk &amp; Hyper-Pocket Drumline</h4>
-<p class="style-why"><strong>Ref:</strong> Louis Cole (Knower) / Cab Calloway / Caravan Palace.<br/>Highlights the rapid 32nd-note paradiddle drum roll (<code>thuh-buh-chuh-kuh-buh-GAH!</code>), sextuplet <code>ski-bi-di-BAH!</code>, and punchy big-band horn articulations.</p>
-</div>
-<div>
-<div class="style-prompt-code" id="sprompt-4">nu-jazz scat funk, tight drumline vocal percussion, punchy big-band brass stabs, rapid double-tongue vocal rolls, Louis Cole style hyper-funk pocket, dry studio drums, 122 BPM</div>
-<button class="btn-primary" onclick="event.stopPropagation(); copyText('sprompt-4', this)" style="margin-top:8px; width:100%;" type="button">Copy Style E</button>
-</div>
-</div>
-<div class="style-card" id="scard-5" onclick="selectBaseStyle(5)">
-<div>
-<h4>Option F: Phonk / Memphis Cowbell &amp; Dirty Turntable Chop</h4>
-<p class="style-why"><strong>Ref:</strong> DJ Smokey / Tommy Wright III / Drift Phonk.<br/>Pairs the gritty uvular throat scrapes (<code>[χː ˈʀæ]</code>), clipped alveolar woodblock pops (<code>[ˈpʰɪŋk̚]</code>), and distorted sub-bass <code>Boom-ts-boom</code> cadence.</p>
-</div>
-<div>
-<div class="style-prompt-code" id="sprompt-5">underground phonk, gritty lo-fi vocal chops, distorted 808 cowbell bounce, vinyl scratch cuts, punchy Memphis rap cadence, raw close-mic vocal percussion, 86 BPM</div>
-<button class="btn-primary" onclick="event.stopPropagation(); copyText('sprompt-5', this)" style="margin-top:8px; width:100%;" type="button">Copy Style F</button>
-</div>
-</div>
-</div></div><div class="panel style-dock"><div class="section-sublabel" style="margin-top:18px;">Click Flavor Modifiers to Mix Into Your Active Style Prompt</div><div class="flavor-row">
-<span class="flavor-chip" onclick="toggleFlavor(this, 'close-mic ASMR transients, dry studio booth, zero reverb')">🎙️ Dry Close-Mic ASMR Transients</span>
-<span class="flavor-chip" onclick="toggleFlavor(this, 'talkbox formant filter, auto-wah envelope sweep, clavinet funk')">🎛️ Talkbox / Auto-Wah Formant Filter</span>
-<span class="flavor-chip" onclick="toggleFlavor(this, 'DJ vinyl scratch breaks, MPC sampler stutter chops')">💿 DJ Scratch &amp; MPC Stutter Chops</span>
-<span class="flavor-chip" onclick="toggleFlavor(this, 'heavy 808 sub-bass sustain, chest-thumping low end')">🔊 Heavy 808 Sub-Bass Weight</span>
-<span class="flavor-chip" onclick="toggleFlavor(this, 'drunk J Dilla swing, unquantized human pocket, ghost notes')">🥁 Drunk Dilla Swing &amp; Ghost Notes</span>
-<span class="flavor-chip" onclick="toggleFlavor(this, 'double-time 32nd-note vocal chopper fill, virtuosic articulation')">⚡ 32nd-Note Chopper Virtuosity</span>
-</div><div class="combined-prompt-bar">
-<div style="flex:1; min-width:240px;">
-<div style="font-size:10.5px; color:var(--text-muted); text-transform:uppercase; font-weight:800;">Combined Ready-to-Paste Suno Style Prompt</div>
-<div id="combinedStyleOut" style="font-family:var(--font-mono); font-size:12.5px; color:var(--accent-orig); font-weight:700; margin-top:4px;">90s underground boom-bap hip-hop, live human beatbox percussion, vocal bassline 808 sub-kicks, turntablism vinyl record scratches, raw vocal scatting, punchy dry close-mic vocals, 85 BPM</div>
-</div>
-<button class="btn-primary" onclick="copyText('combinedStyleOut', this)" type="button">📋 Copy Combined Style Prompt</button>
-</div></div></div></div>
-</section>
-<section class="slide " data-slide="lyrics" data-chapter="Suno" aria-label="11 of 13">
-  <div class="slide-cap">
-    <div class="slide-eyebrow">11<span>/ 13</span> Prompting Suno · 2 of 2</div>
-    <h2>Phonetic lyrics</h2>
-    <p>Four ways to write the same performance: spelled for Suno's pronunciation, pure narrow IPA, broad IPA, and a three-tier version with rhythm.</p><p>Each has its own copy button.</p>
-    <div class="how"><div><span class="k">Tabs</span><span>Switch version</span></div><div><span class="k">Copy</span><span>Copy that version</span></div></div>
-    <button type="button" class="slide-next" data-next>Next <small>All 147 sounds</small> →</button>
-  </div>
-  <div class="slide-body"><div class="lyric-tabs"><button type="button" data-lyric="0" class="active">Suno Pronunciation-Engineered Phonetic Lyrics</button><button type="button" data-lyric="1" class="">Pure Narrow IPA (`[ ... ]` Only — Articulatory Transcription)</button><button type="button" data-lyric="2" class="">Pure Broad IPA (`/ ... /` Only — Clean Phonemic)</button><button type="button" data-lyric="3" class="">Tri-Tier Score (`EN` + `Narrow IPA` + `Musical Rhythm`)</button></div><div class="lyric-stage"><div class="lyrics-grid">
-<div class="lyric-card on">
+  <div class="slide-body"><div class="lyric-stage"><div class="lyrics-grid">
+<div class="lyric-card">
 <div style="display:flex; justify-content:space-between; align-items:center;">
 <strong style="color:var(--accent-orig); font-size:14px;">1. Suno Pronunciation-Engineered Phonetic Lyrics</strong>
 <button class="btn-primary" onclick="copyText('lyric-v1', this)" type="button">Copy V1 (Suno EN)</button>
@@ -3144,6 +3078,90 @@ IPA: [ˈbuːm t͡sʰ   ˈbuːm  bə   ˈbuːm]| [χː   ˈʀæ   χ   ˈʀæː] 
 RHY:  ♪·    ♬     ♪·     ♬     ♩    |  ♬     ♬    ♬    ♩     |  ♬    ♬     ♬    ♩</pre>
 </div>
 </div></div></div>
+</section>
+<section class="slide " data-slide="suno-style" data-chapter="Suno" aria-label="11 of 13">
+  <div class="slide-cap">
+    <div class="slide-eyebrow">11<span>/ 13</span> Prompting Suno</div>
+    <h2>Build a style prompt</h2>
+    <p>Six genre directions that suit this groove. Pick one as the base, add flavor modifiers, and copy the combined prompt into Suno's style field.</p>
+    <div class="how"><div><span class="k">Card</span><span>Set the base style</span></div><div><span class="k">Chip</span><span>Add or remove a flavor</span></div><div><span class="k">Copy</span><span>Copy the combined prompt</span></div></div>
+    <button type="button" class="slide-next" data-next>Next <small>All 147 sounds</small> →</button>
+  </div>
+  <div class="slide-body"><div class="style-wrap"><div class="scroll-y fill"><div class="style-cards-grid">
+<div class="style-card selected" id="scard-0" onclick="selectBaseStyle(0)">
+<div>
+<h4>Option A: 90s Turntablist Boom-Bap &amp; Beatbox Cypher</h4>
+<p class="style-why"><strong>Ref:</strong> Rahzel / Scratch / The Roots.<br/>Built around the 83.5 BPM halftime 808 vocal sub-kicks (<code>[ˈbuːm]</code>), affricate hats (<code>[t͡sʰ]</code>), snare washes (<code>[ˈbuʃ]</code>), and uvular vinyl scratches (<code>Hhh-RA-hh-RA!</code>).</p>
+</div>
+<div>
+<div class="style-prompt-code" id="sprompt-0">90s underground boom-bap hip-hop, live human beatbox percussion, vocal bassline 808 sub-kicks, turntablism vinyl record scratches, raw vocal scatting, punchy dry close-mic vocals, 85 BPM</div>
+<button class="btn-primary" onclick="event.stopPropagation(); copyText('sprompt-0', this)" style="margin-top:8px; width:100%;" type="button">Copy Style A</button>
+</div>
+</div>
+<div class="style-card" id="scard-1" onclick="selectBaseStyle(1)">
+<div>
+<h4>Option B: Future Funk / Talkbox Brass-Bounce &amp; Glitch-Hop</h4>
+<p class="style-why"><strong>Ref:</strong> Chromeo / Gramatik / Opiuo / Beardyman.<br/>Matches Phrase 3's envelope-filtered brass wah stabs (<code>BOW-buh-BOW!</code>), 500 Hz pinched falsetto squeak (<code>WHEN!↑</code>), and 131 BPM double-tongued chopper.</p>
+</div>
+<div>
+<div class="style-prompt-code" id="sprompt-1">glitch-hop future funk, talkbox synth-brass wah stabs, rhythmic vocal chops, slap bass, crisp percussive scatting, micro-sampled vocal percussion, high-energy funk pocket, 112 BPM</div>
+<button class="btn-primary" onclick="event.stopPropagation(); copyText('sprompt-1', this)" style="margin-top:8px; width:100%;" type="button">Copy Style B</button>
+</div>
+</div>
+<div class="style-card" id="scard-2" onclick="selectBaseStyle(2)">
+<div>
+<h4>Option C: Avant-Garde Loop-Station Funk &amp; Neo-Soul Pocket</h4>
+<p class="style-why"><strong>Ref:</strong> Reggie Watts / Marc Rebillet / Bobby McFerrin / J Dilla.<br/>Captures the laid-back -18ms swung 16th pocket, nasal clavinet muting (<code>camp, pump</code>), hollow cork-pop transients (<code>pink, 'in</code>), and theatrical hums.</p>
+</div>
+<div>
+<div class="style-prompt-code" id="sprompt-2">live loop-station vocal funk, neo-soul swung pocket, Reggie Watts style experimental vocal groove, mouth-percussion, clavinet vocal muting, human bass hum, playful theatrical beatbox scat, 98 BPM</div>
+<button class="btn-primary" onclick="event.stopPropagation(); copyText('sprompt-2', this)" style="margin-top:8px; width:100%;" type="button">Copy Style C</button>
+</div>
+</div>
+<div class="style-card" id="scard-3" onclick="selectBaseStyle(3)">
+<div>
+<h4>Option D: UK Bassline / Halftime Wonky Trap &amp; Vocal Chops</h4>
+<p class="style-why"><strong>Ref:</strong> TroyBoi / Tipper / Baauer / Hudson Mohawke.<br/>Turns the air riser (<code>FWOO-BWAH!</code>), sub-100Hz 808 kicks, and syncopated <code>ship it DOWN / take it DOWN</code> hooks into a heavy festival trap/halftime drop.</p>
+</div>
+<div>
+<div class="style-prompt-code" id="sprompt-3">wonky halftime trap, heavy 808 sub-bass glides, pitched vocal chop hooks, festival horn stabs, crisp mouth percussion foley, reverse air risers, swaggering halftime bounce, 84 BPM</div>
+<button class="btn-primary" onclick="event.stopPropagation(); copyText('sprompt-3', this)" style="margin-top:8px; width:100%;" type="button">Copy Style D</button>
+</div>
+</div>
+<div class="style-card" id="scard-4" onclick="selectBaseStyle(4)">
+<div>
+<h4>Option E: Nu-Jazz / Scat-Funk &amp; Hyper-Pocket Drumline</h4>
+<p class="style-why"><strong>Ref:</strong> Louis Cole (Knower) / Cab Calloway / Caravan Palace.<br/>Highlights the rapid 32nd-note paradiddle drum roll (<code>thuh-buh-chuh-kuh-buh-GAH!</code>), sextuplet <code>ski-bi-di-BAH!</code>, and punchy big-band horn articulations.</p>
+</div>
+<div>
+<div class="style-prompt-code" id="sprompt-4">nu-jazz scat funk, tight drumline vocal percussion, punchy big-band brass stabs, rapid double-tongue vocal rolls, Louis Cole style hyper-funk pocket, dry studio drums, 122 BPM</div>
+<button class="btn-primary" onclick="event.stopPropagation(); copyText('sprompt-4', this)" style="margin-top:8px; width:100%;" type="button">Copy Style E</button>
+</div>
+</div>
+<div class="style-card" id="scard-5" onclick="selectBaseStyle(5)">
+<div>
+<h4>Option F: Phonk / Memphis Cowbell &amp; Dirty Turntable Chop</h4>
+<p class="style-why"><strong>Ref:</strong> DJ Smokey / Tommy Wright III / Drift Phonk.<br/>Pairs the gritty uvular throat scrapes (<code>[χː ˈʀæ]</code>), clipped alveolar woodblock pops (<code>[ˈpʰɪŋk̚]</code>), and distorted sub-bass <code>Boom-ts-boom</code> cadence.</p>
+</div>
+<div>
+<div class="style-prompt-code" id="sprompt-5">underground phonk, gritty lo-fi vocal chops, distorted 808 cowbell bounce, vinyl scratch cuts, punchy Memphis rap cadence, raw close-mic vocal percussion, 86 BPM</div>
+<button class="btn-primary" onclick="event.stopPropagation(); copyText('sprompt-5', this)" style="margin-top:8px; width:100%;" type="button">Copy Style F</button>
+</div>
+</div>
+</div></div><div class="panel style-dock"><div class="section-sublabel" style="margin-top:18px;">Click Flavor Modifiers to Mix Into Your Active Style Prompt</div><div class="flavor-row">
+<span class="flavor-chip" onclick="toggleFlavor(this, 'close-mic ASMR transients, dry studio booth, zero reverb')">🎙️ Dry Close-Mic ASMR Transients</span>
+<span class="flavor-chip" onclick="toggleFlavor(this, 'talkbox formant filter, auto-wah envelope sweep, clavinet funk')">🎛️ Talkbox / Auto-Wah Formant Filter</span>
+<span class="flavor-chip" onclick="toggleFlavor(this, 'DJ vinyl scratch breaks, MPC sampler stutter chops')">💿 DJ Scratch &amp; MPC Stutter Chops</span>
+<span class="flavor-chip" onclick="toggleFlavor(this, 'heavy 808 sub-bass sustain, chest-thumping low end')">🔊 Heavy 808 Sub-Bass Weight</span>
+<span class="flavor-chip" onclick="toggleFlavor(this, 'drunk J Dilla swing, unquantized human pocket, ghost notes')">🥁 Drunk Dilla Swing &amp; Ghost Notes</span>
+<span class="flavor-chip" onclick="toggleFlavor(this, 'double-time 32nd-note vocal chopper fill, virtuosic articulation')">⚡ 32nd-Note Chopper Virtuosity</span>
+</div><div class="combined-prompt-bar">
+<div style="flex:1; min-width:240px;">
+<div style="font-size:10.5px; color:var(--text-muted); text-transform:uppercase; font-weight:800;">Combined Ready-to-Paste Suno Style Prompt</div>
+<div id="combinedStyleOut" style="font-family:var(--font-mono); font-size:12.5px; color:var(--accent-orig); font-weight:700; margin-top:4px;">90s underground boom-bap hip-hop, live human beatbox percussion, vocal bassline 808 sub-kicks, turntablism vinyl record scratches, raw vocal scatting, punchy dry close-mic vocals, 85 BPM</div>
+</div>
+<button class="btn-primary" onclick="copyText('combinedStyleOut', this)" type="button">📋 Copy Combined Style Prompt</button>
+</div></div></div></div>
 </section>
 <section class="slide " data-slide="events" data-chapter="Events" aria-label="12 of 13">
   <div class="slide-cap">
@@ -3648,6 +3666,7 @@ if (EVENTS.length > 0) {
   updateHudFromEvent(EVENTS[0]);
 }
 </script>
+<script>const HITS = [{"i":1,"s":0.0,"e":0.234,"ev":1,"part":1,"parts":1,"w":0,"pk":-54.8,"x":0},{"i":2,"s":0.234,"e":0.371,"ev":2,"part":1,"parts":1,"w":0,"pk":-28.2,"x":0},{"i":3,"s":0.371,"e":0.537,"ev":4,"part":1,"parts":1,"w":0,"pk":-25.9,"x":0},{"i":4,"s":0.537,"e":0.699,"ev":5,"part":1,"parts":1,"w":0,"pk":-31.7,"x":0},{"i":5,"s":0.699,"e":0.821,"ev":6,"part":1,"parts":1,"w":0,"pk":-22.6,"x":0},{"i":6,"s":0.821,"e":1.053,"ev":7,"part":1,"parts":1,"w":0,"pk":-24.1,"x":0},{"i":7,"s":1.053,"e":1.145,"ev":8,"part":1,"parts":1,"w":0,"pk":-21.8,"x":0},{"i":8,"s":1.145,"e":1.25,"ev":9,"part":1,"parts":1,"w":0,"pk":-21.4,"x":0},{"i":9,"s":1.25,"e":1.409,"ev":10,"part":1,"parts":2,"w":0,"pk":-25.9,"x":0},{"i":10,"s":1.409,"e":1.55,"ev":10,"part":2,"parts":2,"w":0,"pk":-22.7,"x":1},{"i":11,"s":1.55,"e":1.721,"ev":11,"part":1,"parts":1,"w":0,"pk":-20.9,"x":0},{"i":12,"s":1.721,"e":1.87,"ev":12,"part":1,"parts":1,"w":0,"pk":-26.4,"x":0},{"i":13,"s":1.87,"e":2.02,"ev":13,"part":1,"parts":1,"w":0,"pk":-31.8,"x":0},{"i":14,"s":2.02,"e":2.149,"ev":14,"part":1,"parts":1,"w":0,"pk":-24.6,"x":0},{"i":15,"s":2.149,"e":2.304,"ev":16,"part":1,"parts":2,"w":0,"pk":-29.8,"x":0},{"i":16,"s":2.304,"e":2.368,"ev":16,"part":2,"parts":2,"w":0,"pk":-40.6,"x":1},{"i":17,"s":2.368,"e":2.451,"ev":17,"part":1,"parts":1,"w":0,"pk":-20.7,"x":0},{"i":18,"s":2.451,"e":2.741,"ev":18,"part":1,"parts":1,"w":1,"pk":-23.9,"x":0},{"i":19,"s":2.741,"e":2.87,"ev":19,"part":1,"parts":1,"w":1,"pk":-34.4,"x":0},{"i":20,"s":2.87,"e":3.036,"ev":20,"part":1,"parts":1,"w":1,"pk":-23.4,"x":0},{"i":21,"s":3.036,"e":3.212,"ev":21,"part":1,"parts":1,"w":1,"pk":-24.3,"x":0},{"i":22,"s":3.212,"e":3.342,"ev":22,"part":1,"parts":1,"w":1,"pk":-33.1,"x":0},{"i":23,"s":3.342,"e":3.704,"ev":23,"part":1,"parts":1,"w":1,"pk":-23.7,"x":0},{"i":24,"s":3.704,"e":3.98,"ev":24,"part":1,"parts":3,"w":1,"pk":-24.1,"x":0},{"i":25,"s":3.98,"e":4.114,"ev":24,"part":2,"parts":3,"w":1,"pk":-29.5,"x":1},{"i":26,"s":4.114,"e":4.336,"ev":24,"part":3,"parts":3,"w":1,"pk":-21.7,"x":1},{"i":27,"s":4.336,"e":4.622,"ev":25,"part":1,"parts":2,"w":1,"pk":-23.9,"x":0},{"i":28,"s":4.622,"e":4.756,"ev":25,"part":2,"parts":2,"w":1,"pk":-47.3,"x":1},{"i":29,"s":4.756,"e":4.828,"ev":26,"part":1,"parts":5,"w":2,"pk":-56.9,"x":0},{"i":30,"s":4.828,"e":4.969,"ev":26,"part":2,"parts":5,"w":2,"pk":-20.0,"x":1},{"i":31,"s":4.969,"e":5.096,"ev":26,"part":3,"parts":5,"w":2,"pk":-21.4,"x":1},{"i":32,"s":5.096,"e":5.225,"ev":26,"part":4,"parts":5,"w":2,"pk":-26.5,"x":1},{"i":33,"s":5.225,"e":5.438,"ev":26,"part":5,"parts":5,"w":2,"pk":-22.0,"x":1},{"i":34,"s":5.438,"e":6.084,"ev":27,"part":1,"parts":1,"w":2,"pk":-31.6,"x":0},{"i":35,"s":6.084,"e":6.132,"ev":28,"part":1,"parts":1,"w":2,"pk":-22.9,"x":0},{"i":36,"s":6.132,"e":6.39,"ev":29,"part":1,"parts":1,"w":2,"pk":-20.4,"x":0},{"i":37,"s":6.39,"e":6.558,"ev":30,"part":1,"parts":1,"w":2,"pk":-34.2,"x":0},{"i":38,"s":6.558,"e":6.714,"ev":31,"part":1,"parts":1,"w":2,"pk":-27.9,"x":0},{"i":39,"s":6.714,"e":6.825,"ev":32,"part":1,"parts":2,"w":2,"pk":-18.8,"x":0},{"i":40,"s":6.825,"e":7.002,"ev":32,"part":2,"parts":2,"w":2,"pk":-26.2,"x":1},{"i":41,"s":7.002,"e":7.117,"ev":33,"part":1,"parts":2,"w":2,"pk":-29.6,"x":0},{"i":42,"s":7.117,"e":7.466,"ev":33,"part":2,"parts":2,"w":2,"pk":-18.6,"x":1},{"i":43,"s":7.466,"e":7.525,"ev":34,"part":1,"parts":1,"w":2,"pk":-20.1,"x":0},{"i":44,"s":7.525,"e":7.721,"ev":35,"part":1,"parts":2,"w":2,"pk":-18.3,"x":0},{"i":45,"s":7.721,"e":7.79,"ev":35,"part":2,"parts":2,"w":2,"pk":-29.7,"x":1},{"i":46,"s":7.79,"e":7.978,"ev":36,"part":1,"parts":1,"w":2,"pk":-20.1,"x":0},{"i":47,"s":7.978,"e":8.144,"ev":37,"part":1,"parts":1,"w":2,"pk":-15.1,"x":0},{"i":48,"s":8.144,"e":8.445,"ev":38,"part":1,"parts":1,"w":2,"pk":-23.6,"x":0},{"i":49,"s":8.445,"e":8.785,"ev":39,"part":1,"parts":1,"w":3,"pk":-28.1,"x":0},{"i":50,"s":8.785,"e":9.094,"ev":40,"part":1,"parts":1,"w":3,"pk":-19.3,"x":0},{"i":51,"s":9.094,"e":9.291,"ev":41,"part":1,"parts":1,"w":3,"pk":-26.5,"x":0},{"i":52,"s":9.291,"e":9.436,"ev":42,"part":1,"parts":1,"w":3,"pk":-18.7,"x":0},{"i":53,"s":9.436,"e":9.704,"ev":43,"part":1,"parts":1,"w":3,"pk":-20.3,"x":0},{"i":54,"s":9.704,"e":9.999,"ev":44,"part":1,"parts":1,"w":3,"pk":-17.7,"x":0},{"i":55,"s":9.999,"e":10.12,"ev":45,"part":1,"parts":1,"w":3,"pk":-19.7,"x":0},{"i":56,"s":10.12,"e":10.321,"ev":46,"part":1,"parts":2,"w":3,"pk":-23.1,"x":0},{"i":57,"s":10.321,"e":10.464,"ev":46,"part":2,"parts":2,"w":3,"pk":-23.1,"x":1},{"i":58,"s":10.464,"e":10.672,"ev":47,"part":1,"parts":1,"w":3,"pk":-22.2,"x":0},{"i":59,"s":10.672,"e":10.781,"ev":48,"part":1,"parts":1,"w":3,"pk":-16.6,"x":0},{"i":60,"s":10.781,"e":10.944,"ev":49,"part":1,"parts":1,"w":3,"pk":-21.5,"x":0},{"i":61,"s":10.944,"e":11.137,"ev":50,"part":1,"parts":1,"w":3,"pk":-25.0,"x":0},{"i":62,"s":11.137,"e":11.298,"ev":51,"part":1,"parts":1,"w":3,"pk":-17.7,"x":0},{"i":63,"s":11.298,"e":11.47,"ev":52,"part":1,"parts":2,"w":3,"pk":-18.0,"x":0},{"i":64,"s":11.47,"e":11.686,"ev":52,"part":2,"parts":2,"w":3,"pk":-18.0,"x":1},{"i":65,"s":11.686,"e":12.194,"ev":53,"part":1,"parts":2,"w":3,"pk":-40.0,"x":0},{"i":66,"s":12.194,"e":12.503,"ev":53,"part":2,"parts":2,"w":3,"pk":-44.4,"x":1},{"i":67,"s":12.503,"e":12.682,"ev":54,"part":1,"parts":1,"w":4,"pk":-32.7,"x":0},{"i":68,"s":12.682,"e":12.808,"ev":55,"part":1,"parts":2,"w":4,"pk":-41.9,"x":0},{"i":69,"s":12.808,"e":12.919,"ev":55,"part":2,"parts":2,"w":4,"pk":-25.5,"x":1},{"i":70,"s":12.919,"e":13.088,"ev":56,"part":1,"parts":1,"w":4,"pk":-19.3,"x":0},{"i":71,"s":13.088,"e":13.247,"ev":57,"part":1,"parts":2,"w":4,"pk":-29.8,"x":0},{"i":72,"s":13.247,"e":13.554,"ev":57,"part":2,"parts":2,"w":4,"pk":-10.9,"x":1},{"i":73,"s":13.563,"e":13.718,"ev":58,"part":1,"parts":1,"w":4,"pk":-25.5,"x":0},{"i":74,"s":13.718,"e":14.025,"ev":59,"part":1,"parts":1,"w":4,"pk":-15.2,"x":0},{"i":75,"s":14.025,"e":14.339,"ev":60,"part":1,"parts":1,"w":4,"pk":-22.4,"x":0},{"i":76,"s":14.339,"e":14.865,"ev":61,"part":1,"parts":1,"w":4,"pk":-13.6,"x":0},{"i":77,"s":14.865,"e":15.045,"ev":62,"part":1,"parts":1,"w":4,"pk":-20.0,"x":0},{"i":78,"s":15.045,"e":15.167,"ev":63,"part":1,"parts":1,"w":4,"pk":-21.0,"x":0},{"i":79,"s":15.167,"e":15.305,"ev":64,"part":1,"parts":1,"w":4,"pk":-18.8,"x":0},{"i":80,"s":15.305,"e":15.583,"ev":65,"part":1,"parts":1,"w":4,"pk":-20.6,"x":0},{"i":81,"s":15.583,"e":15.767,"ev":66,"part":1,"parts":1,"w":4,"pk":-39.4,"x":0},{"i":82,"s":15.767,"e":15.932,"ev":67,"part":1,"parts":1,"w":5,"pk":-23.1,"x":0},{"i":83,"s":15.932,"e":16.074,"ev":68,"part":1,"parts":1,"w":5,"pk":-26.4,"x":0},{"i":84,"s":16.074,"e":16.264,"ev":69,"part":1,"parts":1,"w":5,"pk":-22.7,"x":0},{"i":85,"s":16.264,"e":16.369,"ev":70,"part":1,"parts":2,"w":5,"pk":-25.7,"x":0},{"i":86,"s":16.369,"e":16.441,"ev":70,"part":2,"parts":2,"w":5,"pk":-31.5,"x":1},{"i":87,"s":16.441,"e":16.549,"ev":71,"part":1,"parts":1,"w":5,"pk":-22.4,"x":0},{"i":88,"s":16.549,"e":16.724,"ev":72,"part":1,"parts":1,"w":5,"pk":-21.8,"x":0},{"i":89,"s":16.724,"e":16.894,"ev":73,"part":1,"parts":1,"w":5,"pk":-16.9,"x":0},{"i":90,"s":16.894,"e":17.247,"ev":74,"part":1,"parts":1,"w":5,"pk":-20.8,"x":0},{"i":91,"s":17.247,"e":17.448,"ev":75,"part":1,"parts":1,"w":5,"pk":-33.4,"x":0},{"i":92,"s":17.448,"e":17.595,"ev":76,"part":1,"parts":1,"w":5,"pk":-22.9,"x":0},{"i":93,"s":17.595,"e":17.743,"ev":77,"part":1,"parts":1,"w":5,"pk":-20.9,"x":0},{"i":94,"s":17.743,"e":17.923,"ev":78,"part":1,"parts":2,"w":5,"pk":-19.2,"x":0},{"i":95,"s":17.923,"e":18.086,"ev":78,"part":2,"parts":2,"w":5,"pk":-19.4,"x":1},{"i":96,"s":18.086,"e":18.277,"ev":79,"part":1,"parts":1,"w":5,"pk":-42.6,"x":0},{"i":97,"s":18.277,"e":18.312,"ev":80,"part":1,"parts":1,"w":5,"pk":-37.5,"x":0},{"i":98,"s":18.312,"e":18.477,"ev":81,"part":1,"parts":1,"w":5,"pk":-30.4,"x":0},{"i":99,"s":18.477,"e":18.56,"ev":82,"part":1,"parts":1,"w":6,"pk":-15.6,"x":0},{"i":100,"s":18.56,"e":18.634,"ev":83,"part":1,"parts":1,"w":6,"pk":-14.7,"x":0},{"i":101,"s":18.634,"e":18.775,"ev":84,"part":1,"parts":1,"w":6,"pk":-14.0,"x":0},{"i":102,"s":18.775,"e":18.935,"ev":85,"part":1,"parts":1,"w":6,"pk":-21.1,"x":0},{"i":103,"s":18.935,"e":19.083,"ev":87,"part":1,"parts":3,"w":6,"pk":-18.9,"x":0},{"i":104,"s":19.083,"e":19.205,"ev":87,"part":2,"parts":3,"w":6,"pk":-25.7,"x":1},{"i":105,"s":19.205,"e":19.34,"ev":87,"part":3,"parts":3,"w":6,"pk":-20.3,"x":1},{"i":106,"s":19.34,"e":19.498,"ev":88,"part":1,"parts":1,"w":6,"pk":-19.4,"x":0},{"i":107,"s":19.498,"e":19.64,"ev":89,"part":1,"parts":1,"w":6,"pk":-22.4,"x":0},{"i":108,"s":19.64,"e":19.871,"ev":90,"part":1,"parts":1,"w":6,"pk":-21.7,"x":0},{"i":109,"s":19.871,"e":20.167,"ev":91,"part":1,"parts":3,"w":6,"pk":-29.2,"x":0},{"i":110,"s":20.167,"e":20.332,"ev":91,"part":2,"parts":3,"w":6,"pk":-16.1,"x":1},{"i":111,"s":20.332,"e":20.475,"ev":91,"part":3,"parts":3,"w":6,"pk":-20.7,"x":1},{"i":112,"s":20.475,"e":20.711,"ev":92,"part":1,"parts":1,"w":6,"pk":-18.9,"x":0},{"i":113,"s":20.711,"e":20.941,"ev":93,"part":1,"parts":1,"w":7,"pk":-31.6,"x":0},{"i":114,"s":20.941,"e":21.109,"ev":94,"part":1,"parts":1,"w":7,"pk":-31.0,"x":0},{"i":115,"s":21.109,"e":21.21,"ev":95,"part":1,"parts":2,"w":7,"pk":-22.8,"x":0},{"i":116,"s":21.21,"e":21.397,"ev":95,"part":2,"parts":2,"w":7,"pk":-23.2,"x":1},{"i":117,"s":21.397,"e":21.558,"ev":96,"part":1,"parts":1,"w":7,"pk":-17.5,"x":0},{"i":118,"s":21.558,"e":21.73,"ev":97,"part":1,"parts":2,"w":7,"pk":-21.2,"x":0},{"i":119,"s":21.73,"e":21.942,"ev":97,"part":2,"parts":2,"w":7,"pk":-20.5,"x":1},{"i":120,"s":21.942,"e":22.073,"ev":98,"part":1,"parts":1,"w":7,"pk":-23.8,"x":0},{"i":121,"s":22.073,"e":22.217,"ev":99,"part":1,"parts":3,"w":7,"pk":-16.6,"x":0},{"i":122,"s":22.217,"e":22.6,"ev":99,"part":2,"parts":3,"w":7,"pk":-14.9,"x":1},{"i":123,"s":22.6,"e":22.701,"ev":99,"part":3,"parts":3,"w":7,"pk":-25.7,"x":1},{"i":124,"s":22.701,"e":22.907,"ev":100,"part":1,"parts":1,"w":7,"pk":-25.4,"x":0},{"i":125,"s":22.907,"e":23.251,"ev":101,"part":1,"parts":1,"w":7,"pk":-11.3,"x":0},{"i":126,"s":23.268,"e":23.779,"ev":102,"part":1,"parts":1,"w":8,"pk":-13.0,"x":0},{"i":127,"s":23.779,"e":23.908,"ev":103,"part":1,"parts":1,"w":8,"pk":-26.6,"x":0},{"i":128,"s":23.908,"e":24.155,"ev":104,"part":1,"parts":1,"w":8,"pk":-25.7,"x":0},{"i":129,"s":24.155,"e":24.452,"ev":105,"part":1,"parts":1,"w":8,"pk":-24.1,"x":0},{"i":130,"s":24.452,"e":24.807,"ev":106,"part":1,"parts":1,"w":8,"pk":-18.7,"x":0},{"i":131,"s":24.807,"e":24.934,"ev":107,"part":1,"parts":1,"w":8,"pk":-21.4,"x":0},{"i":132,"s":24.934,"e":25.518,"ev":108,"part":1,"parts":1,"w":8,"pk":-16.3,"x":0},{"i":133,"s":25.518,"e":25.676,"ev":109,"part":1,"parts":1,"w":8,"pk":-47.9,"x":0},{"i":134,"s":25.676,"e":26.165,"ev":110,"part":1,"parts":1,"w":9,"pk":-20.5,"x":0},{"i":135,"s":26.165,"e":26.506,"ev":111,"part":1,"parts":1,"w":9,"pk":-24.8,"x":0},{"i":136,"s":26.506,"e":26.701,"ev":112,"part":1,"parts":1,"w":9,"pk":-24.0,"x":0},{"i":137,"s":26.701,"e":26.92,"ev":113,"part":1,"parts":2,"w":9,"pk":-23.3,"x":0},{"i":138,"s":26.92,"e":27.151,"ev":113,"part":2,"parts":2,"w":9,"pk":-44.0,"x":1},{"i":139,"s":27.151,"e":27.415,"ev":114,"part":1,"parts":2,"w":9,"pk":-31.6,"x":0},{"i":140,"s":27.415,"e":27.49,"ev":114,"part":2,"parts":2,"w":9,"pk":-51.4,"x":1},{"i":141,"s":27.49,"e":27.675,"ev":115,"part":1,"parts":1,"w":9,"pk":-25.6,"x":0},{"i":142,"s":27.675,"e":27.831,"ev":116,"part":1,"parts":1,"w":9,"pk":-19.5,"x":0},{"i":143,"s":27.831,"e":28.447,"ev":117,"part":1,"parts":1,"w":9,"pk":-21.0,"x":0},{"i":144,"s":28.447,"e":28.575,"ev":118,"part":1,"parts":1,"w":9,"pk":-30.3,"x":0},{"i":145,"s":28.575,"e":28.778,"ev":119,"part":1,"parts":2,"w":10,"pk":-27.2,"x":0},{"i":146,"s":28.778,"e":28.919,"ev":119,"part":2,"parts":2,"w":10,"pk":-30.2,"x":1},{"i":147,"s":28.919,"e":29.044,"ev":120,"part":1,"parts":1,"w":10,"pk":-28.4,"x":0},{"i":148,"s":29.044,"e":29.401,"ev":121,"part":1,"parts":1,"w":10,"pk":-20.3,"x":0},{"i":149,"s":29.401,"e":29.562,"ev":122,"part":1,"parts":1,"w":10,"pk":-23.5,"x":0},{"i":150,"s":29.562,"e":30.138,"ev":123,"part":1,"parts":1,"w":10,"pk":-23.5,"x":0},{"i":151,"s":30.138,"e":30.215,"ev":124,"part":1,"parts":1,"w":10,"pk":-34.6,"x":0},{"i":152,"s":30.215,"e":30.494,"ev":125,"part":1,"parts":1,"w":10,"pk":-25.6,"x":0},{"i":153,"s":30.494,"e":30.574,"ev":126,"part":1,"parts":1,"w":10,"pk":-32.0,"x":0},{"i":154,"s":30.574,"e":31.107,"ev":127,"part":1,"parts":1,"w":10,"pk":-24.4,"x":0},{"i":155,"s":31.107,"e":31.356,"ev":128,"part":1,"parts":1,"w":10,"pk":-27.4,"x":0},{"i":156,"s":31.356,"e":31.481,"ev":129,"part":1,"parts":3,"w":10,"pk":-28.6,"x":0},{"i":157,"s":31.481,"e":31.703,"ev":129,"part":2,"parts":3,"w":11,"pk":-18.4,"x":1},{"i":158,"s":31.703,"e":31.832,"ev":129,"part":3,"parts":3,"w":11,"pk":-34.9,"x":1},{"i":159,"s":31.832,"e":31.999,"ev":130,"part":1,"parts":1,"w":11,"pk":-27.1,"x":0},{"i":160,"s":31.999,"e":32.357,"ev":131,"part":1,"parts":1,"w":11,"pk":-31.1,"x":0},{"i":161,"s":32.357,"e":32.532,"ev":132,"part":1,"parts":1,"w":11,"pk":-25.3,"x":0},{"i":162,"s":32.532,"e":33.087,"ev":133,"part":1,"parts":1,"w":11,"pk":-26.0,"x":0},{"i":163,"s":33.087,"e":33.253,"ev":134,"part":1,"parts":1,"w":11,"pk":-30.8,"x":0},{"i":164,"s":33.253,"e":33.556,"ev":135,"part":1,"parts":1,"w":11,"pk":-20.8,"x":0},{"i":165,"s":33.556,"e":33.622,"ev":136,"part":1,"parts":1,"w":11,"pk":-37.3,"x":0},{"i":166,"s":33.622,"e":33.883,"ev":137,"part":1,"parts":1,"w":11,"pk":-16.5,"x":0},{"i":167,"s":34.166,"e":34.84,"ev":138,"part":1,"parts":1,"w":11,"pk":-57.1,"x":0},{"i":168,"s":34.84,"e":35.07,"ev":139,"part":1,"parts":1,"w":12,"pk":-31.9,"x":0},{"i":169,"s":35.07,"e":35.411,"ev":140,"part":1,"parts":1,"w":12,"pk":-17.2,"x":0},{"i":170,"s":35.411,"e":36.523,"ev":141,"part":1,"parts":1,"w":12,"pk":-35.3,"x":0},{"i":171,"s":36.523,"e":36.691,"ev":142,"part":1,"parts":1,"w":13,"pk":-26.9,"x":0},{"i":172,"s":36.691,"e":36.83,"ev":143,"part":1,"parts":1,"w":13,"pk":-16.1,"x":0},{"i":173,"s":36.83,"e":36.959,"ev":144,"part":1,"parts":1,"w":13,"pk":-16.6,"x":0},{"i":174,"s":36.959,"e":37.324,"ev":145,"part":1,"parts":1,"w":13,"pk":-23.2,"x":0},{"i":175,"s":37.324,"e":37.495,"ev":146,"part":1,"parts":2,"w":13,"pk":-40.0,"x":0},{"i":176,"s":37.495,"e":37.666,"ev":146,"part":2,"parts":2,"w":13,"pk":-59.6,"x":1},{"i":177,"s":37.666,"e":37.8,"ev":147,"part":1,"parts":1,"w":13,"pk":-37.8,"x":0}];</script>
 
 <script>
 /* ================================================================
@@ -3748,10 +3767,14 @@ if (EVENTS.length > 0) {
   /* --- pad data --- */
   function padDefs() {
     if (S.src === 'orig') {
-      return (typeof EVENTS !== 'undefined' ? EVENTS : []).map((ev) => ({
-        label: ev.syl, ipa: ev.ipa, num: ev.idx, start: ev.start, end: ev.end + 0.045,
-        color: (typeof CAT_COLORS !== 'undefined' && CAT_COLORS[ev.cat]) || '#38bdf8', ev
-      }));
+      const byId = {}; (typeof EVENTS !== 'undefined' ? EVENTS : []).forEach((e) => { byId[e.idx] = e; });
+      return (typeof HITS !== 'undefined' ? HITS : []).map((h) => {
+        const ev = byId[h.ev] || {};
+        return {
+          label: (ev.syl || '?') + (h.parts > 1 ? ' ' + h.part + '/' + h.parts : ''), ipa: ev.ipa || '', num: h.i,
+          start: h.s, end: h.e, color: (typeof CAT_COLORS !== 'undefined' && CAT_COLORS[ev.cat]) || '#38bdf8', ev, hit: h
+        };
+      });
     }
     const dur = S.buffers.suno ? S.buffers.suno.duration : 89.36;
     const step = dur / SUNO_CHOPS;
@@ -3779,7 +3802,7 @@ if (EVENTS.length > 0) {
     }
     grid.innerHTML = html;
     $('bankLabel').textContent = `Bank ${S.bank + 1} / ${nb}`;
-    $('padHint').textContent = S.src === 'orig' ? `${defs.length} events from the video` : `${SUNO_CHOPS} equal chops of the Suno render`;
+    $('padHint').textContent = S.src === 'orig' ? `${defs.length} hits from the video, cut at each attack` : `${SUNO_CHOPS} equal chops of the Suno render`;
   }
 
   /* --- audio engine --- */
@@ -3889,6 +3912,7 @@ if (EVENTS.length > 0) {
     const defs = padDefs(), d = defs[S.bank * PADS_PER_BANK + padIdx];
     if (!d) return;
     flashPad(padIdx, vel);
+    if (d.hit && window.lightHit) window.lightHit(d.hit.i);
     if (d.ev && typeof updateHudFromEvent === 'function') { try { updateHudFromEvent(d.ev); } catch (e) { /* HUD optional */ } }
     sampleVoice(d, vel, S.src + ':' + (S.bank * PADS_PER_BANK + padIdx));
   }
@@ -4111,34 +4135,57 @@ if (EVENTS.length > 0) {
   }
 
 
-  /* ---------- Rail pad grid (replaces the scrolling rhythm strip) ---------- */
+  /* ---------- Pads slide grid: every audio-aligned hit in the window ---------- */
   let railWin = null;
   const catColor = (c) => (typeof CAT_COLORS !== 'undefined' && CAT_COLORS[c]) || '#64748b';
-  window.renderSectionScore = function (winObj, activeIdx) {
-    const box = $('hudSectionScore'); if (!winObj || !box) return;
-    const lab = $('hudWinLabel'); if (lab) lab.textContent = winObj.id.replace('zoom_', 'Window ') + ' \u00B7 ' + winObj.start.toFixed(1) + '\u2013' + winObj.end.toFixed(1) + 's';
-    if (railWin !== winObj.id || !box.querySelector('.rail-pad')) {
-      railWin = winObj.id;
-      const evs = EVENTS.filter((e) => winObj.events.includes(e.idx));
-      box.innerHTML = '<div class="rail-pad-grid">' + evs.map((e) => `<button type="button" class="rail-pad" id="spill-${e.idx}" data-idx="${e.idx}" style="--pad-col:${catColor(e.cat)}" title="#${e.idx} ${e.syl} [${e.ipa}] ${e.grid_pos}">
-        <span class="rp-top"><span>${String(e.idx).padStart(3, '0')}</span><span>${e.note_sym}</span></span>
-        <span class="rp-syl">${e.syl}</span><span class="rp-ipa">[${e.ipa}]</span></button>`).join('') + '</div>';
-    }
+  const evOf = (idx) => EVENTS.find((e) => e.idx === idx);
+  window.__curHit = null;
+  window.lightHit = function (i) {
+    window.__curHit = i;
+    const box = $('hudSectionScore'); if (!box) return;
     box.querySelectorAll('.rail-pad.current').forEach((el) => el.classList.remove('current'));
-    const cur = $('spill-' + activeIdx);
+    const cur = $('hpad-' + i);
     if (cur) { cur.classList.add('current'); cur.classList.remove('hit'); void cur.offsetWidth; cur.classList.add('hit'); }
   };
+  window.renderSectionScore = function (winObj, activeEvIdx) {
+    const box = $('hudSectionScore'); if (!winObj || !box || typeof HITS === 'undefined') return;
+    const wi = WINDOWS.indexOf(winObj);
+    const hits = HITS.filter((h) => h.w === wi);
+    const lab = $('hudWinLabel'); if (lab) lab.textContent = 'Window ' + String(wi + 1).padStart(2, '0') + ' \u00B7 ' + winObj.start.toFixed(1) + '\u2013' + winObj.end.toFixed(1) + 's \u00B7 ' + hits.length + ' hits';
+    if (railWin !== wi || !box.querySelector('.rail-pad')) {
+      railWin = wi;
+      const cols = hits.length <= 16 ? 4 : hits.length <= 20 ? 5 : 6;
+      box.innerHTML = `<div class="rail-pad-grid" style="--cols:${cols}">` + hits.map((h) => {
+        const e = evOf(h.ev) || {};
+        const part = h.parts > 1 ? `<em>${h.part}/${h.parts}</em>` : '';
+        return `<button type="button" class="rail-pad" id="hpad-${h.i}" data-hit="${h.i}" style="--pad-col:${catColor(e.cat)}" title="Hit ${h.i} \u00B7 ${h.s.toFixed(3)}\u2013${h.e.toFixed(3)}s \u00B7 event #${h.ev} ${e.syl || ''}">
+        <span class="rp-top"><span>${h.s.toFixed(2)}s${h.parts > 1 ? ' \u00B7 ' + h.part + '/' + h.parts : ''}</span><span>${e.note_sym || ''}</span></span>
+        <span class="rp-syl">${e.syl || ''}</span><span class="rp-ipa">[${e.ipa || ''}]</span></button>`;
+      }).join('') + '</div>';
+    }
+    const cur = window.__curHit && HITS[window.__curHit - 1];
+    if (cur && cur.w === wi && cur.ev === activeEvIdx) window.lightHit(cur.i);
+    else { const f = hits.find((h) => h.ev === activeEvIdx); if (f) window.lightHit(f.i); }
+  };
+  window.showHitWindow = function (wi) { if (wi !== railWin) window.renderSectionScore(WINDOWS[wi], null); };
+  function hitOn(i, vel) {
+    const h = HITS[i - 1]; if (!h) return;
+    const ev = evOf(h.ev);
+    if (ev) { try { currentEventIdx = ev.idx; } catch (e) { /* */ } if (typeof updateHudFromEvent === 'function') updateHudFromEvent(ev); }
+    window.lightHit(i);
+    const fast = S.ctx && S.ctx.state === 'running' && S.buffers.orig && sampleVoice({ start: h.s, end: h.e }, vel, 'orig:h' + i);
+    if (!fast) {
+      if (!S.ctx || S.ctx.state !== 'running') enableAudio();
+      if (typeof playSlice === 'function') playSlice(h.s, h.e);
+    }
+  }
   try { const w0 = WINDOWS.find((w) => w.events.includes(currentEventIdx)); if (w0) window.renderSectionScore(w0, currentEventIdx); } catch (e) { /* first paint only */ }
   const railBox = $('hudSectionScore');
   if (railBox) {
     railBox.addEventListener('pointerdown', (e) => {
       const p = e.target.closest('.rail-pad'); if (!p) return;
       e.preventDefault();
-      const idx = parseInt(p.dataset.idx, 10);
-      if (!(window.PLAY && PLAY.eventOn(idx, 112))) {
-        if (!S.ctx || S.ctx.state !== 'running') enableAudio();
-        if (typeof playEventByIdx === 'function') playEventByIdx(idx);
-      }
+      hitOn(parseInt(p.dataset.hit, 10), 112);
     });
   }
 
@@ -4190,7 +4237,7 @@ if (EVENTS.length > 0) {
     drawScope();
   }
 
-  window.PLAY = { eventOn, midi: (bytes) => handleMidi(bytes, 'test'), state: S, enable: enableAudio, padOn, synOn, synOff, setRailWidth };
+  window.PLAY = { hitOn, eventOn, midi: (bytes) => handleMidi(bytes, 'test'), state: S, enable: enableAudio, padOn, synOn, synOff, setRailWidth };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 </script>
@@ -4279,7 +4326,7 @@ if (EVENTS.length > 0) {
   if (wl && typeof WINDOWS !== 'undefined') {
     wl.innerHTML = WINDOWS.map((w, k) => {
       const name = w.title.replace(/^Zoom \d+ \([^)]*\)\s*[—-]\s*/, '').split(':').slice(-1)[0].trim();
-      return `<button type="button" class="win-btn" data-w="${k}"><span class="wn">${String(k + 1).padStart(2, '0')}</span><span>${name}</span><small>${w.start.toFixed(1)}–${w.end.toFixed(1)}s · ${w.events.length} pads</small></button>`;
+      return `<button type="button" class="win-btn" data-w="${k}"><span class="wn">${String(k + 1).padStart(2, '0')}</span><span>${name}</span><small>${w.start.toFixed(1)}–${w.end.toFixed(1)}s · ${(typeof HITS !== 'undefined' ? HITS.filter((h) => h.w === k).length : w.events.length)} hits</small></button>`;
     }).join('');
     wl.addEventListener('click', (e) => {
       const b = e.target.closest('.win-btn'); if (!b) return;
@@ -4307,6 +4354,37 @@ if (EVENTS.length > 0) {
       v.querySelectorAll('.viewer-stage .figure-frame').forEach((f, k) => f.classList.toggle('on', k === i));
     });
   });
+
+  /* ---------- frame-accurate sync (timeupdate only fires ~4x a second) ---------- */
+  const oA = $('origAbAudio'), sA = $('sunoAbAudio');
+  const hitAt = (t) => {
+    if (typeof HITS === 'undefined') return null;
+    let lo = 0, hi = HITS.length - 1, ans = null;
+    while (lo <= hi) { const m = (lo + hi) >> 1; if (HITS[m].s <= t) { ans = HITS[m]; lo = m + 1; } else hi = m - 1; }
+    return ans && t < Math.max(ans.e, ans.s + 0.03) ? ans : ans;
+  };
+  function frame() {
+    requestAnimationFrame(frame);
+    try {
+      if (oA && !oA.paused && origStopAt !== null && oA.currentTime >= origStopAt) { oA.pause(); origStopAt = null; }
+      if (sA && !sA.paused && sunoStopAt !== null && sA.currentTime >= sunoStopAt) { sA.pause(); sunoStopAt = null; }
+    } catch (e) { /* */ }
+    if (!media || media.paused) return;
+    const t = media.currentTime;
+    try {
+      if (stopAt !== null && t >= stopAt) {
+        if (loopSlice && lastSliceEnd !== null) { media.currentTime = lastSliceStart; return; }
+        media.pause(); stopAt = null; return;
+      }
+    } catch (e) { /* */ }
+    try {
+      const ev = EVENTS.find((x) => t >= x.start && t < x.end);
+      if (ev && ev.idx !== currentEventIdx) { currentEventIdx = ev.idx; window.updateHudFromEvent(ev); }
+    } catch (e) { /* */ }
+    const h = hitAt(t);
+    if (h && h.i !== window.__curHit && window.lightHit) { if (window.showHitWindow) window.showHitWindow(h.w); window.lightHit(h.i); }
+  }
+  requestAnimationFrame(frame);
 
   /* ---------- start ---------- */
   try { if (EVENTS.length) window.updateHudFromEvent(EVENTS[0]); } catch (e) { /* */ }
