@@ -1671,6 +1671,111 @@
   .slide-play .play-grid { flex: 1; height: auto !important; min-height: 0; grid-template-rows: minmax(0, 1fr); }
   .slide-play .play-col { min-height: 0; max-height: 100%; }
   @media (max-width: 1100px) { .slide-play .play-grid { grid-template-rows: none; } .slide-play .play-col { max-height: none; } }
+  /* ================= v3.3 overview + analyzer ================= */
+  .ov { display: flex; flex-direction: column; gap: 16px; height: 100%; min-height: 0; }
+  .ov-media { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 14px; }
+  .media-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--r-lg); padding: 16px; display: flex; gap: 14px; min-width: 0; }
+  .media-card.col { flex-direction: column; gap: 6px; }
+  .media-thumb { width: 92px; height: 164px; object-fit: cover; border-radius: 10px; flex-shrink: 0; background: #000; }
+  .media-txt { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .media-kind { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  .media-card b { font-family: var(--font-display); font-size: 18px; letter-spacing: -0.01em; }
+  .media-card ul { list-style: none; margin: 2px 0 0; padding: 0; display: flex; flex-direction: column; gap: 3px; font-size: 12.5px; color: var(--text-secondary); }
+  .media-card ul li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mini-wave { width: 100%; height: 46px; display: block; margin: 4px 0; }
+  .media-go { margin-top: auto; align-self: flex-start; background: none; border: 0; padding: 4px 0 0; color: var(--accent-amber); font: 600 12.5px var(--font-sans); cursor: pointer; }
+  .media-go:hover { text-decoration: underline; }
+  .ov-song { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 14px; }
+  .ov-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ov-stats .stat { padding: 14px 16px; }
+  .ov-stats .stat b { font-size: 28px; margin-bottom: 4px; }
+  .ov-map { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--r-lg); padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .ov-map .panel-title { margin: 0; }
+  .ov-map .panel-title span { text-transform: none; letter-spacing: 0; font-weight: 500; }
+  .map-row { display: flex; gap: 3px; height: 74px; }
+  .map-seg { min-width: 0; background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: 8px; color: var(--text-secondary); cursor: pointer; padding: 6px; text-align: left; display: flex; flex-direction: column; gap: 3px; overflow: hidden; }
+  .map-seg:hover { border-color: var(--accent-amber); color: var(--text-primary); }
+  .map-seg b { font-family: var(--font-mono); font-size: 10.5px; color: var(--accent-amber); }
+  .map-seg span { font-size: 10.5px; line-height: 1.25; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+  .mix-bar { display: flex; height: 10px; border-radius: 6px; overflow: hidden; gap: 2px; }
+  .mix-bar span { display: block; min-width: 3px; }
+  .mix-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 11.5px; color: var(--text-muted); font-family: var(--font-mono); }
+  .mix-legend i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 6px; }
+  .ov-drop, .an-empty { cursor: pointer; border: 1.5px dashed var(--border-strong); border-radius: var(--r-lg); background: rgba(245,165,36,.04); transition: border-color .15s, background .15s; }
+  .ov-drop:hover, .ov-drop.over, .an-empty:hover, .an-empty.over { border-color: var(--accent-amber); background: rgba(245,165,36,.09); }
+  .ov-drop { display: flex; align-items: center; gap: 18px; padding: 16px 20px; flex: 1; min-height: 84px; }
+  .drop-ico { width: 44px; height: 44px; border-radius: 12px; background: var(--accent-amber); color: #1a1205; display: grid; place-items: center; font-size: 26px; font-weight: 600; flex-shrink: 0; }
+  .drop-ico.big { width: 64px; height: 64px; font-size: 36px; border-radius: 16px; }
+  .drop-txt { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .drop-txt b { font-family: var(--font-display); font-size: 19px; }
+  .drop-txt span { font-size: 13px; color: var(--text-secondary); }
+  .drop-cta { margin-left: auto; border: 1px solid var(--accent-amber); color: var(--accent-amber); border-radius: 999px; padding: 9px 16px; font-weight: 600; font-size: 13px; flex-shrink: 0; }
+  .an { height: 100%; min-height: 0; display: flex; flex-direction: column; }
+  .an-empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; }
+  .an-empty b { font-family: var(--font-display); font-size: 28px; }
+  .an-empty span { color: var(--text-secondary); font-size: 14px; }
+  .an-empty em { color: #fca5a5; font-style: normal; font-size: 13px; }
+  .an-busy { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+  .an-busy b { font-family: var(--font-display); font-size: 22px; }
+  .an-prog { width: min(420px, 80%); height: 6px; background: var(--bg-elevated); border-radius: 6px; overflow: hidden; }
+  .an-prog i { display: block; height: 100%; width: 0; background: var(--accent-amber); transition: width .2s; }
+  [hidden] { display: none !important; }
+  .an-grid { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 16px; }
+  .an-left, .an-right { display: flex; flex-direction: column; gap: 14px; min-height: 0; min-width: 0; }
+  .an-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .an-title { min-width: 0; }
+  .an-title b { font-family: var(--font-display); font-size: 22px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .an-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .an-chips span { font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); border: 1px solid var(--border-strong); border-radius: 999px; padding: 2px 9px; }
+  .an-actions { display: flex; align-items: center; gap: 8px; }
+  .an-actions a.play-btn { text-decoration: none; }
+  .an-now { font-family: var(--font-mono); font-size: 12px; color: var(--accent-amber); min-width: 52px; }
+  .an-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+  .an-tile { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--r-md); padding: 12px 14px; display: flex; flex-direction: column; gap: 2px; }
+  .an-tile span { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); font-weight: 700; }
+  .an-tile b { font-family: var(--font-display); font-size: 24px; letter-spacing: -0.02em; }
+  .an-tile small { font-size: 11.5px; color: var(--text-muted); }
+  .an-time { flex: 1; min-height: 160px; display: flex; flex-direction: column; }
+  .an-time .panel-title span { text-transform: none; letter-spacing: 0; font-weight: 500; font-family: var(--font-mono); }
+  .an-canvas-wrap { position: relative; flex: 1; min-height: 0; }
+  #anCanvas { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 10px; cursor: crosshair; }
+  .an-headline { position: absolute; top: 0; bottom: 0; left: 0; width: 2px; background: #fff; box-shadow: 0 0 8px #fff; pointer-events: none; }
+  .an-padpanel { display: flex; flex-direction: column; gap: 10px; flex: 1; min-height: 0; }
+  .an-padpanel .panel-title { margin: 0; }
+  .an-pads { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: minmax(0, 1fr); gap: 8px; }
+  .an-pad { background: var(--bg-elevated); border: 1px solid var(--border-strong); border-bottom: 3px solid var(--pad-col); border-radius: 10px; color: var(--text-primary); cursor: pointer; padding: 7px 9px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; min-height: 0; touch-action: none; user-select: none; }
+  .an-pad span, .an-pad small { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
+  .an-pad b { font-family: var(--font-display); font-size: 16px; }
+  .an-pad.on { background: color-mix(in srgb, var(--pad-col) 40%, var(--bg-elevated)); border-color: var(--pad-col); }
+  .an-pad.flash { animation: padFlash .28s ease-out; }
+  .an-pad.empty { opacity: .25; cursor: default; }
+  .an-two { display: grid; grid-template-columns: 1fr 1.2fr; gap: 16px; }
+  .an-bands { display: flex; flex-direction: column; gap: 5px; }
+  .an-bands div { display: grid; grid-template-columns: 62px 1fr 40px; align-items: center; gap: 8px; font-size: 11.5px; color: var(--text-muted); font-family: var(--font-mono); }
+  .an-bands i { display: block; height: 7px; border-radius: 4px; background: linear-gradient(90deg, var(--accent-orig), var(--accent-amber)); }
+  .an-bands em { font-style: normal; text-align: right; }
+  .an-compare { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .an-compare th { text-align: left; font-size: 10.5px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; padding: 0 0 6px; }
+  .an-compare td { padding: 4px 6px 4px 0; border-top: 1px solid var(--border-subtle); color: var(--text-secondary); font-family: var(--font-mono); white-space: nowrap; }
+  .an-compare td:first-child { font-family: var(--font-sans); color: var(--text-muted); }
+  .an-compare td b { color: var(--accent-amber); }
+  @media (max-width: 1100px) {
+    .ov-media, .ov-song, .an-grid, .an-two { grid-template-columns: 1fr; }
+    .ov { height: auto; } .an-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .an-time { min-height: 240px; } .an-pads { grid-auto-rows: 64px; }
+    .drop-cta { display: none; }
+  }
+  .media-card ul li { white-space: normal; }
+  .ov-drop { flex: none; }
+  .ov-media .media-card { padding: 14px 16px; }
+  .an-pad b { font-size: 15px; }
+  .an-pad span, .an-pad small { line-height: 1.2; }
+  .an-bands { flex-direction: row; align-items: flex-end; height: 120px; gap: 6px; }
+  .an-bands div { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; flex: 1; height: 100%; grid-template-columns: none; }
+  .an-bands i { width: 100%; height: 3px; border-radius: 4px 4px 0 0; background: linear-gradient(0deg, var(--accent-orig), var(--accent-amber)); }
+  .an-bands span { font-size: 9.5px; }
+  .an-compare th { padding-right: 10px; }
+  .map-seg span { font-size: 10px; }
 </style>
 </head>
 <body>
@@ -1679,7 +1784,7 @@
     <span class="deck-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <span class="deck-brand-text"><b>IMG_3268</b><span>Phonetic Rhythm Atlas</span></span>
   </button>
-  <div class="deck-chapters"><button type="button" class="deck-chapter" data-chapter="Overview" data-go="0"><span class="n">01</span>Overview</button><button type="button" class="deck-chapter" data-chapter="Watch" data-go="1"><span class="n">02</span>Watch</button><button type="button" class="deck-chapter" data-chapter="Pads" data-go="2"><span class="n">03</span>Pads</button><button type="button" class="deck-chapter" data-chapter="Compare" data-go="3"><span class="n">04</span>Compare</button><button type="button" class="deck-chapter" data-chapter="Microscope" data-go="6"><span class="n">05</span>Microscope</button><button type="button" class="deck-chapter" data-chapter="Rhythm" data-go="7"><span class="n">06</span>Rhythm</button><button type="button" class="deck-chapter" data-chapter="Lyrics" data-go="9"><span class="n">07</span>Lyrics</button><button type="button" class="deck-chapter" data-chapter="Suno" data-go="10"><span class="n">08</span>Suno</button><button type="button" class="deck-chapter" data-chapter="Events" data-go="11"><span class="n">09</span>Events</button><button type="button" class="deck-chapter" data-chapter="Play" data-go="12"><span class="n">10</span>Play</button></div>
+  <div class="deck-chapters"><button type="button" class="deck-chapter" data-chapter="Overview" data-go="0"><span class="n">01</span>Overview</button><button type="button" class="deck-chapter" data-chapter="Analyze" data-go="1"><span class="n">02</span>Analyze</button><button type="button" class="deck-chapter" data-chapter="Watch" data-go="2"><span class="n">03</span>Watch</button><button type="button" class="deck-chapter" data-chapter="Pads" data-go="3"><span class="n">04</span>Pads</button><button type="button" class="deck-chapter" data-chapter="Compare" data-go="4"><span class="n">05</span>Compare</button><button type="button" class="deck-chapter" data-chapter="Microscope" data-go="7"><span class="n">06</span>Microscope</button><button type="button" class="deck-chapter" data-chapter="Rhythm" data-go="8"><span class="n">07</span>Rhythm</button><button type="button" class="deck-chapter" data-chapter="Lyrics" data-go="10"><span class="n">08</span>Lyrics</button><button type="button" class="deck-chapter" data-chapter="Suno" data-go="11"><span class="n">09</span>Suno</button><button type="button" class="deck-chapter" data-chapter="Events" data-go="12"><span class="n">10</span>Events</button><button type="button" class="deck-chapter" data-chapter="Play" data-go="13"><span class="n">11</span>Play</button></div>
   <div class="deck-right">
     <div class="now-mini" title="Now playing">
       <button type="button" id="miniPlay" aria-label="Play or pause">&#9654;</button>
@@ -1687,42 +1792,118 @@
     </div>
     <details class="dl-menu"><summary title="Downloads" aria-label="Downloads">Downloads</summary><div class="dl-pop"><a class="dl-link" href="./analysis/IMG_3268_phonetic_report.html" download>Offline single-file HTML (34 MB)</a><a class="dl-link" href="./analysis/IMG_3268_subtitled_phonetic_rhythm.mp4" download>Video with burned-in HUD (4.9 MB)</a><a class="dl-link" href="./IMG_3268.mp3" download>Audio from video (MP3)</a><a class="dl-link" href="./IMG_3268%20SUNO.mp3" download>Suno render (MP3)</a></div></details>
     <button type="button" class="icon-btn" id="deckPrev" aria-label="Previous slide">&#8592;</button>
-    <span class="deck-count" id="deckCount"><b>01</b> / 13</span>
+    <span class="deck-count" id="deckCount"><b>01</b> / 14</span>
     <button type="button" class="icon-btn" id="deckNext" aria-label="Next slide">&#8594;</button>
   </div>
 </nav>
 <div class="deck-progress" id="deckProgress"></div>
 <main class="deck" id="deck"><div class="deck-track" id="deckTrack">
-<section class="slide " data-slide="overview" data-chapter="Overview" aria-label="1 of 13">
+<section class="slide " data-slide="overview" data-chapter="Overview" aria-label="1 of 14">
   <div class="slide-cap">
-    <div class="slide-eyebrow">01<span>/ 13</span> Phonetic rhythm atlas</div>
+    <div class="slide-eyebrow">01<span>/ 14</span> Phonetic rhythm atlas</div>
     <h2><span class="intro-title">IMG<em>_</em>3268</span></h2>
-    <p>A vocal percussion performance taken apart sound by sound: what the mouth does, how to write it in narrow IPA, where it sits in the beat, and how a Suno render compares.</p><p>Use the arrows in the bar above, or the ← and → keys, to move through the slides.</p>
-    <div class="how"><div><span class="k">→</span><span>Next slide</span></div><div><span class="k">←</span><span>Previous slide</span></div><div><span class="k">Space</span><span>Play or pause the video from any slide</span></div></div>
-    <button type="button" class="slide-next" data-next>Next <small>Watch the original</small> →</button>
+    <p>A 37.8-second vocal percussion take, taken apart sound by sound: what the mouth does, how to write it in narrow IPA, where it sits in the beat, and how a Suno render of it compares.</p><p>Start with the media on the right, or drop your own song in the box below them.</p>
+    <div class="how"><div><span class="k">→ ←</span><span>Move between slides</span></div><div><span class="k">Space</span><span>Play or pause the video from any slide</span></div><div><span class="k">Drop</span><span>Analyze any song or video</span></div></div>
+    <button type="button" class="slide-next" data-next>Next <small>Analyze a song</small> →</button>
   </div>
   <div class="slide-body">
-  <div class="intro-grid">
-    <div class="stat"><b>37.8 s</b><span>of mouth percussion, filmed in one take</span></div>
-    <div class="stat"><b>147</b><span>individual sounds, each timed, classified and transcribed</span></div>
-    <div class="stat"><b>14</b><span>zoom windows of up to 16 sounds, one per phrase</span></div>
-    <div class="stat"><b style="color:var(--accent-emerald)">0.82</b><span>peak similarity between the original and its Suno render</span></div>
-  </div>
-  <div class="panel-title" style="margin:8px 0 0">Chapters</div>
-  <div class="chapter-cards">
-    <button type="button" class="chapter-card" data-goto="watch"><span class="n">02</span><b>Watch</b><span>The video with a live readout of every syllable.</span></button>
-    <button type="button" class="chapter-card" data-goto="pads"><span class="n">03</span><b>Pads</b><span>Every hit in each window as a drum pad, cut at the attack.</span></button>
-    <button type="button" class="chapter-card" data-goto="compare"><span class="n">04</span><b>Compare</b><span>Original against Suno: scores, phrases, diagnostics.</span></button>
-    <button type="button" class="chapter-card" data-goto="microscope"><span class="n">07</span><b>Microscope</b><span>One window at a time: spectrogram, pads, full data.</span></button>
-    <button type="button" class="chapter-card" data-goto="rhythm"><span class="n">08</span><b>Rhythm</b><span>Tempo, note values, step grid and the IPA guide.</span></button>
-    <button type="button" class="chapter-card" data-goto="lyrics"><span class="n">10</span><b>Lyrics</b><span>Four phonetic versions, with rhythm.</span></button>
-    <button type="button" class="chapter-card" data-goto="events"><span class="n">12</span><b>Events</b><span>Search and filter all 147 sounds.</span></button>
-    <button type="button" class="chapter-card" data-goto="play"><span class="n">13</span><b>Play</b><span>Sampler, synth and MIDI controller.</span></button>
-  </div><button type="button" class="btn-start" data-next>Start with the video →</button></div>
+  <div class="ov">
+    <div class="ov-media">
+      <div class="media-card">
+        <img class="media-thumb" src="data:image/jpeg;base64,/9j//gAQTGF2YzYwLjMxLjEwMgD/2wBDAAgMDA4MDhAQEBAQEBMSExQUFBMTExMUFBQVFRUZGRkVFRUUFBUVGBgZGRscGxoaGRocHB4eHiQkIiIqKiszMz7/xAB5AAACAwEBAQAAAAAAAAAAAAADBQQGAgEABwEAAwEBAAAAAAAAAAAAAAAAAgEDAAQQAAICAQMCBQQBAwUBAAAAAAABAhEDBBIhMVFBYQUTIoFxkTLhQiMzwdGxYnIUEQEBAQEBAQEBAQAAAAAAAAAAARECIRIxA1H/wAARCADcAHwDASIAAhEAAxEA/9oADAMBAAIRAxEAPwC9RJCIaYZSON2ji7K3CSkiZYCa3Icap+Odx3UrJSakuV+wr08uHFjWHRfgICP+nEEbWNz5cG/OmP8AT6WMVumrb8Ow0KfKd6UXNKUeF8fIUZMkqrp9j6Nn08M8WmufB+KPneog8cpRfVOgbyKdaVSIkmFnIhSkCNxsjSZqTI7ZiYYBsIwIyfREzu8ibgbmTGne4bU0IsmoUFyKp+pJdGNlwc0nwydp86hkjv7o+cw9Qk5X4+BPx6lydt8lJKC19n/+uL6JtHZavHFLq5PpFdT5rh1socbnXYfaDVQ3zyTf6rge0vnlYsmpzw5eNRXZvkpPqOojkybq2trleYTVerOUnVUU7Uav3JXYPtFkg05pkRyFqzW3Rv3DEktmGwe6zlmZ1gQjBGJcJTIjmcbsGCZFr81NR+pU55m5D31S45q/6oqyTlKkU5DTfFNsfY91C/BhUEMQtVnCdGT7kj3WlSkxZuMOQj+Ws2WQjnmdkzJISZhp2JsM1S5HPWO5clM3Fi0OW40DSTlIIpA5xp/c9EEhjJ6zNmZZQ8Kj8mCIuozLDjlOT6dF3YJqp6rPfqG/Jf8AAv0mO5WR8s3N7n1k7GuiVopPwfM2mqjRoJRgcdQTAskME0GBAmLpqxrOJBaGCks1TOwyPG7QbKiJQFiNW7Hk92KZIK3o8uye19GWUnfAumTpkTLTJqKtuin+oTyZFGT4hfxXfzLhKCl15Kl6vL+5GC6Rjf5MatS5ivuWHQr4lbXKaG2HPsjwHFOPKtANoS+9ml0D48mS+Q5HR9GNAX1JP9ImyZKbDnrXxvLlhDzYreZPwCRhvdtkx44V0Q0faR5JKRFJ2aCRBBqVY6Oy34Jb8aZUGP8AQTtOH1RLoJwZCGSTLWyleoq88vsi7lZ9Sx/KMu6r8DOKao0xjp8advsYjBbk/DxJFPHLgcuVWQw3JIh+7zwRZ48+SuaXkSMemcerbOnfFJv+HMclwEOfqONtRE2YHmq9TxE3tVRyesrjazsQu1P+kq5/UF5N/cHJDHYiPkjwDQWFkmMdHOskRVIk6Z1kj90Qqa8nCSocHdqOfTw/FmuipYb7P+CeAzR9zFOPdFGU6C+TXfkne3vImF/NJ9U6Y+UKBdXE1BSa4NVROcSDl4KSryMzdCPO7H00qsR6iguRdfhbF8k1MVbueCWpcFNcyY5EeTsy5A7NoaX5I0wmnj/ch/6RJ6jfR6eM9ra5U/8ASyduIWLRRyg1GaOQzA6SFj7hFFIp9BxWp6Sszyro3ySxxJcMQSk4toHddX86MxXm5JqnYj1mfbcY9SkuL7hfk1bxtrqKMudzRyfJEa4ClSvdrMHyMIyFiRuNphanpnZywFmkwwWpMI7rXky16PHT+kX9aEGhhvzJF6jBQVIh3QOGApkix2cOnDMyysZurXmWYrWrXt5L8GOKc3EB5HBMS5PkTcsrFE8nyorIK0GaUerIkpQSBaqM7u3RARb5jJ6lEkKO5CmiXGbjwBYQz+PASACUtx2LCia3elY7nKXZFtK96T/jk/OixHP3+kyYCGAWOHOK8QcnwmfP5ZsmT9pN/UsMfUcWPDFNtySql/uWvIJT1lf9QnFxpctEDHr3knLdJ89F4LyMZpXFgfNlWmWaSOfEvIVRdyJGSXJETplYDTScFOIolgSG0JcAJ8i3HVswseNRAdCdIhSHqXVC3BYStgDsQnO+l+lf4PvIfiP0yDhp1fjyOzmv6N4ydOCJQnkSIUsvmRJZGwVnfIglb33J8dS3FxfYSbj24dkpzrEpvkEzO6ySkSxTWoOjcpAV+1HXfKJ1SUCTI0kEfU8xBtRGg2NfJHGgkXRUD6LpdZhnGMf0aVU+n0Y4Ts+YRmT8OqyY38ZP7dV+CV/n/gvp9AOCPB6hGfGT4vuun8Dm76E8w3ylg2zrBs73O5ZizN8npGIRSGMZdBJZ1ZGqAsFKeyfiafLF0cymq8Tay0iVimtypSfmDkz2RrhkdyBxhW6A7gc52kDiWn4G0wUgm4iJm7CDqfGYyx6vJCNRk0hBYTcb5bQ7BHjIQWGeuzzBmMJ8GQkuUBEzt0e3MycEw3uOqOb2wR0WG2FTAhEESSmGIqZIQ2bOmTQyBMnjgyZZg0zAjeAMMDkCbBw8eEzx04dMzRswFQ4zSDICgoZD9ToNBUbCf//Z" alt="Frame from the original video" />
+        <div class="media-txt">
+          <div class="media-kind" style="color:var(--accent-amber)">Original video</div>
+          <b>IMG_3268.MOV</b>
+          <ul><li>37.8 s · vertical 1080×1920 · 24 fps · HEVC</li><li>Filmed 10 Nov 2025 on iPhone 12 Pro Max</li><li>Mono AAC audio, 48 kHz</li><li>Web copy 406×720 with phonetic subtitles</li></ul>
+          <button type="button" class="media-go" data-goto="watch">Watch →</button>
+        </div>
+      </div>
+      <div class="media-card col">
+        <div class="media-kind" style="color:var(--accent-orig)">Audio from the video</div>
+        <b>IMG_3268.mp3</b>
+        <svg class="mini-wave" viewBox="0 0 240 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,50.0 0,50.0 1,44.5 1,55.5 2,42.0 2,58.0 3,44.0 3,56.0 4,41.0 4,59.0 5,39.5 5,60.5 6,39.0 6,61.0 7,36.0 7,64.0 8,41.5 8,58.5 9,39.5 9,60.5 10,33.5 10,66.5 11,43.0 11,57.0 12,46.5 12,53.5 13,40.0 13,60.0 14,45.0 14,55.0 15,37.5 15,62.5 16,42.5 16,57.5 17,45.5 17,54.5 18,38.0 18,62.0 19,41.5 19,58.5 20,45.0 20,55.0 21,40.5 21,59.5 22,41.5 22,58.5 23,40.5 23,59.5 24,40.5 24,59.5 25,44.5 25,55.5 26,35.5 26,64.5 27,40.5 27,59.5 28,44.5 28,55.5 29,49.0 29,51.0 30,32.0 30,68.0 31,35.0 31,65.0 32,42.0 32,58.0 33,35.5 33,64.5 34,36.5 34,63.5 35,48.0 35,52.0 36,50.0 36,50.0 37,50.0 37,50.0 38,40.5 38,59.5 39,38.5 39,61.5 40,44.0 40,56.0 41,43.5 41,56.5 42,25.0 42,75.0 43,40.0 43,60.0 44,44.0 44,56.0 45,34.5 45,65.5 46,35.5 46,64.5 47,24.5 47,75.5 48,32.0 48,68.0 49,32.0 49,68.0 50,25.0 50,75.0 51,25.5 51,74.5 52,41.5 52,58.5 53,40.0 53,60.0 54,41.5 54,58.5 55,38.0 55,62.0 56,35.0 56,65.0 57,43.0 57,57.0 58,45.0 58,55.0 59,31.0 59,69.0 60,36.5 60,63.5 61,28.5 61,71.5 62,30.5 62,69.5 63,33.5 63,66.5 64,37.0 64,63.0 65,46.0 65,54.0 66,32.5 66,67.5 67,26.5 67,73.5 68,29.5 68,70.5 69,35.5 69,64.5 70,27.0 70,73.0 71,19.0 71,81.0 72,34.0 72,66.0 73,27.0 73,73.0 74,47.0 74,53.0 75,49.0 75,51.0 76,50.0 76,50.0 77,50.0 77,50.0 78,49.5 78,50.5 79,45.0 79,55.0 80,47.0 80,53.0 81,42.0 81,58.0 82,34.0 82,66.0 83,44.0 83,56.0 84,0.5 84,99.5 85,34.0 85,66.0 86,41.0 86,59.0 87,17.5 87,82.5 88,40.0 88,60.0 89,34.0 89,66.0 90,37.5 90,62.5 91,8.5 91,91.5 92,30.5 92,69.5 93,34.5 93,65.5 94,33.5 94,66.5 95,36.0 95,64.0 96,30.0 96,70.0 97,25.0 97,75.0 98,32.5 98,67.5 99,48.5 99,51.5 100,37.0 100,63.0 101,42.0 101,58.0 102,40.5 102,59.5 103,39.5 103,60.5 104,40.0 104,60.0 105,39.5 105,60.5 106,29.5 106,70.5 107,36.0 107,64.0 108,42.0 108,58.0 109,46.0 109,54.0 110,45.0 110,55.0 111,37.0 111,63.0 112,36.0 112,64.0 113,33.5 113,66.5 114,36.0 114,64.0 115,49.5 115,50.5 116,43.0 116,57.0 117,24.0 117,76.0 118,23.5 118,76.5 119,37.0 119,63.0 120,30.0 120,70.0 121,40.5 121,59.5 122,25.5 122,74.5 123,34.5 123,65.5 124,36.5 124,63.5 125,42.0 125,58.0 126,43.0 126,57.0 127,49.5 127,50.5 128,12.0 128,88.0 129,37.0 129,63.0 130,32.5 130,67.5 131,40.5 131,59.5 132,45.0 132,55.0 133,44.5 133,55.5 134,40.5 134,59.5 135,40.0 135,60.0 136,25.5 136,74.5 137,36.5 137,63.5 138,35.5 138,64.5 139,35.0 139,65.0 140,25.5 140,74.5 141,19.0 141,81.0 142,37.0 142,63.0 143,40.0 143,60.0 144,45.5 144,54.5 145,29.5 145,70.5 146,17.0 146,83.0 147,25.0 147,75.0 148,28.0 148,72.0 149,20.0 149,80.0 150,39.5 150,60.5 151,41.0 151,59.0 152,40.5 152,59.5 153,39.0 153,61.0 154,42.5 154,57.5 155,46.0 155,54.0 156,25.5 156,74.5 157,38.0 157,62.0 158,19.0 158,81.0 159,44.5 159,55.5 160,42.0 160,58.0 161,43.0 161,57.0 162,49.5 162,50.5 163,36.5 163,63.5 164,41.5 164,58.5 165,28.0 165,72.0 166,32.5 166,67.5 167,46.5 167,53.5 168,36.5 168,63.5 169,37.0 169,63.0 170,44.5 170,55.5 171,49.5 171,50.5 172,44.0 172,56.0 173,49.0 173,51.0 174,40.0 174,60.0 175,31.0 175,69.0 176,37.5 176,62.5 177,33.5 177,66.5 178,40.5 178,59.5 179,37.5 179,62.5 180,45.0 180,55.0 181,42.0 181,58.0 182,45.5 182,54.5 183,42.5 183,57.5 184,43.0 184,57.0 185,39.5 185,60.5 186,37.5 186,62.5 187,40.0 187,60.0 188,39.5 188,60.5 189,48.5 189,51.5 190,49.5 190,50.5 191,41.0 191,59.0 192,43.0 192,57.0 193,43.0 193,57.0 194,43.5 194,56.5 195,38.0 195,62.0 196,41.0 196,59.0 197,44.0 197,56.0 198,44.5 198,55.5 199,37.0 199,63.0 200,32.5 200,67.5 201,48.0 201,52.0 202,39.0 202,61.0 203,43.5 203,56.5 204,48.0 204,52.0 205,39.0 205,61.0 206,43.0 206,57.0 207,45.5 207,54.5 208,47.5 208,52.5 209,49.0 209,51.0 210,46.0 210,54.0 211,34.5 211,65.5 212,45.0 212,55.0 213,26.5 213,73.5 214,31.5 214,68.5 215,50.0 215,50.0 216,50.0 216,50.0 217,50.0 217,50.0 218,50.0 218,50.0 219,50.0 219,50.0 220,50.0 220,50.0 221,46.5 221,53.5 222,45.0 222,55.0 223,27.5 223,72.5 224,48.0 224,52.0 225,47.5 225,52.5 226,49.5 226,50.5 227,50.0 227,50.0 228,50.0 228,50.0 229,50.0 229,50.0 230,50.0 230,50.0 231,50.0 231,50.0 232,43.0 232,57.0 233,28.0 233,72.0 234,25.5 234,74.5 235,38.5 235,61.5 236,48.5 236,51.5 237,49.0 237,51.0 238,50.0 238,50.0 239,48.0 239,52.0" fill="none" stroke="#4cc2ff" stroke-width="1.2" vector-effect="non-scaling-stroke"/></svg>
+        <ul><li>−31.2 LUFS (−28.2 dual-mono) · peak −7.2 dBFS</li><li>AudioSet: speech 0.88 · beatboxing 0.74</li><li>Range 8.1 LU · realness 0.99 · centroid 944 Hz</li></ul>
+        <button type="button" class="media-go" data-goto="pads">Play the pads →</button>
+      </div>
+      <div class="media-card col">
+        <div class="media-kind" style="color:var(--accent-suno)">Suno render</div>
+        <b>IMG_3268 SUNO.mp3</b>
+        <svg class="mini-wave" viewBox="0 0 240 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,14.0 0,86.0 1,14.5 1,85.5 2,14.0 2,86.0 3,17.5 3,82.5 4,28.0 4,72.0 5,18.5 5,81.5 6,22.5 6,77.5 7,34.5 7,65.5 8,28.5 8,71.5 9,35.5 9,64.5 10,22.0 10,78.0 11,24.0 11,76.0 12,19.0 12,81.0 13,33.5 13,66.5 14,26.0 14,74.0 15,22.0 15,78.0 16,23.0 16,77.0 17,11.5 17,88.5 18,12.5 18,87.5 19,11.5 19,88.5 20,20.5 20,79.5 21,28.5 21,71.5 22,13.5 22,86.5 23,17.0 23,83.0 24,27.0 24,73.0 25,25.0 25,75.0 26,12.0 26,88.0 27,25.5 27,74.5 28,14.5 28,85.5 29,30.5 29,69.5 30,10.5 30,89.5 31,24.0 31,76.0 32,20.0 32,80.0 33,19.5 33,80.5 34,14.5 34,85.5 35,20.0 35,80.0 36,28.0 36,72.0 37,7.0 37,93.0 38,13.5 38,86.5 39,11.0 39,89.0 40,16.5 40,83.5 41,25.5 41,74.5 42,12.0 42,88.0 43,12.5 43,87.5 44,20.5 44,79.5 45,13.5 45,86.5 46,14.0 46,86.0 47,26.5 47,73.5 48,16.0 48,84.0 49,10.5 49,89.5 50,22.5 50,77.5 51,16.0 51,84.0 52,13.5 52,86.5 53,11.5 53,88.5 54,29.5 54,70.5 55,16.5 55,83.5 56,8.0 56,92.0 57,12.5 57,87.5 58,18.0 58,82.0 59,11.5 59,88.5 60,16.0 60,84.0 61,28.5 61,71.5 62,15.0 62,85.0 63,7.5 63,92.5 64,12.5 64,87.5 65,15.5 65,84.5 66,8.5 66,91.5 67,9.0 67,91.0 68,22.0 68,78.0 69,7.0 69,93.0 70,12.5 70,87.5 71,13.0 71,87.0 72,22.5 72,77.5 73,9.5 73,90.5 74,15.5 74,84.5 75,29.0 75,71.0 76,12.0 76,88.0 77,15.0 77,85.0 78,12.5 78,87.5 79,39.0 79,61.0 80,33.5 80,66.5 81,16.0 81,84.0 82,31.0 82,69.0 83,12.0 83,88.0 84,21.0 84,79.0 85,17.0 85,83.0 86,17.5 86,82.5 87,32.5 87,67.5 88,2.5 88,97.5 89,5.0 89,95.0 90,49.0 90,51.0 91,17.5 91,82.5 92,7.5 92,92.5 93,7.5 93,92.5 94,7.5 94,92.5 95,7.5 95,92.5 96,4.5 96,95.5 97,13.0 97,87.0 98,0.5 98,99.5 99,8.5 99,91.5 100,12.0 100,88.0 101,11.0 101,89.0 102,17.5 102,82.5 103,11.5 103,88.5 104,18.5 104,81.5 105,10.0 105,90.0 106,11.5 106,88.5 107,10.0 107,90.0 108,5.0 108,95.0 109,15.0 109,85.0 110,13.0 110,87.0 111,8.5 111,91.5 112,14.5 112,85.5 113,11.5 113,88.5 114,7.0 114,93.0 115,21.0 115,79.0 116,11.0 116,89.0 117,10.5 117,89.5 118,8.0 118,92.0 119,11.5 119,88.5 120,12.0 120,88.0 121,7.5 121,92.5 122,12.0 122,88.0 123,9.5 123,90.5 124,9.5 124,90.5 125,20.5 125,79.5 126,12.0 126,88.0 127,18.5 127,81.5 128,8.5 128,91.5 129,17.0 129,83.0 130,13.0 130,87.0 131,8.0 131,92.0 132,11.5 132,88.5 133,13.0 133,87.0 134,10.5 134,89.5 135,13.5 135,86.5 136,7.5 136,92.5 137,9.0 137,91.0 138,15.5 138,84.5 139,12.0 139,88.0 140,9.0 140,91.0 141,9.0 141,91.0 142,17.0 142,83.0 143,18.0 143,82.0 144,23.5 144,76.5 145,22.0 145,78.0 146,14.5 146,85.5 147,14.0 147,86.0 148,9.0 148,91.0 149,10.0 149,90.0 150,11.0 150,89.0 151,5.0 151,95.0 152,12.0 152,88.0 153,8.0 153,92.0 154,6.0 154,94.0 155,19.0 155,81.0 156,15.0 156,85.0 157,8.5 157,91.5 158,10.5 158,89.5 159,12.0 159,88.0 160,13.0 160,87.0 161,6.5 161,93.5 162,6.5 162,93.5 163,17.5 163,82.5 164,10.0 164,90.0 165,8.0 165,92.0 166,6.0 166,94.0 167,10.0 167,90.0 168,18.0 168,82.0 169,15.5 169,84.5 170,9.5 170,90.5 171,12.5 171,87.5 172,13.0 172,87.0 173,11.0 173,89.0 174,13.0 174,87.0 175,7.5 175,92.5 176,6.5 176,93.5 177,2.5 177,97.5 178,14.5 178,85.5 179,18.0 179,82.0 180,11.0 180,89.0 181,18.5 181,81.5 182,12.0 182,88.0 183,16.0 183,84.0 184,7.5 184,92.5 185,12.0 185,88.0 186,18.0 186,82.0 187,6.0 187,94.0 188,15.0 188,85.0 189,13.5 189,86.5 190,15.5 190,84.5 191,12.5 191,87.5 192,20.0 192,80.0 193,11.5 193,88.5 194,17.0 194,83.0 195,14.5 195,85.5 196,12.0 196,88.0 197,16.5 197,83.5 198,10.5 198,89.5 199,10.0 199,90.0 200,8.0 200,92.0 201,19.5 201,80.5 202,11.5 202,88.5 203,12.5 203,87.5 204,13.5 204,86.5 205,19.5 205,80.5 206,13.5 206,86.5 207,10.0 207,90.0 208,13.5 208,86.5 209,14.0 209,86.0 210,14.0 210,86.0 211,15.0 211,85.0 212,8.5 212,91.5 213,12.0 213,88.0 214,15.0 214,85.0 215,12.5 215,87.5 216,13.5 216,86.5 217,11.5 217,88.5 218,18.0 218,82.0 219,9.5 219,90.5 220,9.5 220,90.5 221,10.0 221,90.0 222,10.0 222,90.0 223,10.0 223,90.0 224,10.0 224,90.0 225,16.5 225,83.5 226,14.0 226,86.0 227,14.0 227,86.0 228,12.0 228,88.0 229,23.5 229,76.5 230,22.5 230,77.5 231,9.5 231,90.5 232,18.0 232,82.0 233,16.0 233,84.0 234,9.5 234,90.5 235,18.0 235,82.0 236,25.0 236,75.0 237,34.0 237,66.0 238,38.5 238,61.5 239,45.0 239,55.0" fill="none" stroke="#ff7a3d" stroke-width="1.2" vector-effect="non-scaling-stroke"/></svg>
+        <ul><li>89.4 s · stereo · −16.4 LUFS · peak −3.0 dBFS</li><li>AudioSet: music 0.86 · beatboxing 0.61</li><li>Tempo ≈129 BPM · range 5.0 LU</li></ul>
+        <button type="button" class="media-go" data-goto="compare">Compare →</button>
+      </div>
+    </div>
+    <div class="ov-song">
+      <div class="ov-stats">
+        <div class="stat"><b>83–131</b><span>BPM, drifting; median 98</span></div>
+        <div class="stat"><b>147</b><span>syllables, transcribed in narrow IPA</span></div>
+        <div class="stat"><b>177</b><span>hits, 4.7 per second</span></div>
+        <div class="stat"><b style="color:var(--accent-emerald)">0.82</b><span>peak similarity to the Suno render</span></div>
+      </div>
+      <div class="ov-map">
+        <div class="panel-title">Song map <span>14 windows · tap one to open its pads</span></div>
+        <div class="map-row"><button type="button" class="map-seg" data-mapwin="0" style="flex:2.38" title="Scat 1A · 0.0–2.4s"><b>01</b><span>Scat 1A</span></button><button type="button" class="map-seg" data-mapwin="1" style="flex:2.37" title="'at ALL!' · 2.4–4.8s"><b>02</b><span>'at ALL!'</span></button><button type="button" class="map-seg" data-mapwin="2" style="flex:3.40" title="'Mmmm/pink' · 4.8–8.2s"><b>03</b><span>'Mmmm/pink'</span></button><button type="button" class="map-seg" data-mapwin="3" style="flex:4.35" title="'NOW!' · 8.2–12.5s"><b>04</b><span>'NOW!'</span></button><button type="button" class="map-seg" data-mapwin="4" style="flex:3.10" title="'BOW!' · 12.5–15.6s"><b>05</b><span>'BOW!'</span></button><button type="button" class="map-seg" data-mapwin="5" style="flex:2.87" title="'WHEN!↑' · 15.6–18.5s"><b>06</b><span>'WHEN!↑'</span></button><button type="button" class="map-seg" data-mapwin="6" style="flex:2.07" title="'skibidi' · 18.5–20.5s"><b>07</b><span>'skibidi'</span></button><button type="button" class="map-seg" data-mapwin="7" style="flex:2.38" title="Chopper · 20.5–22.9s"><b>08</b><span>Chopper</span></button><button type="button" class="map-seg" data-mapwin="8" style="flex:2.63" title="'ship it' · 22.9–25.6s"><b>09</b><span>'ship it'</span></button><button type="button" class="map-seg" data-mapwin="9" style="flex:2.90" title="'BOOSH' · 25.6–28.4s"><b>10</b><span>'BOOSH'</span></button><button type="button" class="map-seg" data-mapwin="10" style="flex:2.93" title="'Boom-ts' · 28.4–31.4s"><b>11</b><span>'Boom-ts'</span></button><button type="button" class="map-seg" data-mapwin="11" style="flex:2.82" title="Scratch · 31.4–34.2s"><b>12</b><span>Scratch</span></button><button type="button" class="map-seg" data-mapwin="12" style="flex:2.28" title="Scrape · 34.2–36.5s"><b>13</b><span>Scrape</span></button><button type="button" class="map-seg" data-mapwin="13" style="flex:1.34" title="Coda · 36.5–37.8s"><b>14</b><span>Coda</span></button></div>
+        <div class="mix-bar"><span style="flex:24;background:#3b82f6" title="HOOK-VOX: 24"></span><span style="flex:16;background:#eab308" title="HAT-TICK: 16"></span><span style="flex:15;background:#64748b" title="NONVERBAL-FX: 15"></span><span style="flex:15;background:#f87171" title="KICK-GHOST: 15"></span><span style="flex:14;background:#14b8a6" title="FRIC-BRUSH: 14"></span><span style="flex:14;background:#a855f7" title="BRASS-WAH: 14"></span><span style="flex:10;background:#ec4899" title="NASAL-GATE: 10"></span><span style="flex:10;background:#ef4444" title="KICK-808: 10"></span><span style="flex:7;background:#10b981" title="PLOSIVE-SCAT: 7"></span><span style="flex:6;background:#f97316" title="SNARE-SH: 6"></span><span style="flex:6;background:#0ea5e9" title="DJ-SCRATCH: 6"></span><span style="flex:4;background:#facc15" title="GLOTTAL-POP: 4"></span><span style="flex:4;background:#2dd4bf" title="LIQUID-CHOP: 4"></span><span style="flex:1;background:#f472b6" title="FALSETTO-SQ: 1"></span><span style="flex:1;background:#06b6d4" title="AIR-RISER: 1"></span></div>
+        <div class="mix-legend"><span><i style="background:#3b82f6"></i>hook-vox 24</span><span><i style="background:#eab308"></i>hat-tick 16</span><span><i style="background:#64748b"></i>nonverbal-fx 15</span><span><i style="background:#f87171"></i>kick-ghost 15</span><span><i style="background:#14b8a6"></i>fric-brush 14</span><span><i style="background:#a855f7"></i>brass-wah 14</span><span><i style="background:#ec4899"></i>nasal-gate 10</span><span><i style="background:#ef4444"></i>kick-808 10</span></div>
+      </div>
+    </div>
+    <label class="ov-drop" data-dropzone>
+      <input type="file" accept="audio/*,video/*,.mov,.m4a,.flac" data-analyze-file hidden />
+      <span class="drop-ico" aria-hidden="true">+</span>
+      <span class="drop-txt"><b>Analyze your own song</b><span>Drop an audio or video file here, or click to choose. It is measured right in your browser; nothing is uploaded anywhere.</span></span>
+      <span class="drop-cta">Choose file</span>
+    </label>
+  </div></div>
 </section>
-<section class="slide " data-slide="watch" data-chapter="Watch" aria-label="2 of 13">
+<section class="slide " data-slide="analyze" data-chapter="Analyze" aria-label="2 of 14">
   <div class="slide-cap">
-    <div class="slide-eyebrow">02<span>/ 13</span> The source</div>
+    <div class="slide-eyebrow">02<span>/ 14</span> Your song</div>
+    <h2>Analyze a song</h2>
+    <p>Drop any song or video. It is measured right here in your browser: loudness to the broadcast standard, tempo, every hit with a rough drum category, and the spectrum, side by side with IMG_3268 and the Suno render.</p><p>Every hit becomes a pad you can play here, or on the Play slide with a MIDI controller.</p>
+    <div class="how"><div><span class="k">Drop</span><span>Audio or video file</span></div><div><span class="k">Click</span><span>Timeline to play from there</span></div><div><span class="k">Q W E R</span><span>Play the pads</span></div><div><span class="k">Note</span><span>IPA and lyrics need the full Python pipeline</span></div></div>
+    <button type="button" class="slide-next" data-next>Next <small>Watch the original</small> →</button>
+  </div>
+  <div class="slide-body"><div class="an">
+        <label class="an-empty" id="anEmpty" data-dropzone>
+          <input type="file" accept="audio/*,video/*,.mov,.m4a,.flac" data-analyze-file hidden />
+          <span class="drop-ico big" aria-hidden="true">+</span>
+          <b>Drop a song or video here</b>
+          <span>or click to choose a file · MP3, WAV, M4A, FLAC, MP4, MOV</span>
+          <em id="anEmptyMsg"></em>
+        </label>
+        <div class="an-busy" id="anBusy" hidden><b id="anStatus">Working...</b><div class="an-prog"><i id="anBar"></i></div></div>
+        <div class="an-grid" id="anResult" hidden>
+          <div class="an-left">
+            <div class="an-head">
+              <div class="an-title"><b id="anName"></b><div class="an-chips" id="anChips"></div></div>
+              <div class="an-actions">
+                <button type="button" class="play-btn" id="anPlay">Play</button><span class="an-now" id="anNow">0:00.0</span>
+                <a class="play-btn" id="anDl" href="#">Download JSON</a>
+                <label class="play-btn">New file<input type="file" accept="audio/*,video/*,.mov,.m4a,.flac" data-analyze-file hidden /></label>
+              </div>
+            </div>
+            <div class="an-tiles" id="anTiles"></div>
+            <div class="panel an-time"><div class="panel-title">Spectrogram, waveform and hits <span id="anTimeLabel"></span></div>
+              <div class="an-canvas-wrap"><canvas id="anCanvas"></canvas><div class="an-headline" id="anHead"></div></div></div>
+          </div>
+          <div class="an-right">
+            <div class="panel an-padpanel">
+              <div class="panel-title">Hit pads <span class="bank-nav"><button type="button" class="play-btn" id="anPrev">‹</button><span id="anBank">Bank 1</span><button type="button" class="play-btn" id="anNext">›</button></span></div>
+              <div class="an-pads" id="anPads"></div>
+              <div class="mix-bar" id="anMix"></div><div class="mix-legend" id="anMixLegend"></div>
+              <button type="button" class="play-btn" id="anToPlay">Use these pads on the Play slide with MIDI →</button>
+            </div>
+            <div class="panel an-two">
+              <div><div class="panel-title">Spectrum balance</div><div class="an-bands" id="anBands"></div></div>
+              <div><div class="panel-title">Compared</div><table class="an-compare" id="anCompare"></table></div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+</section>
+<section class="slide " data-slide="watch" data-chapter="Watch" aria-label="3 of 14">
+  <div class="slide-cap">
+    <div class="slide-eyebrow">03<span>/ 14</span> The source</div>
     <h2>Watch the original</h2>
     <p>The original video with burned-in subtitles. The readout on the right follows the playhead and names each sound: syllable, narrow IPA, drum category, articulation, rhythm value and formants.</p><p>Switch to the video audio or the Suno render with the tabs above the player.</p>
     <div class="how"><div><span class="k">Space</span><span>Play / pause</span></div><div><span class="k">, .</span><span>Step one syllable back or forward</span></div><div><span class="k">L</span><span>Loop the current slice</span></div></div>
@@ -1792,9 +1973,9 @@
 </div></div>
       </div></div>
 </section>
-<section class="slide " data-slide="pads" data-chapter="Pads" aria-label="3 of 13">
+<section class="slide " data-slide="pads" data-chapter="Pads" aria-label="4 of 14">
   <div class="slide-cap">
-    <div class="slide-eyebrow">03<span>/ 13</span> Playable windows</div>
+    <div class="slide-eyebrow">04<span>/ 14</span> Playable windows</div>
     <h2>Play the windows</h2>
     <p>Every hit in the take, 177 of them, found in the audio itself so each pad starts exactly on its attack. They are grouped into the 14 windows, colored by drum category, top left first.</p><p>Syllables made of more than one hit show 1/2, 2/2. While the video plays, the pad under the playhead lights up.</p>
     <div class="how"><div><span class="k">Tap</span><span>Play that sound</span></div><div><span class="k">List</span><span>Pick a window on the right</span></div><div><span class="k">Tip</span><span>Enable audio on the Play slide for instant, overlapping hits</span></div></div>
@@ -1808,9 +1989,9 @@
         <div class="panel scroll-y"><div class="panel-title">Windows</div><div class="win-list" id="winList"></div></div>
       </div></div>
 </section>
-<section class="slide " data-slide="compare" data-chapter="Compare" aria-label="4 of 13">
+<section class="slide " data-slide="compare" data-chapter="Compare" aria-label="5 of 14">
   <div class="slide-cap">
-    <div class="slide-eyebrow">04<span>/ 13</span> Original vs Suno · 1 of 3</div>
+    <div class="slide-eyebrow">05<span>/ 14</span> Original vs Suno · 1 of 3</div>
     <h2>Two takes, one groove</h2>
     <p>The original video audio against Suno's render, scored by the earshot toolkit: CLAP embedding similarity, prompt ranking, realness and attack.</p><p>Both players are full length. Use the next slide to compare phrase by phrase.</p>
     <div class="how"><div><span class="k">A</span><span>Original video audio, 37.8 s</span></div><div><span class="k">B</span><span>Suno render, 89.4 s</span></div></div>
@@ -1860,9 +2041,9 @@
 </div>
 </div></div></div>
 </section>
-<section class="slide " data-slide="phrases" data-chapter="Compare" aria-label="5 of 13">
+<section class="slide " data-slide="phrases" data-chapter="Compare" aria-label="6 of 14">
   <div class="slide-cap">
-    <div class="slide-eyebrow">05<span>/ 13</span> Original vs Suno · 2 of 3</div>
+    <div class="slide-eyebrow">06<span>/ 14</span> Original vs Suno · 2 of 3</div>
     <h2>Phrase by phrase</h2>
     <p>Each card is one phrase of the original. Play it, then play the same moment in the Suno render, then the Suno window that matched it best.</p><p>The cosine numbers say how close CLAP hears them.</p>
     <div class="how"><div><span class="k">A</span><span>Original phrase</span></div><div><span class="k">B same</span><span>Suno at the same time</span></div><div><span class="k">B best</span><span>Suno's best-matching window</span></div></div>
@@ -1937,9 +2118,9 @@
 </div>
 </div></div></div>
 </section>
-<section class="slide " data-slide="scorecard" data-chapter="Compare" aria-label="6 of 13">
+<section class="slide " data-slide="scorecard" data-chapter="Compare" aria-label="7 of 14">
   <div class="slide-cap">
-    <div class="slide-eyebrow">06<span>/ 13</span> Original vs Suno · 3 of 3</div>
+    <div class="slide-eyebrow">07<span>/ 14</span> Original vs Suno · 3 of 3</div>
     <h2>The full scorecard</h2>
     <p>Every earshot measurement side by side, with the six-panel diagnostic and the contact sheets for both files.</p><p>Click any image to open it full size.</p>
     <div class="how"><div><span class="k">Click</span><span>Zoom an image</span></div><div><span class="k">Esc</span><span>Close the zoom</span></div></div>
@@ -2029,9 +2210,9 @@
 </div></div>
       </div></div>
 </section>
-<section class="slide " data-slide="microscope" data-chapter="Microscope" aria-label="7 of 13">
+<section class="slide " data-slide="microscope" data-chapter="Microscope" aria-label="8 of 14">
   <div class="slide-cap">
-    <div class="slide-eyebrow">07<span>/ 13</span> Window by window</div>
+    <div class="slide-eyebrow">08<span>/ 14</span> Window by window</div>
     <h2>Under the microscope</h2>
     <p>One window at a time: its spectrogram, a pad for every sound, and the full acoustic, phonetic and rhythm breakdown.</p><p>Pick a window from the strip. Picking one also moves the video to its start.</p>
     <div class="how"><div><span class="k">Strip</span><span>Choose a window</span></div><div><span class="k">Pad or row</span><span>Play that sound</span></div><div><span class="k">Image</span><span>Click to zoom</span></div></div>
@@ -2840,9 +3021,9 @@
 </div>
 </details></div></article></div></div></div>
 </section>
-<section class="slide " data-slide="rhythm" data-chapter="Rhythm" aria-label="8 of 13">
+<section class="slide " data-slide="rhythm" data-chapter="Rhythm" aria-label="9 of 14">
   <div class="slide-cap">
-    <div class="slide-eyebrow">08<span>/ 13</span> Time and pitch · 1 of 2</div>
+    <div class="slide-eyebrow">09<span>/ 14</span> Time and pitch · 1 of 2</div>
     <h2>Rhythm at a glance</h2>
     <p>How the performance moves in time: the tempo curve and note-value census, the 16-step sequencer view, and the formant map of every voiced sound.</p><p>Pick a figure above it. Click the figure to open it full size.</p>
     <div class="how"><div><span class="k">Tabs</span><span>Switch figure</span></div><div><span class="k">Click</span><span>Zoom full size</span></div></div>
@@ -2859,9 +3040,9 @@
 <div class="figure-zoom-hint">🔍 Click to expand formant acoustic space</div>
 </div></div></div></div>
 </section>
-<section class="slide " data-slide="ipa" data-chapter="Rhythm" aria-label="9 of 13">
+<section class="slide " data-slide="ipa" data-chapter="Rhythm" aria-label="10 of 14">
   <div class="slide-cap">
-    <div class="slide-eyebrow">09<span>/ 13</span> Time and pitch · 2 of 2</div>
+    <div class="slide-eyebrow">10<span>/ 14</span> Time and pitch · 2 of 2</div>
     <h2>Narrow vs broad IPA</h2>
     <p>Broad IPA, written between slashes, records which sound was meant. Narrow IPA, written in square brackets, records exactly how it was made: aspiration, ejectives, clicks, trills.</p><p>Vocal percussion lives in the details, so this atlas uses narrow IPA throughout.</p>
     <div class="how"><div><span class="k">[ ]</span><span>Narrow: how it was made</span></div><div><span class="k">/ /</span><span>Broad: what was meant</span></div></div>
@@ -2918,9 +3099,9 @@
 </table>
 </div></div></div>
 </section>
-<section class="slide " data-slide="lyrics" data-chapter="Lyrics" aria-label="10 of 13">
+<section class="slide " data-slide="lyrics" data-chapter="Lyrics" aria-label="11 of 14">
   <div class="slide-cap">
-    <div class="slide-eyebrow">10<span>/ 13</span> The phonetics</div>
+    <div class="slide-eyebrow">11<span>/ 14</span> The phonetics</div>
     <h2>Four ways to write it</h2>
     <p>The same performance written four ways: spelled so Suno pronounces it right, pure narrow IPA, pure broad IPA, and the tri-tier score that stacks English, narrow IPA and rhythm bar by bar.</p><p>Every version has its own copy button.</p>
     <div class="how"><div><span class="k">[ ]</span><span>Narrow IPA: exactly how it was made</span></div><div><span class="k">/ /</span><span>Broad IPA: what was meant</span></div><div><span class="k">RHY</span><span>Rhythm row in the tri-tier score</span></div></div>
@@ -3079,9 +3260,9 @@ RHY:  ♪·    ♬     ♪·     ♬     ♩    |  ♬     ♬    ♬    ♩    
 </div>
 </div></div></div>
 </section>
-<section class="slide " data-slide="suno-style" data-chapter="Suno" aria-label="11 of 13">
+<section class="slide " data-slide="suno-style" data-chapter="Suno" aria-label="12 of 14">
   <div class="slide-cap">
-    <div class="slide-eyebrow">11<span>/ 13</span> Prompting Suno</div>
+    <div class="slide-eyebrow">12<span>/ 14</span> Prompting Suno</div>
     <h2>Build a style prompt</h2>
     <p>Six genre directions that suit this groove. Pick one as the base, add flavor modifiers, and copy the combined prompt into Suno's style field.</p>
     <div class="how"><div><span class="k">Card</span><span>Set the base style</span></div><div><span class="k">Chip</span><span>Add or remove a flavor</span></div><div><span class="k">Copy</span><span>Copy the combined prompt</span></div></div>
@@ -3163,9 +3344,9 @@ RHY:  ♪·    ♬     ♪·     ♬     ♩    |  ♬     ♬    ♬    ♩    
 <button class="btn-primary" onclick="copyText('combinedStyleOut', this)" type="button">📋 Copy Combined Style Prompt</button>
 </div></div></div></div>
 </section>
-<section class="slide " data-slide="events" data-chapter="Events" aria-label="12 of 13">
+<section class="slide " data-slide="events" data-chapter="Events" aria-label="13 of 14">
   <div class="slide-cap">
-    <div class="slide-eyebrow">12<span>/ 13</span> The data</div>
+    <div class="slide-eyebrow">13<span>/ 14</span> The data</div>
     <h2>All 147 sounds</h2>
     <p>Every sound in one table: timing, category, articulation, narrow IPA, rhythm value, bar position and formants.</p><p>Search by any field or filter by drum category. Click a row to hear it.</p>
     <div class="how"><div><span class="k">Search</span><span>Syllable, IPA, category, bar</span></div><div><span class="k">Row</span><span>Play that sound</span></div></div>
@@ -3198,9 +3379,9 @@ RHY:  ♪·    ♬     ♪·     ♬     ♩    |  ♬     ♬    ♬    ♩    
 </table>
 </div></div></div></div>
 </section>
-<section class="slide slide-play" data-slide="play" data-chapter="Play" aria-label="13 of 13" id="pane-play">
+<section class="slide slide-play" data-slide="play" data-chapter="Play" aria-label="14 of 14" id="pane-play">
   <div class="slide-cap">
-    <div class="slide-eyebrow">13<span>/ 13</span> Instrument</div>
+    <div class="slide-eyebrow">14<span>/ 14</span> Instrument</div>
     <h2>Play it yourself</h2>
     <p>Every sound becomes a sampler pad, with a synth alongside. Plug in a MIDI controller, or use the computer keyboard.</p><p>Notes 36 to 51 hit the pads by default. Everything else plays the synth.</p>
     <div class="how"><div><span class="k">Q W E R</span><span>Pads, top row</span></div><div><span class="k">Mod wheel</span><span>Filter</span></div><div><span class="k">Bend</span><span>Pitch</span></div><div><span class="k">Program</span><span>Pad bank</span></div></div>
@@ -3766,6 +3947,10 @@ if (EVENTS.length > 0) {
 
   /* --- pad data --- */
   function padDefs() {
+    if (S.src === 'upload') {
+      const UC = { KICK: '#ef4444', SNARE: '#f97316', HAT: '#eab308', TONAL: '#3b82f6', PERC: '#10b981', BREATH: '#64748b' };
+      return (S.uploadHits || []).map((h) => ({ label: h.cat.toLowerCase(), ipa: h.s.toFixed(2) + 's', num: h.i, start: h.s, end: h.e, color: UC[h.cat] || '#10b981', ev: null }));
+    }
     if (S.src === 'orig') {
       const byId = {}; (typeof EVENTS !== 'undefined' ? EVENTS : []).forEach((e) => { byId[e.idx] = e; });
       return (typeof HITS !== 'undefined' ? HITS : []).map((h) => {
@@ -3802,7 +3987,7 @@ if (EVENTS.length > 0) {
     }
     grid.innerHTML = html;
     $('bankLabel').textContent = `Bank ${S.bank + 1} / ${nb}`;
-    $('padHint').textContent = S.src === 'orig' ? `${defs.length} hits from the video, cut at each attack` : `${SUNO_CHOPS} equal chops of the Suno render`;
+    $('padHint').textContent = S.src === 'upload' ? `${defs.length} hits from ${S.uploadName || 'your file'}` : S.src === 'orig' ? `${defs.length} hits from the video, cut at each attack` : `${SUNO_CHOPS} equal chops of the Suno render`;
   }
 
   /* --- audio engine --- */
@@ -3858,6 +4043,7 @@ if (EVENTS.length > 0) {
   }
   async function loadBuffer(key) {
     if (S.buffers[key]) return S.buffers[key];
+    if (key === 'upload') return null;
     if (S.loading[key]) return S.loading[key];
     const c = ensureCtx(); if (!c) return null;
     S.loading[key] = (async () => {
@@ -4237,7 +4423,406 @@ if (EVENTS.length > 0) {
     drawScope();
   }
 
-  window.PLAY = { hitOn, eventOn, midi: (bytes) => handleMidi(bytes, 'test'), state: S, enable: enableAudio, padOn, synOn, synOff, setRailWidth };
+  function setUpload(buf, hits, name) {
+    S.buffers.upload = buf; S.uploadHits = hits; S.uploadName = name;
+    const seg = $('padSourceSeg');
+    if (seg && !seg.querySelector('[data-src="upload"]')) seg.insertAdjacentHTML('beforeend', '<button type="button" data-src="upload">Your upload</button>');
+    if (S.src === 'upload') renderPads();
+  }
+  function useUpload() {
+    if (!S.buffers.upload) return;
+    S.src = 'upload'; S.bank = 0;
+    $('padSourceSeg').querySelectorAll('button').forEach((x) => x.classList.toggle('active', x.dataset.src === 'upload'));
+    renderPads();
+  }
+  function sampleSlice(buf, s, e, vel) { S.buffers.upload = S.buffers.upload || buf; return sampleVoice({ start: s, end: e }, vel, 'upload:' + s); }
+  window.PLAY = { setUpload, useUpload, sampleSlice, hitOn, eventOn, midi: (bytes) => handleMidi(bytes, 'test'), state: S, enable: enableAudio, padOn, synOn, synOff, setRailWidth };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+
+<script>window.REF_MEDIA = {"orig": {"dur": 37.82, "lufs": -31.2, "peak": -7.2, "lra": 8.1, "tempo": "83–131", "hps": 4.7}, "suno": {"dur": 89.36, "lufs": -16.4, "peak": -3.0, "lra": 5.0, "tempo": "≈129"}};</script>
+
+<script>
+/* ================================================================
+   ANALYZER: drop a song or video, analyze it in the browser
+   (loudness, tempo, hits, spectrum, playable pads). Nothing leaves the page.
+   ================================================================ */
+(function () {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+
+  /* ---------- DSP worker (runs off the main thread) ---------- */
+  const WORKER_SRC = `
+  function fftRadix2(re, im) {
+    const n = re.length;
+    for (let i = 1, j = 0; i < n; i++) {
+      let bit = n >> 1;
+      for (; j & bit; bit >>= 1) j ^= bit;
+      j ^= bit;
+      if (i < j) { let t = re[i]; re[i] = re[j]; re[j] = t; t = im[i]; im[i] = im[j]; im[j] = t; }
+    }
+    for (let len = 2; len <= n; len <<= 1) {
+      const ang = -2 * Math.PI / len, wr = Math.cos(ang), wi = Math.sin(ang);
+      for (let i = 0; i < n; i += len) {
+        let cr = 1, ci = 0;
+        for (let k = 0; k < len / 2; k++) {
+          const a = i + k, b = a + len / 2;
+          const xr = re[b] * cr - im[b] * ci, xi = re[b] * ci + im[b] * cr;
+          re[b] = re[a] - xr; im[b] = im[a] - xi; re[a] += xr; im[a] += xi;
+          const nr = cr * wr - ci * wi; ci = cr * wi + ci * wr; cr = nr;
+        }
+      }
+    }
+  }
+  function biquad(x, b0, b1, b2, a0, a1, a2) {
+    b0 /= a0; b1 /= a0; b2 /= a0; a1 /= a0; a2 /= a0;
+    const y = new Float32Array(x.length); let x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+    for (let i = 0; i < x.length; i++) {
+      const v = b0 * x[i] + b1 * x1 + b2 * x2 - a1 * y1 - a2 * y2;
+      x2 = x1; x1 = x[i]; y2 = y1; y1 = v; y[i] = v;
+    }
+    return y;
+  }
+  function kWeight(x, fs) {
+    let G = 4.0, Q = 1 / Math.SQRT2, fc = 1500;
+    let A = Math.pow(10, G / 40), w0 = 2 * Math.PI * fc / fs, al = Math.sin(w0) / (2 * Q), c = Math.cos(w0), sA = Math.sqrt(A);
+    let y = biquad(x, A * ((A + 1) + (A - 1) * c + 2 * sA * al), -2 * A * ((A - 1) + (A + 1) * c), A * ((A + 1) + (A - 1) * c - 2 * sA * al),
+      (A + 1) - (A - 1) * c + 2 * sA * al, 2 * ((A - 1) - (A + 1) * c), (A + 1) - (A - 1) * c - 2 * sA * al);
+    fc = 38; Q = 0.5; w0 = 2 * Math.PI * fc / fs; al = Math.sin(w0) / (2 * Q); c = Math.cos(w0);
+    return biquad(y, (1 + c) / 2, -(1 + c), (1 + c) / 2, 1 + al, -2 * c, 1 - al);
+  }
+  function blocksMS(chs, fs, win, step) {
+    const n = chs[0].length, W = Math.round(win * fs), S = Math.round(step * fs), out = [];
+    for (let s = 0; s + W <= n; s += S) {
+      let z = 0;
+      for (const ch of chs) { let a = 0; for (let i = s; i < s + W; i++) a += ch[i] * ch[i]; z += a / W; }
+      out.push(z);
+    }
+    return out;
+  }
+  const L = (z) => -0.691 + 10 * Math.log10(z + 1e-12);
+  function integrated(z) {
+    let g = z.filter((v) => L(v) > -70); if (!g.length) return -70;
+    const rel = L(g.reduce((a, b) => a + b, 0) / g.length) - 10;
+    g = g.filter((v) => L(v) > rel); if (!g.length) return -70;
+    return L(g.reduce((a, b) => a + b, 0) / g.length);
+  }
+  function lra(z) {
+    let g = z.filter((v) => L(v) > -70); if (g.length < 2) return 0;
+    const rel = L(g.reduce((a, b) => a + b, 0) / g.length) - 20;
+    const s = g.filter((v) => L(v) > rel).map(L).sort((a, b) => a - b); if (s.length < 2) return 0;
+    const q = (p) => s[Math.min(s.length - 1, Math.floor(p * (s.length - 1)))];
+    return q(0.95) - q(0.10);
+  }
+  onmessage = (e) => {
+    const { chs, sr } = e.data; const prog = (p, m) => postMessage({ type: 'progress', p, m });
+    const n = chs[0].length, dur = n / sr;
+    const mono = new Float32Array(n);
+    for (const ch of chs) for (let i = 0; i < n; i++) mono[i] += ch[i] / chs.length;
+    prog(0.05, 'Measuring level');
+    let peak = 0, sq = 0;
+    for (const ch of chs) for (let i = 0; i < n; i++) { const a = Math.abs(ch[i]); if (a > peak) peak = a; }
+    for (let i = 0; i < n; i++) sq += mono[i] * mono[i];
+    const peakDb = 20 * Math.log10(peak + 1e-12), rmsDb = 10 * Math.log10(sq / n + 1e-12);
+    let corr = null;
+    if (chs.length === 2) { let ab = 0, aa = 0, bb = 0; const [a, b] = chs; for (let i = 0; i < n; i += 4) { ab += a[i] * b[i]; aa += a[i] * a[i]; bb += b[i] * b[i]; } corr = ab / Math.sqrt(aa * bb + 1e-12); }
+    prog(0.15, 'Loudness (BS.1770)');
+    const kw = chs.map((c) => kWeight(c, sr));
+    const lufs = integrated(blocksMS(kw, sr, 0.4, 0.1));
+    const stz = blocksMS(kw, sr, 3, 1);
+    const lraLU = lra(stz), stMax = stz.length ? Math.max(...stz.map(L)) : lufs;
+    prog(0.35, 'Spectrum');
+    const N = 2048, H = 512, frames = Math.max(1, Math.floor((n - N) / H) + 1);
+    const hann = new Float32Array(N); for (let i = 0; i < N; i++) hann[i] = 0.5 - 0.5 * Math.cos(2 * Math.PI * i / N);
+    const bins = N / 2, hz = sr / N;
+    const SPEC_ROWS = 96, cols = Math.min(frames, 1400), colEvery = frames / cols;
+    const fmin = 30, fmax = Math.min(16000, sr / 2);
+    const rowEdge = Array.from({ length: SPEC_ROWS + 1 }, (_, r) => Math.max(1, Math.round(fmin * Math.pow(fmax / fmin, r / SPEC_ROWS) / hz)));
+    const spec = new Uint8Array(cols * SPEC_ROWS);
+    const flux = new Float32Array(frames), cent = new Float32Array(frames);
+    const bandEdges = [[20, 60, 'sub'], [60, 250, 'low'], [250, 500, 'lowmid'], [500, 2000, 'mid'], [2000, 6000, 'presence'], [6000, 12000, 'air'], [12000, 20000, 'top']];
+    const bandSum = new Float64Array(bandEdges.length);
+    let prev = new Float32Array(bins); const re = new Float32Array(N), im = new Float32Array(N), mag = new Float32Array(bins);
+    let colAcc = new Float32Array(SPEC_ROWS), colCnt = 0, col = 0, maxDb = -200;
+    const colDb = new Float32Array(cols * SPEC_ROWS);
+    for (let f = 0; f < frames; f++) {
+      const o = f * H;
+      for (let i = 0; i < N; i++) { re[i] = (mono[o + i] || 0) * hann[i]; im[i] = 0; }
+      fftRadix2(re, im);
+      let fl = 0, num = 0, den = 0;
+      for (let k = 0; k < bins; k++) {
+        const m = Math.sqrt(re[k] * re[k] + im[k] * im[k]); mag[k] = m;
+        const lm = Math.log1p(100 * m), d = lm - prev[k]; if (d > 0) fl += d; prev[k] = lm;
+        const p = m * m; num += k * hz * p; den += p;
+      }
+      flux[f] = fl; cent[f] = den > 0 ? num / den : 0;
+      for (let b = 0; b < bandEdges.length; b++) { const lo = Math.floor(bandEdges[b][0] / hz), hi = Math.min(bins, Math.ceil(bandEdges[b][1] / hz)); let s = 0; for (let k = lo; k < hi; k++) s += mag[k] * mag[k]; bandSum[b] += s; }
+      for (let r = 0; r < SPEC_ROWS; r++) { let s = 0; const a = rowEdge[r], b = Math.max(a + 1, rowEdge[r + 1]); for (let k = a; k < b && k < bins; k++) s += mag[k] * mag[k]; colAcc[r] += s / (b - a); }
+      colCnt++;
+      if (f + 1 >= (col + 1) * colEvery || f === frames - 1) {
+        for (let r = 0; r < SPEC_ROWS; r++) { const v = 10 * Math.log10(colAcc[r] / colCnt + 1e-12); colDb[col * SPEC_ROWS + r] = v; if (v > maxDb) maxDb = v; }
+        colAcc.fill(0); colCnt = 0; col = Math.min(cols - 1, col + 1);
+      }
+      if ((f & 1023) === 0) prog(0.35 + 0.4 * f / frames, 'Spectrum');
+    }
+    for (let i = 0; i < colDb.length; i++) spec[i] = Math.max(0, Math.min(255, Math.round((colDb[i] - (maxDb - 80)) / 80 * 255)));
+    let totBand = 0; for (const v of bandSum) totBand += v;
+    const bands = bandEdges.map((b, i) => ({ name: b[2], db: 10 * Math.log10(bandSum[i] / (totBand + 1e-12) + 1e-12) }));
+    let cn = 0, cd = 0; for (let f = 0; f < frames; f++) { const w = flux[f] + 1e-6; cn += cent[f] * w; cd += w; }
+    prog(0.8, 'Finding hits');
+    // onset picking on smoothed flux with adaptive threshold
+    const fps = sr / H, sm = new Float32Array(frames);
+    for (let f = 0; f < frames; f++) sm[f] = (flux[Math.max(0, f - 1)] + 2 * flux[f] + flux[Math.min(frames - 1, f + 1)]) / 4;
+    let mx = 0; for (const v of sm) if (v > mx) mx = v;
+    const nv = sm.map((v) => v / (mx || 1));
+    const half = Math.round(0.4 * fps), on = [];
+    const minGap = Math.round(0.045 * fps);
+    for (let f = 1; f < frames - 1; f++) {
+      if (!(nv[f] > nv[f - 1] && nv[f] >= nv[f + 1])) continue;
+      let s = 0, c = 0; for (let k = Math.max(0, f - half); k < Math.min(frames, f + half); k++) { s += nv[k]; c++; }
+      if (nv[f] < s / c * 1.4 + 0.04) continue;
+      if (on.length && f - on[on.length - 1] < minGap) { if (nv[f] > nv[on[on.length - 1]]) on[on.length - 1] = f; continue; }
+      on.push(f);
+    }
+    // tempo by onset autocorrelation 60..200 BPM with a gentle prior around 115
+    let bestBpm = 0, bestScore = -1;
+    for (let bpm = 60; bpm <= 200; bpm += 0.5) {
+      const lag = 60 / bpm * fps; const l0 = Math.floor(lag), fr = lag - l0; let s = 0;
+      for (let f = 0; f + l0 + 1 < frames; f++) s += nv[f] * (nv[f + l0] * (1 - fr) + nv[f + l0 + 1] * fr);
+      s *= Math.exp(-0.5 * Math.pow(Math.log2(bpm / 115) / 0.9, 2));
+      if (s > bestScore) { bestScore = s; bestBpm = bpm; }
+    }
+    // hits: refine start to the attack using the sample envelope
+    const ms = Math.max(1, Math.round(sr / 1000)), envN = Math.floor(n / ms), env = new Float32Array(envN);
+    for (let i = 0; i < envN; i++) { let s = 0; for (let j = 0; j < ms; j++) { const v = mono[i * ms + j]; s += v * v; } env[i] = 10 * Math.log10(s / ms + 1e-12); }
+    const starts = on.map((f) => {
+      const c = Math.round(f * H / sr * 1000); let lo = Math.max(0, c - 45), hi = Math.min(envN - 1, c + 25);
+      let pk = lo; for (let i = lo; i <= hi; i++) if (env[i] > env[pk]) pk = i;
+      let mn = Math.max(0, pk - 45); for (let i = Math.max(0, pk - 45); i <= pk; i++) if (env[i] < env[mn]) mn = i;
+      let j = mn; while (j < pk && env[j] < env[mn] + 6) j++;
+      return Math.max(0, (j - 3) / 1000);
+    }).filter((t, i, a) => i === 0 || t - a[i - 1] > 0.03);
+    const hits = starts.map((s, i) => {
+      const next = i + 1 < starts.length ? starts[i + 1] : dur;
+      let e = Math.min(next, s + 1.2);
+      const a = Math.floor(s * 1000), b = Math.min(envN, Math.floor(e * 1000));
+      let pk = -200; for (let k = a; k < b; k++) if (env[k] > pk) pk = env[k];
+      let last = a; for (let k = a; k < b; k++) if (env[k] > pk - 40) last = k;
+      e = Math.max(s + 0.03, Math.min(e, (last + 15) / 1000));
+      // features over the first 60 ms
+      const o = Math.floor(s * sr), Lw = 2048; for (let k = 0; k < Lw; k++) { re[k] = (mono[o + k] || 0) * hann[k]; im[k] = 0; }
+      fftRadix2(re, im);
+      let tot = 0, lowE = 0, highE = 0, cnum = 0, lg = 0, ar = 0;
+      for (let k = 1; k < bins; k++) { const p = re[k] * re[k] + im[k] * im[k] + 1e-12; tot += p; cnum += k * hz * p; if (k * hz < 150) lowE += p; if (k * hz > 5000) highE += p; lg += Math.log(p); ar += p; }
+      const centroid = cnum / tot, low = lowE / tot, high = highE / tot, flat = Math.exp(lg / (bins - 1)) / (ar / (bins - 1));
+      let cat = 'PERC';
+      if (pk < -45) cat = 'BREATH';
+      else if (low > 0.35 && centroid < 600) cat = 'KICK';
+      else if (high > 0.35 || centroid > 5000) cat = 'HAT';
+      else if (flat > 0.12 && centroid > 1500) cat = 'SNARE';
+      else if (flat < 0.02) cat = 'TONAL';
+      return { i: i + 1, s: +s.toFixed(3), e: +e.toFixed(3), pk: +pk.toFixed(1), cat, centroid: Math.round(centroid) };
+    });
+    // waveform overview
+    const WB = 1200, wf = new Float32Array(WB * 2), per = Math.max(1, Math.floor(n / WB));
+    for (let b = 0; b < WB; b++) { let lo = 0, hi = 0; for (let i = b * per; i < Math.min(n, (b + 1) * per); i++) { const v = mono[i]; if (v < lo) lo = v; if (v > hi) hi = v; } wf[b * 2] = lo; wf[b * 2 + 1] = hi; }
+    prog(1, 'Done');
+    postMessage({ type: 'done', res: {
+      dur, sr, channels: chs.length, peakDb, rmsDb, lufs, lra: lraLU, stMax, corr,
+      centroid: cd ? cn / cd : 0, bands, bpm: bestBpm, onsetsPerSec: hits.length / dur,
+      hits, spec, specRows: SPEC_ROWS, specCols: cols, wf: Array.from(wf), fmin, fmax
+    } }, [spec.buffer]);
+  };`;
+
+  const CAT_COL = { KICK: '#ef4444', SNARE: '#f97316', HAT: '#eab308', TONAL: '#3b82f6', PERC: '#10b981', BREATH: '#64748b' };
+  const REF = window.REF_MEDIA || {};
+  const A = { file: null, buf: null, res: null, bank: 0, url: null, raf: 0, src: null, t0: 0, off: 0 };
+
+  function fmtTime(s) { const m = Math.floor(s / 60), r = s - m * 60; return m + ':' + (r < 10 ? '0' : '') + r.toFixed(1); }
+  function fmtBytes(b) { return b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.round(b / 1024) + ' KB'; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+
+  function goAnalyze() { const i = [...document.querySelectorAll('.slide')].findIndex((s) => s.dataset.slide === 'analyze'); if (i >= 0 && window.DECK) DECK.go(i); }
+  function setStatus(msg, pct) {
+    const s = $('anStatus'); if (s) s.textContent = msg;
+    const b = $('anBar'); if (b) b.style.width = Math.round((pct || 0) * 100) + '%';
+  }
+
+  async function handleFile(file) {
+    if (!file) return;
+    A.file = file; goAnalyze();
+    $('anEmpty').hidden = true; $('anResult').hidden = true; $('anBusy').hidden = false;
+    setStatus('Reading ' + file.name, 0.02);
+    if (A.url) URL.revokeObjectURL(A.url);
+    A.url = URL.createObjectURL(file);
+    const isVideo = /^video\//.test(file.type) || /\.(mov|mp4|m4v|webm)$/i.test(file.name);
+    let vmeta = null;
+    if (isVideo) vmeta = await new Promise((res) => {
+      const v = document.createElement('video'); v.preload = 'metadata'; v.muted = true; v.src = A.url;
+      v.onloadedmetadata = () => res({ w: v.videoWidth, h: v.videoHeight, dur: v.duration }); v.onerror = () => res(null);
+      setTimeout(() => res(null), 4000);
+    });
+    try {
+      if (window.PLAY) await PLAY.enable();
+      const ctx = (window.PLAY && PLAY.state.ctx) || new (window.AudioContext || window.webkitAudioContext)();
+      setStatus('Decoding audio', 0.05);
+      const ab = await file.arrayBuffer();
+      A.buf = await ctx.decodeAudioData(ab);
+    } catch (err) {
+      $('anBusy').hidden = true; $('anEmpty').hidden = false;
+      $('anEmptyMsg').textContent = 'Could not decode the audio in "' + file.name + '". Try MP3, WAV, M4A, FLAC or an MP4 video.';
+      return;
+    }
+    const chs = []; for (let c = 0; c < Math.min(2, A.buf.numberOfChannels); c++) chs.push(new Float32Array(A.buf.getChannelData(c)));
+    const w = new Worker(URL.createObjectURL(new Blob([WORKER_SRC], { type: 'text/javascript' })));
+    w.onmessage = (e) => {
+      if (e.data.type === 'progress') setStatus(e.data.m + '...', 0.05 + 0.95 * e.data.p);
+      else if (e.data.type === 'done') { w.terminate(); A.res = e.data.res; A.bank = 0; render(file, isVideo, vmeta); }
+    };
+    w.onerror = (e) => { setStatus('Analysis failed: ' + e.message, 0); };
+    w.postMessage({ chs, sr: A.buf.sampleRate }, chs.map((c) => c.buffer));
+  }
+
+  function render(file, isVideo, vmeta) {
+    const r = A.res;
+    $('anBusy').hidden = true; $('anResult').hidden = false;
+    $('anName').textContent = file.name;
+    const chips = [isVideo ? 'Video' : 'Audio', fmtTime(r.dur), fmtBytes(file.size), r.channels === 1 ? 'Mono' : 'Stereo', (r.sr / 1000) + ' kHz decode'];
+    if (vmeta && vmeta.w) chips.push(vmeta.w + '×' + vmeta.h);
+    $('anChips').innerHTML = chips.map((c) => `<span>${esc(c)}</span>`).join('');
+    const counts = {}; r.hits.forEach((h) => { counts[h.cat] = (counts[h.cat] || 0) + 1; });
+    const tiles = [
+      ['Loudness', r.lufs.toFixed(1), r.channels === 1 ? 'LUFS · ' + (r.lufs + 3.01).toFixed(1) + ' as dual mono' : 'LUFS integrated'],
+      ['Tempo', Math.round(r.bpm), 'BPM, estimated'],
+      ['Hits', r.hits.length, r.onsetsPerSec.toFixed(1) + ' per second'],
+      ['Peak', r.peakDb.toFixed(1), 'dBFS sample peak'],
+      ['Range', r.lra.toFixed(1), 'LU loudness range'],
+      ['RMS', r.rmsDb.toFixed(1), 'dBFS average'],
+      ['Brightness', (r.centroid / 1000).toFixed(2), 'kHz spectral centroid'],
+      ['Stereo', r.corr == null ? 'Mono' : r.corr.toFixed(2), r.corr == null ? 'single channel' : 'L/R correlation']
+    ];
+    $('anTiles').innerHTML = tiles.map(([k, v, s]) => `<div class="an-tile"><span>${k}</span><b>${v}</b><small>${s}</small></div>`).join('');
+    $('anMix').innerHTML = Object.keys(CAT_COL).filter((k) => counts[k]).map((k) => `<span style="flex:${counts[k]};background:${CAT_COL[k]}" title="${k}: ${counts[k]}"></span>`).join('');
+    $('anMixLegend').innerHTML = Object.keys(CAT_COL).filter((k) => counts[k]).map((k) => `<span><i style="background:${CAT_COL[k]}"></i>${k.toLowerCase()} ${counts[k]}</span>`).join('');
+    const maxB = Math.max(...r.bands.map((b) => b.db)), minB = maxB - 40;
+    $('anBands').innerHTML = r.bands.map((b) => `<div title="${b.name}: ${b.db.toFixed(1)} dB"><i style="height:${Math.max(3, (b.db - minB) / 40 * 100)}%"></i><span>${b.name.replace('presence', 'pres').replace('lowmid', 'l-mid')}</span></div>`).join('');
+    const ref = (k) => REF[k] || {};
+    const rows = [
+      ['Duration', fmtTime(r.dur), fmtTime(ref('orig').dur || 37.82), fmtTime(ref('suno').dur || 89.36)],
+      ['Loudness (LUFS)', r.lufs.toFixed(1), ref('orig').lufs, ref('suno').lufs],
+      ['Peak (dBFS)', r.peakDb.toFixed(1), ref('orig').peak, ref('suno').peak],
+      ['Range (LU)', r.lra.toFixed(1), ref('orig').lra, ref('suno').lra],
+      ['Tempo (BPM)', Math.round(r.bpm), ref('orig').tempo, ref('suno').tempo],
+      ['Hits / second', r.onsetsPerSec.toFixed(1), ref('orig').hps, ref('suno').hps]
+    ];
+    $('anCompare').innerHTML = '<tr><th></th><th>Yours</th><th>IMG_3268</th><th>Suno</th></tr>' + rows.map((x) => `<tr><td>${x[0]}</td><td><b>${x[1]}</b></td><td>${x[2] ?? '–'}</td><td>${x[3] ?? '–'}</td></tr>`).join('');
+    drawTimeline(); renderPads();
+    if (window.PLAY && PLAY.setUpload) PLAY.setUpload(A.buf, r.hits, file.name);
+    const plan = $('anDl');
+    if (plan) {
+      const out = { file: file.name, duration: r.dur, lufs: r.lufs, lra: r.lra, peakDb: r.peakDb, rmsDb: r.rmsDb, bpm: r.bpm, centroidHz: r.centroid, bands: r.bands, hits: r.hits };
+      plan.href = URL.createObjectURL(new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' }));
+      plan.download = file.name.replace(/\.[^.]+$/, '') + '_analysis.json';
+    }
+  }
+
+  /* ---------- timeline: spectrogram + waveform + hit ticks ---------- */
+  function heat(v) { // 0..255 -> dark blue, purple, amber
+    const t = v / 255;
+    const r = Math.round(255 * Math.min(1, Math.max(0, 1.6 * t - 0.25))), g = Math.round(255 * Math.max(0, Math.min(1, 2.2 * t - 1.3))), b = Math.round(255 * Math.max(0, Math.min(1, 0.55 + 0.9 * t - 1.3 * t * t)));
+    return [r, g, b];
+  }
+  function drawTimeline() {
+    const r = A.res, cv = $('anCanvas'); if (!cv || !r) return;
+    const W = cv.clientWidth, H = cv.clientHeight; if (!W || !H) return;
+    const dpr = window.devicePixelRatio || 1; cv.width = W * dpr; cv.height = H * dpr;
+    const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.fillStyle = '#06080c'; g.fillRect(0, 0, W, H);
+    const specH = Math.round(H * 0.62), waveTop = specH + 6, waveH = H - waveTop - 4;
+    const img = g.createImageData(r.specCols, r.specRows);
+    for (let c = 0; c < r.specCols; c++) for (let row = 0; row < r.specRows; row++) {
+      const v = r.spec[c * r.specRows + row], [R, G, B] = heat(v), p = ((r.specRows - 1 - row) * r.specCols + c) * 4;
+      img.data[p] = R; img.data[p + 1] = G; img.data[p + 2] = B; img.data[p + 3] = 255;
+    }
+    const off = document.createElement('canvas'); off.width = r.specCols; off.height = r.specRows; off.getContext('2d').putImageData(img, 0, 0);
+    g.imageSmoothingEnabled = true; g.drawImage(off, 0, 0, W, specH);
+    const WB = r.wf.length / 2, mid = waveTop + waveH / 2;
+    g.fillStyle = '#4cc2ff';
+    for (let x = 0; x < W; x++) { const b = Math.floor(x / W * WB); const lo = r.wf[b * 2], hi = r.wf[b * 2 + 1]; g.fillRect(x, mid - hi * waveH / 2, 1, Math.max(1, (hi - lo) * waveH / 2)); }
+    r.hits.forEach((h) => { const x = h.s / r.dur * W; g.fillStyle = CAT_COL[h.cat]; g.fillRect(x, specH - 8, 2, 8); g.globalAlpha = 0.18; g.fillRect(x, 0, 1, specH); g.globalAlpha = 1; });
+    $('anTimeLabel').textContent = '0:00 – ' + fmtTime(r.dur) + ' · ' + Math.round(r.fmin) + ' Hz – ' + (r.fmax / 1000).toFixed(0) + ' kHz';
+  }
+  function playFrom(t) {
+    stopPlay();
+    const ctx = window.PLAY && PLAY.state.ctx; if (!ctx || !A.buf) return;
+    const src = ctx.createBufferSource(); src.buffer = A.buf; src.connect(PLAY.state.master || ctx.destination);
+    src.start(0, t); A.src = src; A.t0 = ctx.currentTime; A.off = t;
+    src.onended = () => { if (A.src === src) { A.src = null; $('anPlay').textContent = 'Play'; } };
+    $('anPlay').textContent = 'Stop';
+    const tick = () => {
+      if (!A.src) { $('anHead').style.left = '0'; return; }
+      const t = A.off + (ctx.currentTime - A.t0), cv = $('anCanvas');
+      $('anHead').style.left = (t / A.res.dur * cv.clientWidth) + 'px';
+      $('anNow').textContent = fmtTime(t);
+      const h = A.res.hits.findLast ? A.res.hits.findLast((x) => x.s <= t) : null;
+      if (h) lightPad(h.i);
+      A.raf = requestAnimationFrame(tick);
+    };
+    cancelAnimationFrame(A.raf); tick();
+  }
+  function stopPlay() { if (A.src) { try { A.src.stop(); } catch (e) { /* */ } A.src = null; } $('anPlay').textContent = 'Play'; }
+
+  /* ---------- pads ---------- */
+  function renderPads() {
+    const r = A.res, banks = Math.max(1, Math.ceil(r.hits.length / 16));
+    A.bank = Math.max(0, Math.min(banks - 1, A.bank));
+    const hs = r.hits.slice(A.bank * 16, A.bank * 16 + 16);
+    $('anPads').innerHTML = hs.map((h) => `<button type="button" class="an-pad" id="anpad-${h.i}" data-i="${h.i}" style="--pad-col:${CAT_COL[h.cat]}"><span>${String(h.i).padStart(3, '0')}</span><b>${h.cat.toLowerCase()}</b><small>${fmtTime(h.s)}</small></button>`).join('')
+      + Array.from({ length: 16 - hs.length }, () => '<div class="an-pad empty"></div>').join('');
+    $('anBank').textContent = `Bank ${A.bank + 1} / ${banks}`;
+  }
+  function lightPad(i) {
+    document.querySelectorAll('#anPads .an-pad.on').forEach((x) => x.classList.remove('on'));
+    const p = $('anpad-' + i); if (p) { p.classList.add('on'); }
+    const want = Math.floor((i - 1) / 16); if (want !== A.bank && A.src) { A.bank = want; renderPads(); const q = $('anpad-' + i); if (q) q.classList.add('on'); }
+  }
+  function hitPad(i) {
+    const h = A.res.hits[i - 1]; if (!h || !window.PLAY) return;
+    PLAY.sampleSlice(A.buf, h.s, h.e, 112);
+    lightPad(i);
+    const p = $('anpad-' + i); if (p) { p.classList.remove('flash'); void p.offsetWidth; p.classList.add('flash'); }
+  }
+
+  /* ---------- wire up ---------- */
+  function init() {
+    const inputs = document.querySelectorAll('input[data-analyze-file]');
+    inputs.forEach((inp) => inp.addEventListener('change', () => { if (inp.files[0]) handleFile(inp.files[0]); inp.value = ''; }));
+    document.querySelectorAll('[data-dropzone]').forEach((z) => {
+      z.addEventListener('dragover', (e) => { e.preventDefault(); z.classList.add('over'); });
+      z.addEventListener('dragleave', () => z.classList.remove('over'));
+      z.addEventListener('drop', (e) => { e.preventDefault(); z.classList.remove('over'); const f = e.dataTransfer.files[0]; if (f) handleFile(f); });
+    });
+    window.addEventListener('dragover', (e) => e.preventDefault());
+    window.addEventListener('drop', (e) => { e.preventDefault(); const f = e.dataTransfer && e.dataTransfer.files[0]; if (f && /^(audio|video)\//.test(f.type)) handleFile(f); });
+    const cv = $('anCanvas');
+    if (cv) cv.addEventListener('pointerdown', (e) => { if (!A.res) return; const rc = cv.getBoundingClientRect(); playFrom((e.clientX - rc.left) / rc.width * A.res.dur); });
+    $('anPlay') && $('anPlay').addEventListener('click', () => { if (A.src) stopPlay(); else playFrom(0); });
+    $('anPads') && $('anPads').addEventListener('pointerdown', (e) => { const p = e.target.closest('.an-pad[data-i]'); if (p) { e.preventDefault(); hitPad(+p.dataset.i); } });
+    $('anPrev') && $('anPrev').addEventListener('click', () => { if (!A.res) return; const b = Math.ceil(A.res.hits.length / 16); A.bank = (A.bank - 1 + b) % b; renderPads(); });
+    $('anNext') && $('anNext').addEventListener('click', () => { if (!A.res) return; const b = Math.ceil(A.res.hits.length / 16); A.bank = (A.bank + 1) % b; renderPads(); });
+    $('anToPlay') && $('anToPlay').addEventListener('click', () => { if (window.PLAY && PLAY.useUpload) PLAY.useUpload(); const i = [...document.querySelectorAll('.slide')].findIndex((s) => s.dataset.slide === 'play'); if (i >= 0) DECK.go(i); });
+    window.addEventListener('resize', () => { if (A.res) drawTimeline(); });
+    document.addEventListener('keydown', (e) => {
+      const s = document.querySelector('.slide.active'); if (!s || s.dataset.slide !== 'analyze' || !A.res) return;
+      if (e.target.closest && e.target.closest('input, textarea, select')) return;
+      const keys = ['q', 'w', 'e', 'r', 'a', 's', 'd', 'f', 'z', 'x', 'c', 'v', 't', 'g', 'b', 'n'], k = keys.indexOf(e.key.toLowerCase());
+      if (k >= 0 && !e.metaKey && !e.ctrlKey && !e.repeat) { const i = A.bank * 16 + k + 1; if (i <= A.res.hits.length) { e.preventDefault(); e.stopPropagation(); hitPad(i); } }
+    }, true);
+    const obs = new MutationObserver(() => { const s = document.querySelector('.slide.active'); if (s && s.dataset.slide === 'analyze' && A.res) drawTimeline(); });
+    document.querySelectorAll('.slide').forEach((s) => obs.observe(s, { attributes: true, attributeFilter: ['class'] }));
+  }
+  window.ANALYZER = { handleFile, state: A };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 </script>
@@ -4385,6 +4970,13 @@ if (EVENTS.length > 0) {
     if (h && h.i !== window.__curHit && window.lightHit) { if (window.showHitWindow) window.showHitWindow(h.w); window.lightHit(h.i); }
   }
   requestAnimationFrame(frame);
+
+  /* ---------- overview song map -> pads window ---------- */
+  document.addEventListener('click', (e) => {
+    const m = e.target.closest('[data-mapwin]'); if (!m) return;
+    go(byId('pads'));
+    const b = document.querySelector(`#winList .win-btn[data-w="${m.dataset.mapwin}"]`); if (b) b.click();
+  });
 
   /* ---------- start ---------- */
   try { if (EVENTS.length) window.updateHudFromEvent(EVENTS[0]); } catch (e) { /* */ }

@@ -21,3 +21,6 @@ An interactive acoustic, phonetic, musical-rhythm, and `earshot` A/B comparison 
 - [`analysis/IMG_3268_subtitled_phonetic_rhythm.mp4`](./analysis/IMG_3268_subtitled_phonetic_rhythm.mp4) — Standalone MP4 video with burned-in multi-tier karaoke subtitles
 - [`analysis/earshot_orig_vs_suno.json`](./analysis/earshot_orig_vs_suno.json) — Complete `earshot` A/B comparison metrics and sliding CLAP embeddings
 - [`analysis/micro_events_138.json`](./analysis/micro_events_138.json) — All 147 annotated auditory events with Narrow IPA, formants, and musical rhythm notation
+
+## Analyze your own song
+Drop any audio or video file on the Overview slide. It is analyzed entirely in the browser (nothing is uploaded): BS.1770 integrated loudness and loudness range, peak and RMS, tempo, every hit with a rough drum category, spectrum balance and a spectrogram, compared against IMG_3268 and the Suno render. The hits become playable pads, also on the Play slide with a MIDI controller, and the results download as JSON. Narrow IPA, lyrics and CLAP similarity still need the Python `earshot` pipeline.
