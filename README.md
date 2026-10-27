@@ -3,6 +3,7 @@
 An interactive acoustic, phonetic, musical-rhythm, and `earshot` A/B comparison workbench analyzing **147 discrete vocal-percussion events** across `IMG_3268.mp3` (`0:00.00–0:37.82`) and comparing it against its Suno AI vocal-percussion render (`IMG_3268 SUNO.mp3`).
 
 ## 🌐 Live Interactive Studio Workbench (GitHub Pages)
+- **Live URL**: **https://jeromyjsmith.github.io/img-3268-phonetic-rhythm-atlas/**
 - **Web App (`index.html`)**: Fast-loading Two-Column Studio Workbench with:
   1. **Left Sticky Studio Monitor Rail**: Synchronized video/audio stage (`🎥 Video + Subtitles`, `🅰️ Original MP3`, `🅱️ Suno MP3`), live Tri-Tier Phonetic + Narrow IPA + Musical Rhythm HUD, active window rhythm strip, and keyboard transport (`Space`, `←/→`, `L`, `1–5`).
   2. **Workspace 1 — `earshot` Original vs. Suno A/B Lab**: Interactive phrase-by-phrase A/B auditioning (`Original` vs. `Suno Same-Timestamp` vs. `Suno earshot find Best-Match`), full `earshot` quantitative scorecard (`CLAP cosine = 0.82` peak 3s window / `0.60` full pass, calibrated `z = +6.71` vs. `+7.34` both `#1 / 322` at `100th percentile`, `p_real = 0.994` vs. `0.981`), and side-by-side `earshot sheet` contact sheets.
