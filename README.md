@@ -24,3 +24,38 @@ An interactive acoustic, phonetic, musical-rhythm, and `earshot` A/B comparison 
 
 ## Analyze your own song
 Drop any audio or video file on the Overview slide. It is analyzed entirely in the browser (nothing is uploaded): BS.1770 integrated loudness and loudness range, peak and RMS, tempo, every hit with a rough drum category, spectrum balance and a spectrogram, compared against IMG_3268 and the Suno render. The hits become playable pads, also on the Play slide with a MIDI controller, and the results download as JSON. Narrow IPA, lyrics and CLAP similarity still need the Python `earshot` pipeline.
+
+## Saved projects and editable sampler slices
+
+The Analyze workspace now has named projects, local autosave, reopen/new controls,
+and portable `.atlas` export/import. Original media and analysis travel together.
+Projects are stored in IndexedDB in this browser on this device; export backups
+before clearing browser data. Backups currently accept media up to 40 MB; browser
+audio imports are limited to 100 MB and 20 minutes. Decode support depends on
+the browser and the media's audio codec.
+
+Select a hit pad to inspect its zoomed waveform, adjust its start/end times,
+name/category/IPA, audition the proposed slice, apply it or undo. Changes update
+the Analyze and Play pads and analysis JSON; the source media is unchanged.
+IPA entry is manual here, not automatic full phonetic analysis.
+
+Import now cancels older jobs, ignores stale decode/worker callbacks, handles
+worker startup/errors/timeouts, and prevents duplicate drop-zone processing.
+Loudness and tempo are estimates; silence does not receive a made-up tempo.
+
+See [ROADMAP.md](./ROADMAP.md) for the full BandLab-like studio direction:
+analysis, stems, instruments, rhythm, in-app device chains, remixing, native
+plug-in hosting, and Ableton integration.
+
+Run dependency-free checks with Node 24:
+
+```sh
+node --test tests/foundation.test.cjs
+```
+
+The tests cover script syntax, DSP edge cases, project validation, slice bounds,
+decode failures and job cancellation/races. Live Chrome preview checks passed
+for demo analysis, slice edits/undo, IndexedDB save/reload/reopen and a clean
+console. Export creates an explicit Download backup link; the connected browser
+cannot retrieve blob downloads, so portable file transfer/reimport remains
+unverified. Listening quality, hardware MIDI and other browsers remain untested.
