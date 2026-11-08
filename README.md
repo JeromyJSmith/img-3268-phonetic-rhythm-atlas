@@ -25,7 +25,7 @@ An interactive acoustic, phonetic, musical-rhythm, and `earshot` A/B comparison 
 ## Analyze your own song
 Drop any audio or video file on the Overview slide. It is analyzed entirely in the browser (nothing is uploaded): BS.1770 integrated loudness and loudness range, peak and RMS, tempo, every hit with a rough drum category, spectrum balance and a spectrogram, compared against IMG_3268 and the Suno render. The hits become playable pads, also on the Play slide with a MIDI controller, and the results download as JSON. Narrow IPA, lyrics and CLAP similarity still need the Python `earshot` pipeline.
 
-## Project and sampler foundation (feature branch)
+## Saved projects and editable sampler slices
 
 The Analyze workspace now has named projects, local autosave, reopen/new controls,
 and portable `.atlas` export/import. Original media and analysis travel together.
@@ -54,5 +54,8 @@ node --test tests/foundation.test.cjs
 ```
 
 The tests cover script syntax, DSP edge cases, project validation, slice bounds,
-decode failures and job cancellation/races. Browser IndexedDB reload/backup
-round trips, rendered layout and actual audio/MIDI still require browser QA.
+decode failures and job cancellation/races. Live Chrome preview checks passed
+for demo analysis, slice edits/undo, IndexedDB save/reload/reopen and a clean
+console. Export creates an explicit Download backup link; the connected browser
+cannot retrieve blob downloads, so portable file transfer/reimport remains
+unverified. Listening quality, hardware MIDI and other browsers remain untested.
