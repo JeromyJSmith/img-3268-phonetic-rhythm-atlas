@@ -4837,7 +4837,7 @@ if (EVENTS.length > 0) {
   function playFrom(t) {
     stopPlay();
     const ctx = window.PLAY && PLAY.state.ctx; if (!ctx || !A.buf) return;
-    const src = ctx.createBufferSource(); src.buffer = A.buf; src.connect(PLAY.state.master || ctx.destination);
+    const src = ctx.createBufferSource(); src.buffer = A.buf; src.connect(PLAY.state.padBus || ctx.destination);
     src.start(0, t); A.src = src; A.t0 = ctx.currentTime; A.off = t;
     src.onended = () => { if (A.src === src) { A.src = null; $('anPlay').textContent = 'Play'; } };
     $('anPlay').textContent = 'Stop';

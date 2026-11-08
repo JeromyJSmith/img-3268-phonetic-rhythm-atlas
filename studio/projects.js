@@ -13,6 +13,7 @@
       <label>Project name<input id="projectName" maxlength="100" placeholder="Untitled project" /></label>
       <button type="button" class="play-btn" id="projectSave" disabled>Save project</button>
       <button type="button" class="play-btn" id="projectNew">New project</button>
+      <button type="button" class="play-btn" id="projectDemo">Try original recording</button>
       <label>Saved projects<select id="projectList"><option value="">Choose a project…</option></select></label>
       <button type="button" class="play-btn" id="projectOpen">Open</button>
       <button type="button" class="play-btn" id="projectBackup" disabled>Export project</button>
@@ -145,6 +146,16 @@
     clearTimeout(saveTimer);
     if (state.res) await store.save(capture());
   };
+  $('projectDemo').addEventListener('click', async () => {
+    const button = $('projectDemo'); button.disabled = true;
+    try {
+      status('Loading original recording…');
+      const response = await fetch(new URL('./IMG_3268.mp3', document.baseURI));
+      if (!response.ok) throw new Error('Could not load original recording: HTTP ' + response.status);
+      await analyzer.handleFile(new File([await response.blob()], 'IMG_3268.mp3', { type: 'audio/mpeg' }));
+    } catch (e) { status(e.message, true); }
+    finally { button.disabled = false; }
+  });
   $('projectSave').addEventListener('click', save);
   $('projectName').addEventListener('input', () => { if (state.res) changed(); });
   $('projectOpen').addEventListener('click', async () => {

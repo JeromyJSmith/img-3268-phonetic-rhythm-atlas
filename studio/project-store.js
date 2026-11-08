@@ -3,7 +3,7 @@
   'use strict';
   const VERSION = 1;
   function bounds(start, end, duration) {
-    if (![start, end, duration].every(Number.isFinite) || start < 0 || end > duration || end - start < 0.005) {
+    if (![start, end, duration].every(Number.isFinite) || start < 0 || end > duration || end - start < 0.005 - 1e-9) {
       throw new Error('Keep the slice inside the recording, with at least 5 ms between start and end.');
     }
     return { s: start, e: end };
