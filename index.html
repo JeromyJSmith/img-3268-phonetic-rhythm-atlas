@@ -1777,6 +1777,7 @@
   .an-compare th { padding-right: 10px; }
   .map-seg span { font-size: 10px; }
 </style>
+<link rel="stylesheet" href="./studio/projects.css" />
 </head>
 <body>
 <nav class="deck-nav" aria-label="Slides">
@@ -1864,6 +1865,7 @@
     <button type="button" class="slide-next" data-next>Next <small>Watch the original</small> →</button>
   </div>
   <div class="slide-body"><div class="an">
+    <div id="projectToolbar"></div>
         <label class="an-empty" id="anEmpty" data-dropzone>
           <input type="file" accept="audio/*,video/*,.mov,.m4a,.flac" data-analyze-file hidden />
           <span class="drop-ico big" aria-hidden="true">+</span>
@@ -1871,7 +1873,7 @@
           <span>or click to choose a file · MP3, WAV, M4A, FLAC, MP4, MOV</span>
           <em id="anEmptyMsg"></em>
         </label>
-        <div class="an-busy" id="anBusy" hidden><b id="anStatus">Working...</b><div class="an-prog"><i id="anBar"></i></div></div>
+        <div class="an-busy" id="anBusy" hidden><b id="anStatus" role="status">Working...</b><div class="an-prog"><i id="anBar"></i></div><button class="play-btn" type="button" onclick="ANALYZER.cancel()">Cancel analysis</button></div>
         <div class="an-grid" id="anResult" hidden>
           <div class="an-left">
             <div class="an-head">
@@ -1883,6 +1885,7 @@
               </div>
             </div>
             <div class="an-tiles" id="anTiles"></div>
+            <div id="sliceEditor"></div>
             <div class="panel an-time"><div class="panel-title">Spectrogram, waveform and hits <span id="anTimeLabel"></span></div>
               <div class="an-canvas-wrap"><canvas id="anCanvas"></canvas><div class="an-headline" id="anHead"></div></div></div>
           </div>
@@ -3927,6 +3930,7 @@ if (EVENTS.length > 0) {
   /* ================================================================
      PLAY PANE
      ================================================================ */
+  const escapePadText = (v) => String(v).replace(/[&<>\"]/g, (c) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '\"':'&quot;' }[c]));
   const NOTE_NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
   const noteName = (n) => NOTE_NAMES[n % 12] + (Math.floor(n / 12) - 1);
   const PAD_KEYS = ['q','w','e','r','a','s','d','f','z','x','c','v','t','g','b','n'];
@@ -3949,7 +3953,7 @@ if (EVENTS.length > 0) {
   function padDefs() {
     if (S.src === 'upload') {
       const UC = { KICK: '#ef4444', SNARE: '#f97316', HAT: '#eab308', TONAL: '#3b82f6', PERC: '#10b981', BREATH: '#64748b' };
-      return (S.uploadHits || []).map((h) => ({ label: h.cat.toLowerCase(), ipa: h.s.toFixed(2) + 's', num: h.i, start: h.s, end: h.e, color: UC[h.cat] || '#10b981', ev: null }));
+      return (S.uploadHits || []).map((h) => ({ label: h.label || h.cat.toLowerCase(), ipa: h.ipa || h.s.toFixed(2) + 's', num: h.i, start: h.s, end: h.e, color: UC[h.cat] || '#10b981', ev: null }));
     }
     if (S.src === 'orig') {
       const byId = {}; (typeof EVENTS !== 'undefined' ? EVENTS : []).forEach((e) => { byId[e.idx] = e; });
@@ -3968,11 +3972,11 @@ if (EVENTS.length > 0) {
       start: i * step, end: Math.min(dur, (i + 1) * step), color: '#f97316', ev: null
     }));
   }
-  const bankCount = () => Math.ceil(padDefs().length / PADS_PER_BANK);
+  const bankCount = () => Math.max(1, Math.ceil(padDefs().length / PADS_PER_BANK));
 
   function renderPads() {
     const defs = padDefs(), grid = $('padGrid');
-    const nb = Math.ceil(defs.length / PADS_PER_BANK);
+    const nb = Math.max(1, Math.ceil(defs.length / PADS_PER_BANK));
     S.bank = Math.max(0, Math.min(nb - 1, S.bank));
     const base = S.bank * PADS_PER_BANK;
     const padBase = parseInt($('padBase').value, 10);
@@ -3982,7 +3986,7 @@ if (EVENTS.length > 0) {
       if (!d) { html += '<div class="pad empty" aria-hidden="true"></div>'; continue; }
       html += `<button type="button" class="pad" data-pad="${i}" style="--pad-col:${d.color}" title="${noteName(padBase + i)} · ${d.start.toFixed(2)}–${d.end.toFixed(2)}s">
         <span class="p-top"><span>${String(d.num).padStart(3, '0')}</span><span>${PAD_KEYS[i].toUpperCase()}</span></span>
-        <span class="p-syl">${d.label}</span><span class="p-ipa">${S.src === 'orig' ? '[' + d.ipa + ']' : d.ipa}</span>
+        <span class="p-syl">${escapePadText(d.label)}</span><span class="p-ipa">${escapePadText(S.src === 'orig' ? '[' + d.ipa + ']' : d.ipa)}</span>
         <span class="p-vel"></span></button>`;
     }
     grid.innerHTML = html;
@@ -4435,12 +4439,13 @@ if (EVENTS.length > 0) {
     $('padSourceSeg').querySelectorAll('button').forEach((x) => x.classList.toggle('active', x.dataset.src === 'upload'));
     renderPads();
   }
-  function sampleSlice(buf, s, e, vel) { S.buffers.upload = S.buffers.upload || buf; return sampleVoice({ start: s, end: e }, vel, 'upload:' + s); }
+  function sampleSlice(buf, s, e, vel) { S.buffers.upload = buf; return sampleVoice({ start: s, end: e }, vel, 'upload:' + s); }
   window.PLAY = { setUpload, useUpload, sampleSlice, hitOn, eventOn, midi: (bytes) => handleMidi(bytes, 'test'), state: S, enable: enableAudio, padOn, synOn, synOff, setRailWidth };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 </script>
 
+<script src="./studio/project-store.js"></script>
 <script>window.REF_MEDIA = {"orig": {"dur": 37.82, "lufs": -31.2, "peak": -7.2, "lra": 8.1, "tempo": "83–131", "hps": 4.7}, "suno": {"dur": 89.36, "lufs": -16.4, "peak": -3.0, "lra": 5.0, "tempo": "≈129"}};</script>
 
 <script>
@@ -4527,7 +4532,7 @@ if (EVENTS.length > 0) {
     const peakDb = 20 * Math.log10(peak + 1e-12), rmsDb = 10 * Math.log10(sq / n + 1e-12);
     let corr = null;
     if (chs.length === 2) { let ab = 0, aa = 0, bb = 0; const [a, b] = chs; for (let i = 0; i < n; i += 4) { ab += a[i] * b[i]; aa += a[i] * a[i]; bb += b[i] * b[i]; } corr = ab / Math.sqrt(aa * bb + 1e-12); }
-    prog(0.15, 'Loudness (BS.1770)');
+    prog(0.15, 'Estimating loudness');
     const kw = chs.map((c) => kWeight(c, sr));
     const lufs = integrated(blocksMS(kw, sr, 0.4, 0.1));
     const stz = blocksMS(kw, sr, 3, 1);
@@ -4602,14 +4607,14 @@ if (EVENTS.length > 0) {
       let mn = Math.max(0, pk - 45); for (let i = Math.max(0, pk - 45); i <= pk; i++) if (env[i] < env[mn]) mn = i;
       let j = mn; while (j < pk && env[j] < env[mn] + 6) j++;
       return Math.max(0, (j - 3) / 1000);
-    }).filter((t, i, a) => i === 0 || t - a[i - 1] > 0.03);
+    }).filter((t, i, a) => t < dur - 0.005 && (i === 0 || t - a[i - 1] > 0.03));
     const hits = starts.map((s, i) => {
       const next = i + 1 < starts.length ? starts[i + 1] : dur;
       let e = Math.min(next, s + 1.2);
       const a = Math.floor(s * 1000), b = Math.min(envN, Math.floor(e * 1000));
       let pk = -200; for (let k = a; k < b; k++) if (env[k] > pk) pk = env[k];
       let last = a; for (let k = a; k < b; k++) if (env[k] > pk - 40) last = k;
-      e = Math.max(s + 0.03, Math.min(e, (last + 15) / 1000));
+      e = Math.min(dur, Math.max(s + 0.005, Math.min(e, (last + 15) / 1000)));
       // features over the first 60 ms
       const o = Math.floor(s * sr), Lw = 2048; for (let k = 0; k < Lw; k++) { re[k] = (mono[o + k] || 0) * hann[k]; im[k] = 0; }
       fftRadix2(re, im);
@@ -4630,7 +4635,7 @@ if (EVENTS.length > 0) {
     prog(1, 'Done');
     postMessage({ type: 'done', res: {
       dur, sr, channels: chs.length, peakDb, rmsDb, lufs, lra: lraLU, stMax, corr,
-      centroid: cd ? cn / cd : 0, bands, bpm: bestBpm, onsetsPerSec: hits.length / dur,
+      centroid: cd ? cn / cd : 0, bands, bpm: bestScore > 0 ? bestBpm : 0, onsetsPerSec: hits.length / dur,
       hits, spec, specRows: SPEC_ROWS, specCols: cols, wf: Array.from(wf), fmin, fmax
     } }, [spec.buffer]);
   };`;
@@ -4649,8 +4654,30 @@ if (EVENTS.length > 0) {
     const b = $('anBar'); if (b) b.style.width = Math.round((pct || 0) * 100) + '%';
   }
 
+  let generation = 0, activeWorker = null, workerURL = null, watchdog = null;
+  function cancelJob() {
+    generation++;
+    if (activeWorker) activeWorker.terminate();
+    if (workerURL) URL.revokeObjectURL(workerURL);
+    activeWorker = workerURL = null;
+    clearTimeout(watchdog);
+  }
+  function fail(message) {
+    cancelJob();
+    $('anBusy').hidden = true; $('anEmpty').hidden = false;
+    $('anEmptyMsg').textContent = message;
+    window.dispatchEvent(new CustomEvent('atlas:import-error', { detail: message }));
+  }
   async function handleFile(file) {
     if (!file) return;
+    cancelJob(); stopPlay();
+    const job = generation;
+    try { if (window.ATLAS_BEFORE_REPLACE) await window.ATLAS_BEFORE_REPLACE(); }
+    catch (err) { fail('Could not save the current project before import: ' + err.message); return; }
+    if (job !== generation) return;
+    window.dispatchEvent(new CustomEvent('atlas:import-start'));
+    if (file.size > 100 * 1024 * 1024) { fail('This browser editor currently accepts files up to 100 MB. Use a shorter recording.'); return; }
+    A.res = null; A.buf = null;
     A.file = file; goAnalyze();
     $('anEmpty').hidden = true; $('anResult').hidden = true; $('anBusy').hidden = false;
     setStatus('Reading ' + file.name, 0.02);
@@ -4663,29 +4690,81 @@ if (EVENTS.length > 0) {
       v.onloadedmetadata = () => res({ w: v.videoWidth, h: v.videoHeight, dur: v.duration }); v.onerror = () => res(null);
       setTimeout(() => res(null), 4000);
     });
+    if (job !== generation) return;
     try {
       if (window.PLAY) await PLAY.enable();
       const ctx = (window.PLAY && PLAY.state.ctx) || new (window.AudioContext || window.webkitAudioContext)();
       setStatus('Decoding audio', 0.05);
       const ab = await file.arrayBuffer();
-      A.buf = await ctx.decodeAudioData(ab);
+      const decoded = await ctx.decodeAudioData(ab);
+      if (job !== generation) return;
+      if (decoded.duration > 20 * 60) throw new Error('Use a recording shorter than 20 minutes.');
+      A.buf = decoded;
     } catch (err) {
-      $('anBusy').hidden = true; $('anEmpty').hidden = false;
-      $('anEmptyMsg').textContent = 'Could not decode the audio in "' + file.name + '". Try MP3, WAV, M4A, FLAC or an MP4 video.';
+      if (job !== generation) return;
+      fail('Could not decode the audio in "' + file.name + '". Try MP3 or WAV; video audio codecs may be unsupported. ' + err.message);
       return;
     }
     const chs = []; for (let c = 0; c < Math.min(2, A.buf.numberOfChannels); c++) chs.push(new Float32Array(A.buf.getChannelData(c)));
-    const w = new Worker(URL.createObjectURL(new Blob([WORKER_SRC], { type: 'text/javascript' })));
-    w.onmessage = (e) => {
-      if (e.data.type === 'progress') setStatus(e.data.m + '...', 0.05 + 0.95 * e.data.p);
-      else if (e.data.type === 'done') { w.terminate(); A.res = e.data.res; A.bank = 0; render(file, isVideo, vmeta); }
-    };
-    w.onerror = (e) => { setStatus('Analysis failed: ' + e.message, 0); };
-    w.postMessage({ chs, sr: A.buf.sampleRate }, chs.map((c) => c.buffer));
+    try {
+      workerURL = URL.createObjectURL(new Blob([WORKER_SRC], { type: 'text/javascript' }));
+      const w = activeWorker = new Worker(workerURL);
+      const armTimeout = () => {
+        clearTimeout(watchdog);
+        watchdog = setTimeout(() => { if (job === generation) fail('Analysis stopped responding. Try a shorter MP3 or WAV recording.'); }, 60000);
+      };
+      w.onmessage = (e) => {
+        if (job !== generation) return;
+        armTimeout();
+        if (e.data.type === 'progress') setStatus(e.data.m + '...', 0.05 + 0.95 * e.data.p);
+        else if (e.data.type === 'done') {
+          cancelJob(); A.res = e.data.res; A.bank = 0;
+          A.res.hits.forEach((h) => { h.id = crypto.randomUUID(); });
+          try { render(file, isVideo, vmeta); window.dispatchEvent(new CustomEvent('atlas:analyzed')); }
+          catch (err) { fail('Could not display analysis: ' + err.message); }
+        }
+      };
+      w.onerror = (e) => { if (job === generation) fail('Analysis failed: ' + e.message); };
+      w.onmessageerror = () => { if (job === generation) fail('Could not read the analysis result. Try again.'); };
+      armTimeout();
+      w.postMessage({ chs, sr: A.buf.sampleRate }, chs.map((c) => c.buffer));
+    } catch (err) { if (job === generation) fail('Could not start analysis: ' + err.message); }
+  }
+  async function restore(project) {
+    AtlasProjects.validateProject(project);
+    cancelJob(); stopPlay();
+    const job = generation;
+    await PLAY.enable();
+    const decoded = await PLAY.state.ctx.decodeAudioData(await project.media.arrayBuffer());
+    if (job !== generation) return false;
+    if (Math.abs(decoded.duration - project.result.dur) > 0.05) throw new Error('Project audio duration does not match its analysis.');
+    A.buf = decoded; A.res = project.result; A.bank = 0;
+    A.file = new File([project.media], project.fileName, { type: project.media.type });
+    if (A.url) URL.revokeObjectURL(A.url);
+    A.url = URL.createObjectURL(A.file);
+    $('anEmpty').hidden = true; $('anBusy').hidden = true;
+    goAnalyze(); render(A.file, false, null);
+    window.dispatchEvent(new CustomEvent('atlas:restored'));
+    return true;
+  }
+  function reset() {
+    cancelJob(); stopPlay();
+    if (A.url) URL.revokeObjectURL(A.url);
+    A.file = A.buf = A.res = A.url = null; A.bank = 0;
+    $('anEmpty').hidden = false; $('anBusy').hidden = true; $('anResult').hidden = true;
+    $('anEmptyMsg').textContent = '';
+    if (window.PLAY) {
+      PLAY.state.buffers.upload = null; PLAY.state.uploadHits = [];
+      if (PLAY.state.src === 'upload') { PLAY.state.src = 'orig'; PLAY.state.bank = 0; }
+      document.querySelector('#padSourceSeg [data-src="upload"]')?.remove();
+      document.querySelectorAll('#padSourceSeg button').forEach((b) => b.classList.toggle('active', b.dataset.src === PLAY.state.src));
+    }
+    goAnalyze();
   }
 
   function render(file, isVideo, vmeta) {
     const r = A.res;
+    $('anEmpty').hidden = true;
     $('anBusy').hidden = true; $('anResult').hidden = false;
     $('anName').textContent = file.name;
     const chips = [isVideo ? 'Video' : 'Audio', fmtTime(r.dur), fmtBytes(file.size), r.channels === 1 ? 'Mono' : 'Stereo', (r.sr / 1000) + ' kHz decode'];
@@ -4693,8 +4772,8 @@ if (EVENTS.length > 0) {
     $('anChips').innerHTML = chips.map((c) => `<span>${esc(c)}</span>`).join('');
     const counts = {}; r.hits.forEach((h) => { counts[h.cat] = (counts[h.cat] || 0) + 1; });
     const tiles = [
-      ['Loudness', r.lufs.toFixed(1), r.channels === 1 ? 'LUFS · ' + (r.lufs + 3.01).toFixed(1) + ' as dual mono' : 'LUFS integrated'],
-      ['Tempo', Math.round(r.bpm), 'BPM, estimated'],
+      ['Loudness', r.lufs.toFixed(1), r.channels === 1 ? 'LUFS · ' + (r.lufs + 3.01).toFixed(1) + ' as dual mono' : 'LUFS estimate'],
+      ['Tempo', r.bpm ? Math.round(r.bpm) : '—', r.bpm ? 'BPM, estimated' : 'No rhythmic evidence'],
       ['Hits', r.hits.length, r.onsetsPerSec.toFixed(1) + ' per second'],
       ['Peak', r.peakDb.toFixed(1), 'dBFS sample peak'],
       ['Range', r.lra.toFixed(1), 'LU loudness range'],
@@ -4722,7 +4801,9 @@ if (EVENTS.length > 0) {
     const plan = $('anDl');
     if (plan) {
       const out = { file: file.name, duration: r.dur, lufs: r.lufs, lra: r.lra, peakDb: r.peakDb, rmsDb: r.rmsDb, bpm: r.bpm, centroidHz: r.centroid, bands: r.bands, hits: r.hits };
+      if (plan.dataset.blobUrl) URL.revokeObjectURL(plan.dataset.blobUrl);
       plan.href = URL.createObjectURL(new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' }));
+      plan.dataset.blobUrl = plan.href;
       plan.download = file.name.replace(/\.[^.]+$/, '') + '_analysis.json';
     }
   }
@@ -4778,7 +4859,7 @@ if (EVENTS.length > 0) {
     const r = A.res, banks = Math.max(1, Math.ceil(r.hits.length / 16));
     A.bank = Math.max(0, Math.min(banks - 1, A.bank));
     const hs = r.hits.slice(A.bank * 16, A.bank * 16 + 16);
-    $('anPads').innerHTML = hs.map((h) => `<button type="button" class="an-pad" id="anpad-${h.i}" data-i="${h.i}" style="--pad-col:${CAT_COL[h.cat]}"><span>${String(h.i).padStart(3, '0')}</span><b>${h.cat.toLowerCase()}</b><small>${fmtTime(h.s)}</small></button>`).join('')
+    $('anPads').innerHTML = hs.map((h) => `<button type="button" class="an-pad" id="anpad-${h.i}" data-i="${h.i}" style="--pad-col:${CAT_COL[h.cat]}"><span>${String(h.i).padStart(3, '0')}</span><b>${esc(h.label || h.cat.toLowerCase())}</b><small>${fmtTime(h.s)}</small></button>`).join('')
       + Array.from({ length: 16 - hs.length }, () => '<div class="an-pad empty"></div>').join('');
     $('anBank').textContent = `Bank ${A.bank + 1} / ${banks}`;
   }
@@ -4791,6 +4872,7 @@ if (EVENTS.length > 0) {
     const h = A.res.hits[i - 1]; if (!h || !window.PLAY) return;
     PLAY.sampleSlice(A.buf, h.s, h.e, 112);
     lightPad(i);
+    window.dispatchEvent(new CustomEvent('atlas:select-slice', { detail: i }));
     const p = $('anpad-' + i); if (p) { p.classList.remove('flash'); void p.offsetWidth; p.classList.add('flash'); }
   }
 
@@ -4801,7 +4883,7 @@ if (EVENTS.length > 0) {
     document.querySelectorAll('[data-dropzone]').forEach((z) => {
       z.addEventListener('dragover', (e) => { e.preventDefault(); z.classList.add('over'); });
       z.addEventListener('dragleave', () => z.classList.remove('over'));
-      z.addEventListener('drop', (e) => { e.preventDefault(); z.classList.remove('over'); const f = e.dataTransfer.files[0]; if (f) handleFile(f); });
+      z.addEventListener('drop', (e) => { e.preventDefault(); e.stopPropagation(); z.classList.remove('over'); const f = e.dataTransfer.files[0]; if (f) handleFile(f); });
     });
     window.addEventListener('dragover', (e) => e.preventDefault());
     window.addEventListener('drop', (e) => { e.preventDefault(); const f = e.dataTransfer && e.dataTransfer.files[0]; if (f && /^(audio|video)\//.test(f.type)) handleFile(f); });
@@ -4809,8 +4891,8 @@ if (EVENTS.length > 0) {
     if (cv) cv.addEventListener('pointerdown', (e) => { if (!A.res) return; const rc = cv.getBoundingClientRect(); playFrom((e.clientX - rc.left) / rc.width * A.res.dur); });
     $('anPlay') && $('anPlay').addEventListener('click', () => { if (A.src) stopPlay(); else playFrom(0); });
     $('anPads') && $('anPads').addEventListener('pointerdown', (e) => { const p = e.target.closest('.an-pad[data-i]'); if (p) { e.preventDefault(); hitPad(+p.dataset.i); } });
-    $('anPrev') && $('anPrev').addEventListener('click', () => { if (!A.res) return; const b = Math.ceil(A.res.hits.length / 16); A.bank = (A.bank - 1 + b) % b; renderPads(); });
-    $('anNext') && $('anNext').addEventListener('click', () => { if (!A.res) return; const b = Math.ceil(A.res.hits.length / 16); A.bank = (A.bank + 1) % b; renderPads(); });
+    $('anPrev') && $('anPrev').addEventListener('click', () => { if (!A.res) return; const b = Math.max(1, Math.ceil(A.res.hits.length / 16)); A.bank = (A.bank - 1 + b) % b; renderPads(); });
+    $('anNext') && $('anNext').addEventListener('click', () => { if (!A.res) return; const b = Math.max(1, Math.ceil(A.res.hits.length / 16)); A.bank = (A.bank + 1) % b; renderPads(); });
     $('anToPlay') && $('anToPlay').addEventListener('click', () => { if (window.PLAY && PLAY.useUpload) PLAY.useUpload(); const i = [...document.querySelectorAll('.slide')].findIndex((s) => s.dataset.slide === 'play'); if (i >= 0) DECK.go(i); });
     window.addEventListener('resize', () => { if (A.res) drawTimeline(); });
     document.addEventListener('keydown', (e) => {
@@ -4822,7 +4904,7 @@ if (EVENTS.length > 0) {
     const obs = new MutationObserver(() => { const s = document.querySelector('.slide.active'); if (s && s.dataset.slide === 'analyze' && A.res) drawTimeline(); });
     document.querySelectorAll('.slide').forEach((s) => obs.observe(s, { attributes: true, attributeFilter: ['class'] }));
   }
-  window.ANALYZER = { handleFile, state: A };
+  window.ANALYZER = { handleFile, state: A, restore, reset, cancel: () => fail('Analysis cancelled. Choose a recording to try again.'), refresh: () => { if (A.res) render(A.file, false, null); } };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 </script>
@@ -4984,5 +5066,6 @@ if (EVENTS.length > 0) {
   go(start >= 0 ? start : 0, { noHash: start < 0 });
 })();
 </script>
+<script src="./studio/projects.js"></script>
 </body>
 </html>
