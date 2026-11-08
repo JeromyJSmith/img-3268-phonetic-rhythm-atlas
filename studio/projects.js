@@ -232,9 +232,11 @@
       const data = await new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.onerror = () => reject(reader.error); reader.readAsDataURL(p.media); });
       const portable = { ...p, media: { type: p.media.type, data }, result: { ...p.result, spec: Array.from(p.result.spec) } };
       const url = URL.createObjectURL(new Blob([JSON.stringify(portable)], { type: 'application/json' }));
-      const link = document.createElement('a'); link.href = url; link.download = p.name.replace(/[^a-z0-9_-]/gi, '_') + '.atlas'; link.click();
-      setTimeout(() => URL.revokeObjectURL(url), 60000);
-      status('Project backup download started.');
+      const link = document.createElement('a'); link.href = url; link.download = p.name.replace(/[^a-z0-9_-]/gi, '_') + '.atlas'; const previous = $('projectBackupLink');
+      if (previous) { URL.revokeObjectURL(previous.href); previous.remove(); }
+      link.id = 'projectBackupLink'; link.className = 'play-btn'; link.textContent = 'Download backup';
+      $('projectToolbar').append(link);
+      status('Backup ready. Click Download backup to save the file.');
     } catch (e) { status('Export failed: ' + e.message, true); }
   });
   $('projectImport').addEventListener('change', async (event) => {
