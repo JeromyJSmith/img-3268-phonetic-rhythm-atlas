@@ -2,7 +2,7 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
-const store = require('../studio/project-store.js');
+const store = require('../studio/v2/project-store.js');
 const html = fs.readFileSync(require.resolve('../index.html'), 'utf8');
 const workerSource = html.split('  const WORKER_SRC = `')[1].split('`;')[0];
 function analyze(chs, sr) {
@@ -90,7 +90,7 @@ function analyzerHarness(decode) {
     Blob, File, URL, Float32Array, Uint8Array, crypto, setTimeout, clearTimeout,
     cancelAnimationFrame() {}, CustomEvent: class { constructor(type, options) { this.type = type; this.detail = options?.detail; } },
     Worker: class { constructor() { workers.push(this); } postMessage() {} terminate() { this.terminated = true; } },
-    PLAY: { enable: async () => {}, state: { ctx: { decodeAudioData: decode } }, setUpload() {} },
+    PLAY: { prepare: () => {}, enable: async () => {}, state: { ctx: { decodeAudioData: decode } }, setUpload() {} },
     dispatchEvent(event) { events.push(event); }
   };
   sandbox.window = sandbox;
@@ -142,4 +142,19 @@ test('unsupported audio decoding produces a visible error without starting analy
   await h.sandbox.ANALYZER.handleFile(h.file);
   assert.equal(h.workers.length, 0);
   assert.match(h.elements.get('anEmptyMsg').textContent, /Unsupported codec/);
+});
+test('decoding does not wait for the browser playback permission', async () => {
+  const h = analyzerHarness(async () => h.buf);
+  h.sandbox.PLAY.enable = () => { throw new Error('Playback activation must not block import'); };
+  await h.sandbox.ANALYZER.handleFile(h.file);
+  assert.equal(h.workers.length, 1);
+  h.sandbox.ANALYZER.cancel();
+});
+test('optional project text is backward compatible and annotations are bounded', () => {
+  const p = project(analyze([new Float32Array(8000)], 8000));
+  assert.equal(store.validateProject(p), p);
+  const content = {lyrics:'Project A',styleIntent:'dub',stylePrompt:'My prompt',annotations:[{start:0,end:.5,text:'hi',ipa:'haɪ'}],sampler:{ctlVol:'50'}};
+  assert.equal(store.validateProject({...p,content}).content.lyrics,'Project A');
+  assert.throws(()=>store.validateProject({...p,content:{annotations:[{start:0,end:2}]}}));
+  assert.throws(()=>store.validateProject({...p,content:{lyrics:7}}));
 });
