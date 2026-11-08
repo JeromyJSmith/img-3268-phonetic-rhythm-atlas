@@ -12,7 +12,7 @@
   function importAnnotations(data, fileName, duration) {
     if (!data || data.fileName !== fileName || !Number.isFinite(data.duration) || Math.abs(data.duration-duration) > .05 || !Array.isArray(data.events) || data.events.length > 10000) throw new Error('Annotations must name this source file and match its duration.');
     return data.events.map((e) => {
-      if (!Number.isFinite(e.start) || !Number.isFinite(e.end) || e.start < 0 || e.end > duration || e.end <= e.start) throw new Error('Annotation times must stay inside this recording.');
+      if (!Number.isFinite(e.start) || !Number.isFinite(e.end) || e.start < 0 || e.end > duration || e.end-e.start < .005-1e-9) throw new Error('Annotation times must stay inside this recording.');
       for (const k of ['text','ipa','category']) if (e[k] != null && (typeof e[k] !== 'string' || e[k].length > 1000)) throw new Error('Invalid annotation text.');
       return { start:e.start,end:e.end,text:e.text || '',ipa:e.ipa || '',category:e.category || 'PERC' };
     }).sort((a,b) => a.start-b.start);

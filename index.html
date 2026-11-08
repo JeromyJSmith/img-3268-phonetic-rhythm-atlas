@@ -1777,7 +1777,7 @@
   .an-compare th { padding-right: 10px; }
   .map-seg span { font-size: 10px; }
 </style>
-<link rel="stylesheet" href="./studio/projects.css?v=20261108-1" />
+<link rel="stylesheet" href="./studio/v2/projects.css?v=20261108-2" />
 </head>
 <body>
 <nav class="deck-nav" aria-label="Slides">
@@ -1860,8 +1860,8 @@
   <div class="slide-cap">
     <div class="slide-eyebrow">02<span>/ 14</span> Your song</div>
     <h2>Analyze a song</h2>
-    <p>Drop any song or video. It is measured right here in your browser: loudness to the broadcast standard, tempo, every hit with a rough drum category, and the spectrum, side by side with IMG_3268 and the Suno render.</p><p>Every hit becomes a pad you can play here, or on the Play slide with a MIDI controller.</p>
-    <div class="how"><div><span class="k">Drop</span><span>Audio or video file</span></div><div><span class="k">Click</span><span>Timeline to play from there</span></div><div><span class="k">Q W E R</span><span>Play the pads</span></div><div><span class="k">Note</span><span>IPA and lyrics need the full Python pipeline</span></div></div>
+    <p>Drop any song or video. It is measured right here in your browser: loudness to the broadcast standard, tempo, every hit with a rough drum category, and the spectrum for the active recording.</p><p>Every hit becomes a pad you can play here, or on the Play slide with a MIDI controller.</p>
+    <div class="how"><div><span class="k">Drop</span><span>Audio or video file</span></div><div><span class="k">Click</span><span>Timeline to play from there</span></div><div><span class="k">Q W E R</span><span>Play the pads</span></div><div><span class="k">Note</span><span>Automatic lyrics / IPA not connected</span></div></div>
     <button type="button" class="slide-next" data-next>Next <small>Watch the original</small> →</button>
   </div>
   <div class="slide-body"><div class="an">
@@ -3789,6 +3789,7 @@ function updateHudFromEvent(hit) {
 }
 
 media.addEventListener('timeupdate', () => {
+  if (window.ATLAS_WORKSPACE && ATLAS_WORKSPACE.mode !== 'demo') return;
   const t = media.currentTime;
   const dur = media.duration || 37.82;
   document.getElementById('hudTime').textContent = `${t.toFixed(2)}s / ${dur.toFixed(2)}s`;
@@ -3951,6 +3952,8 @@ if (EVENTS.length > 0) {
 
   /* --- pad data --- */
   function padDefs() {
+    if (window.ATLAS_WORKSPACE?.mode === 'empty') return [];
+    if (window.ATLAS_WORKSPACE?.mode === 'project') S.src = 'upload';
     if (S.src === 'upload') {
       const UC = { KICK: '#ef4444', SNARE: '#f97316', HAT: '#eab308', TONAL: '#3b82f6', PERC: '#10b981', BREATH: '#64748b' };
       return (S.uploadHits || []).map((h) => ({ label: h.label || h.cat.toLowerCase(), ipa: h.ipa || h.s.toFixed(2) + 's', num: h.i, start: h.s, end: h.e, color: UC[h.cat] || '#10b981', ev: null }));
@@ -4132,6 +4135,7 @@ if (EVENTS.length > 0) {
 
   /* --- synth voices --- */
   function synOn(note, vel) {
+    if (window.ATLAS_WORKSPACE?.mode === 'empty') return;
     const c = ensureCtx(); if (!c) return;
     if (c.state !== 'running') c.resume().catch(() => {});
     if (S.synVoices.has(note)) synOff(note, true);
@@ -4440,12 +4444,30 @@ if (EVENTS.length > 0) {
     renderPads();
   }
   function sampleSlice(buf, s, e, vel) { S.buffers.upload = buf; return sampleVoice({ start: s, end: e }, vel, 'upload:' + s); }
-  window.PLAY = { setUpload, useUpload, sampleSlice, hitOn, eventOn, midi: (bytes) => handleMidi(bytes, 'test'), state: S, enable: enableAudio, padOn, synOn, synOff, setRailWidth };
+  const settingIds = ['ctlVol','ctlCut','ctlBend','padTrans','synAtk','synRel','padBase','padMode','synWave','midiChan','midiRoute'];
+  const initialSettings = Object.fromEntries(settingIds.filter(id => $(id)).map(id => [id, $(id).value]));
+  function getSettings() { return { ...Object.fromEntries(settingIds.filter(id => $(id)).map(id => [id, $(id).value])), kbdMode:S.kbdMode, octave:S.octave }; }
+  function setSettings(values = {}) {
+    for (const id of settingIds) {
+      const el = $(id); if (!el) continue;
+      const v = values[id] ?? initialSettings[id];
+      if (el.tagName === 'SELECT') { if ([...el.options].some(o => o.value === String(v))) el.value = String(v); }
+      else if (Number.isFinite(Number(v))) el.value = String(v);
+    }
+    S.kbdMode = values.kbdMode === 'synth' ? 'synth' : 'pads'; S.octave = Math.max(-3,Math.min(3,Number(values.octave)||0));
+    document.querySelectorAll('#kbdModeSeg button').forEach(b => b.classList.toggle('active',b.dataset.mode===S.kbdMode));
+    applySound(); updateOctLabel();
+  }
+  function stopAll() {
+    S.padVoices.forEach(set => set.forEach(v => { try { v.src.stop(); } catch(e) {} })); S.padVoices.clear();
+    S.sustain = false; S.sustained.clear(); [...S.synVoices.keys()].forEach(n => synOff(n,true)); heldKeys.clear();
+  }
+  window.PLAY = { prepare:ensureCtx, getSettings, setSettings, stopAll, refresh:renderPads, setUpload, useUpload, sampleSlice, hitOn, eventOn, midi: (bytes) => handleMidi(bytes, 'test'), state: S, enable: enableAudio, padOn, synOn, synOff, setRailWidth };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 </script>
 
-<script src="./studio/project-store.js?v=20261108-1"></script>
+<script src="./studio/v2/project-store.js?v=20261108-2"></script>
 <script>window.REF_MEDIA = {"orig": {"dur": 37.82, "lufs": -31.2, "peak": -7.2, "lra": 8.1, "tempo": "83–131", "hps": 4.7}, "suno": {"dur": 89.36, "lufs": -16.4, "peak": -3.0, "lra": 5.0, "tempo": "≈129"}};</script>
 
 <script>
@@ -4692,7 +4714,7 @@ if (EVENTS.length > 0) {
     });
     if (job !== generation) return;
     try {
-      if (window.PLAY) await PLAY.enable();
+      if (window.PLAY) PLAY.prepare();
       const ctx = (window.PLAY && PLAY.state.ctx) || new (window.AudioContext || window.webkitAudioContext)();
       setStatus('Decoding audio', 0.05);
       const ab = await file.arrayBuffer();
@@ -4734,7 +4756,7 @@ if (EVENTS.length > 0) {
     AtlasProjects.validateProject(project);
     cancelJob(); stopPlay();
     const job = generation;
-    await PLAY.enable();
+    PLAY.prepare();
     const decoded = await PLAY.state.ctx.decodeAudioData(await project.media.arrayBuffer());
     if (job !== generation) return false;
     if (Math.abs(decoded.duration - project.result.dur) > 0.05) throw new Error('Project audio duration does not match its analysis.');
@@ -4763,6 +4785,7 @@ if (EVENTS.length > 0) {
   }
 
   function render(file, isVideo, vmeta) {
+    isVideo = /^video\//.test(file.type) || /\.(mov|mp4|m4v|webm)$/i.test(file.name);
     const r = A.res;
     $('anEmpty').hidden = true;
     $('anBusy').hidden = true; $('anResult').hidden = false;
@@ -4795,7 +4818,7 @@ if (EVENTS.length > 0) {
       ['Tempo (BPM)', Math.round(r.bpm), ref('orig').tempo, ref('suno').tempo],
       ['Hits / second', r.onsetsPerSec.toFixed(1), ref('orig').hps, ref('suno').hps]
     ];
-    $('anCompare').innerHTML = '<tr><th></th><th>Yours</th><th>IMG_3268</th><th>Suno</th></tr>' + rows.map((x) => `<tr><td>${x[0]}</td><td><b>${x[1]}</b></td><td>${x[2] ?? '–'}</td><td>${x[3] ?? '–'}</td></tr>`).join('');
+    $('anCompare').innerHTML = '<tr><th>Metric</th><th>This project</th></tr>' + rows.map((x) => `<tr><td>${x[0]}</td><td><b>${x[1]}</b></td></tr>`).join('');
     drawTimeline(); renderPads();
     if (window.PLAY && PLAY.setUpload) PLAY.setUpload(A.buf, r.hits, file.name);
     const plan = $('anDl');
@@ -4904,7 +4927,7 @@ if (EVENTS.length > 0) {
     const obs = new MutationObserver(() => { const s = document.querySelector('.slide.active'); if (s && s.dataset.slide === 'analyze' && A.res) drawTimeline(); });
     document.querySelectorAll('.slide').forEach((s) => obs.observe(s, { attributes: true, attributeFilter: ['class'] }));
   }
-  window.ANALYZER = { handleFile, state: A, restore, reset, cancel: () => fail('Analysis cancelled. Choose a recording to try again.'), refresh: () => { if (A.res) render(A.file, false, null); } };
+  window.ANALYZER = { handleFile, state: A, stop:stopPlay, restore, reset, cancel: () => fail('Analysis cancelled. Choose a recording to try again.'), refresh: () => { if (A.res) render(A.file, false, null); } };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 </script>
@@ -4976,6 +4999,7 @@ if (EVENTS.length > 0) {
   const origHud = window.updateHudFromEvent;
   if (typeof origHud === 'function') {
     window.updateHudFromEvent = function (hit) {
+      if (window.ATLAS_WORKSPACE && ATLAS_WORKSPACE.mode !== 'demo') return;
       origHud(hit);
       try {
         $('miniSyl').textContent = `#${String(hit.idx).padStart(3, '0')} ${hit.syl}`;
@@ -5066,6 +5090,8 @@ if (EVENTS.length > 0) {
   go(start >= 0 ? start : 0, { noHash: start < 0 });
 })();
 </script>
-<script src="./studio/projects.js?v=20261108-1"></script>
+<script src="./studio/v2/project-model.js?v=20261108-2"></script>
+<script src="./studio/v2/projects.js?v=20261108-2"></script>
+<script src="./studio/v2/workspace.js?v=20261108-2"></script>
 </body>
 </html>
