@@ -3,12 +3,7 @@
 Status: agreed product direction; implementation begins with milestone 1.
 Date: 2026-11-07
 
-Implementation checkpoint: milestone 1 code is on
-`feat/project-sampler-foundation`; automated DSP/validation/job-lifecycle checks
-pass. Browser persistence, file-picker, layout, audio and MIDI QA are still
-pending because the connected browser cannot reach the workspace's localhost
-server. The feature branch is not a production deployment.
-
+Implementation checkpoint (2026-11-08): project/slice editor release prepared\nfor main. Eleven automated checks pass; Chrome preview verified demo analysis,\nslice edits/undo and save/reload/reopen. Versioned asset URLs ensure new scripts\nload after deployment. Backup generation is verified; exported-file reimport is\nunverified because the connected browser does not support blob downloads.\nHardware MIDI/listening and other browser/device checks remain pending.\n
 ## Product goal
 
 Keep the existing dark amber/cyan studio interface and playful feel. Make any
