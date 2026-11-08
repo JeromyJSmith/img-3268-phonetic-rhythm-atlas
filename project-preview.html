@@ -1860,8 +1860,8 @@
   <div class="slide-cap">
     <div class="slide-eyebrow">02<span>/ 14</span> Your song</div>
     <h2>Analyze a song</h2>
-    <p>Drop any song or video. It is measured right here in your browser: loudness to the broadcast standard, tempo, every hit with a rough drum category, and the spectrum, side by side with IMG_3268 and the Suno render.</p><p>Every hit becomes a pad you can play here, or on the Play slide with a MIDI controller.</p>
-    <div class="how"><div><span class="k">Drop</span><span>Audio or video file</span></div><div><span class="k">Click</span><span>Timeline to play from there</span></div><div><span class="k">Q W E R</span><span>Play the pads</span></div><div><span class="k">Note</span><span>IPA and lyrics need the full Python pipeline</span></div></div>
+    <p>Drop any song or video. It is measured right here in your browser: loudness to the broadcast standard, tempo, every hit with a rough drum category, and the spectrum for the active recording.</p><p>Every hit becomes a pad you can play here, or on the Play slide with a MIDI controller.</p>
+    <div class="how"><div><span class="k">Drop</span><span>Audio or video file</span></div><div><span class="k">Click</span><span>Timeline to play from there</span></div><div><span class="k">Q W E R</span><span>Play the pads</span></div><div><span class="k">Note</span><span>Automatic lyrics / IPA not connected</span></div></div>
     <button type="button" class="slide-next" data-next>Next <small>Watch the original</small> →</button>
   </div>
   <div class="slide-body"><div class="an">
@@ -4462,7 +4462,7 @@ if (EVENTS.length > 0) {
     S.padVoices.forEach(set => set.forEach(v => { try { v.src.stop(); } catch(e) {} })); S.padVoices.clear();
     S.sustain = false; S.sustained.clear(); [...S.synVoices.keys()].forEach(n => synOff(n,true)); heldKeys.clear();
   }
-  window.PLAY = { getSettings, setSettings, stopAll, refresh:renderPads, setUpload, useUpload, sampleSlice, hitOn, eventOn, midi: (bytes) => handleMidi(bytes, 'test'), state: S, enable: enableAudio, padOn, synOn, synOff, setRailWidth };
+  window.PLAY = { prepare:ensureCtx, getSettings, setSettings, stopAll, refresh:renderPads, setUpload, useUpload, sampleSlice, hitOn, eventOn, midi: (bytes) => handleMidi(bytes, 'test'), state: S, enable: enableAudio, padOn, synOn, synOff, setRailWidth };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 </script>
@@ -4714,7 +4714,7 @@ if (EVENTS.length > 0) {
     });
     if (job !== generation) return;
     try {
-      if (window.PLAY) await PLAY.enable();
+      if (window.PLAY) PLAY.prepare();
       const ctx = (window.PLAY && PLAY.state.ctx) || new (window.AudioContext || window.webkitAudioContext)();
       setStatus('Decoding audio', 0.05);
       const ab = await file.arrayBuffer();
@@ -4756,7 +4756,7 @@ if (EVENTS.length > 0) {
     AtlasProjects.validateProject(project);
     cancelJob(); stopPlay();
     const job = generation;
-    await PLAY.enable();
+    PLAY.prepare();
     const decoded = await PLAY.state.ctx.decodeAudioData(await project.media.arrayBuffer());
     if (job !== generation) return false;
     if (Math.abs(decoded.duration - project.result.dur) > 0.05) throw new Error('Project audio duration does not match its analysis.');
