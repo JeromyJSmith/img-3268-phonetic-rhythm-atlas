@@ -1,0 +1,21 @@
+/* Preserve the Atlas studio palette and panel language. */
+.project-tools { display:flex; align-items:flex-end; flex-wrap:wrap; gap:8px; }
+.project-tools label, .slice-fields label { display:flex; flex-direction:column; gap:4px; font-size:11px; color:var(--text-secondary); }
+.project-tools input, .project-tools select, .slice-fields input, .slice-fields select { width:100%; min-width:0; background:var(--bg-elevated); color:var(--text-primary); border:1px solid var(--border-strong); padding:7px 9px; border-radius:6px; font:12px var(--font-mono); }
+.project-tools label:first-child { flex:1; min-width:140px; }
+.project-tools select { max-width:230px; }
+.project-note { font-size:11px; color:var(--text-muted); margin:8px 0 14px; }
+#projectStatus { color:var(--accent-amber); margin-left:8px; }
+#projectStatus.error { color:#fca5a5; }
+.slice-editor { padding:12px; }
+.slice-editor .panel-title { margin-bottom:8px; }
+#sliceWave { display:block; width:100%; height:100px; border-radius:6px; }
+.slice-fields { display:grid; grid-template-columns:1fr 1fr 1.3fr 1.3fr 1fr; gap:8px; margin:8px 0; }
+.slice-actions { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+#sliceStatus { font-size:11px; color:var(--text-secondary); }
+[data-slide="analyze"] .an { overflow-y:auto; padding-right:4px; }
+[data-slide="analyze"] .an-grid { flex:0 0 auto; min-height:650px; padding-bottom:14px; }
+[data-slide="analyze"] .an-pads { min-height:280px; }
+[data-slide="analyze"] .an-time { min-height:180px; }
+button:disabled { opacity:.45; cursor:default; }
+@media(max-width:1100px) { .slice-fields { grid-template-columns:1fr 1fr; } .project-tools { align-items:stretch; } [data-slide="analyze"] .an-grid { min-height:initial; } }
